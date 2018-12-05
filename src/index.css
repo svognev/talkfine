@@ -1,0 +1,946 @@
+* {                   
+    box-sizing: border-box;
+  }
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Verdana", "Tahoma", "Arial", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: #E49B0F;
+  }
+  
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+      monospace;
+  }
+
+  input {
+    -moz-user-select: none; /* Mozilla Firefox */
+    -ms-user-select: none; /* Internet Explorer (не поддерживается) */
+    -o-user-select: none; /* Opera Presto (не поддерживается) */
+    -webkit-user-select: none; /* Google Chrome, Opera Next, Safari */
+  }
+
+  input:active, input:focus {
+    outline: none;
+  }
+
+  select {
+    -moz-user-select: none; /* Mozilla Firefox */
+    -ms-user-select: none; /* Internet Explorer (не поддерживается) */
+    -o-user-select: none; /* Opera Presto (не поддерживается) */
+    -webkit-user-select: none; /* Google Chrome, Opera Next, Safari */
+  }
+
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  select:active, select:focus {
+    outline: none;
+  }
+
+
+  button {
+    display: block;
+    -moz-user-select: none; /* Mozilla Firefox */
+    -ms-user-select: none; /* Internet Explorer (не поддерживается) */
+    -o-user-select: none; /* Opera Presto (не поддерживается) */
+    -webkit-user-select: none; /* Google Chrome, Opera Next, Safari */
+  }
+
+  button:active, button:focus {
+    outline: none;
+  }
+  button::-moz-focus-inner {
+    border: 0;
+  }
+
+  textarea {
+	outline: none;
+	-moz-appearance: none;
+	border: 1px solid #999; /* указание этого свойства также удалит обводку в FireFox */
+}
+
+li {
+    list-style-type: none;
+    padding: 10px;
+}
+
+.space10 {
+    height: 10px;
+}
+  
+  .workspace {
+    width: 500px;
+    position: absolute;
+    left: 50%; 
+    margin-left: -250px;     
+    background-color: whitesmoke;
+    height: 100%;
+    opacity: 1;
+    min-height: 625px;
+  }
+
+  .title {
+     font-family: Georgia, 'Times New Roman', Times, serif;
+     font-size: 34px;
+     color: rgb(126, 126, 126);
+     top: -10px; 
+     left: 50%;
+     margin-left: -100px;
+     position: absolute;
+     z-index: 10;
+     -moz-user-select: none; /* Mozilla Firefox */
+     -ms-user-select: none; /* Internet Explorer (не поддерживается) */
+     -o-user-select: none; /* Opera Presto (не поддерживается) */
+     -webkit-user-select: none; /* Google Chrome, Opera Next, Safari */
+  }
+
+  .titleBox {
+    margin: 0;
+    height: 100px;
+    text-align: center;
+  }
+
+  .innerTitleBox {
+    box-shadow: 0px 1px 20px hsla(0, 0%, 66%, 0.8);
+    height: 80px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    background-color: white;
+    z-index: 8;
+  }
+
+.topicBox {
+    height: 30px;
+}
+
+#currentTopic {
+   position: absolute;
+   margin-left: 50px;
+   top: 90px;
+   font-size: 16px;
+   color: darkgrey;
+   -moz-user-select: none; /* Mozilla Firefox */
+   -ms-user-select: none; /* Internet Explorer (не поддерживается) */
+   -o-user-select: none; /* Opera Presto (не поддерживается) */
+   -webkit-user-select: none; /* Google Chrome, Opera Next, Safari */
+}
+
+.progressBox {
+    width: 90%;
+    margin: 0 25px;
+    height: 15px; 
+    background-color: lightgrey;
+    border-radius: 5px;
+    margin-bottom: 50px;
+}
+
+.progressBar {
+    height: 15px;
+    border-radius: 5px;  
+    -webkit-transition: all 0.5s ease;;
+    -moz-transition: all 0.5s ease;;
+    -o-transition: all 0.5s ease;;
+    transition: all 0.5s ease;  
+}
+
+.instructionBox {
+    height: 75px;
+}
+
+#instruction {
+    margin-left: 50px;
+    font-size: 22px;
+    color: rgb(44, 44, 44);
+    -moz-user-select: none; /* Mozilla Firefox */
+    -ms-user-select: none; /* Internet Explorer (не поддерживается) */
+    -o-user-select: none; /* Opera Presto (не поддерживается) */
+    -webkit-user-select: none; /* Google Chrome, Opera Next, Safari */
+}
+
+.taskBox {
+    height: 75px;
+}
+
+#currentTask {
+    font-weight: normal;
+    font-size: 20px;
+    margin-top: -25px;
+    text-align: center;
+}
+
+.areaBox {
+  width: 300px;
+}
+
+#area {
+    margin-left: 100px;
+    width: 300px;
+    height: 100px;
+    resize: none;
+    font-family: "Verdana", "Tahoma", "Arial", sans-serif;
+    font-size: 18px;
+    text-align: center;
+    font-weight: normal;
+    border: 2px dotted lightgrey;
+    border-radius: 10px;
+    padding-top: 20px;
+    -webkit-transition: all 0.1s ease;;
+    -moz-transition: all 0.1s ease;;
+    -o-transition: all 0.1s ease;;
+    transition: all 0.1s ease;
+}
+
+#area:focus {
+    border: 2px dotted silver;
+}
+
+
+.commentBox {
+    margin-top: -15px;
+    height: 125px;
+    width: 100%;
+    border: 3px solid whitesmoke;
+}
+                  
+#currentComment {
+    position: absolute;
+    font-weight: 100;
+    font-size: 16px;
+    margin-left: 100px;
+    margin-top: 15px;
+    color:darkgrey;
+    -moz-user-select: none; /* Mozilla Firefox */
+    -ms-user-select: none; /* Internet Explorer (не поддерживается) */
+    -o-user-select: none; /* Opera Presto (не поддерживается) */
+    -webkit-user-select: none; /* Google Chrome, Opera Next, Safari */
+}
+
+#currentRepeat {
+    text-align: center;
+    margin: -10px auto;
+    width: 450px;
+}
+
+.correctAnswer {
+    font-weight: 500;
+    font-size: 16px;
+    font-style: italic;
+    display: inline-flex;
+    margin-left: 50px;
+    margin-top: 60px;
+    text-align: center;
+}
+
+#back {
+    top: 15px; 
+    left: 105%;
+    margin-left: -100px;
+    position: absolute;
+    border-radius: 100%;
+    border: 0;
+    padding: 0;
+    width: 50px;
+    height: 50px;
+    color: white;
+    font-size: 25px;
+    box-shadow: 4px 4px 12px rgba(240, 240, 240);
+    background-color: rgb(155, 155, 155);
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    z-index: 10;
+  }
+
+ #back:hover {
+   background-color: rgb(135, 135, 135);;
+ }
+  
+
+
+.listenButton {
+    font-family: "Segoe UI Symbol";
+    display: inline-block;
+    margin: 10px;
+    border-radius: 100%;
+    border: 0;
+    padding: 0;
+    width: 35px;
+    height: 35px;
+    color: white;
+    font-size: 18px;
+    box-shadow: 5px 5px 5px rgba(235, 235, 235);
+    background-color: gold;
+    -webkit-transition: all 0.5s ease;;
+    -moz-transition: all 0.5s ease;;
+    -o-transition: all 0.5s ease;;
+    transition: all 0.5s ease;
+}
+
+.listenButton:hover {
+    background-color: rgb(245, 210, 0);
+    
+}
+
+
+.forward {
+    box-shadow: 5px 5px 12px rgba(235, 235, 235);
+      background-color: dodgerblue;
+      bottom: 25px; 
+      left: 105%;
+      margin-left: -200px;
+      position: absolute;
+      border-radius: 20px;
+      border: 0;
+      padding: 0;
+      width: 150px;
+      height: 70px;
+      color: white;
+      font-size: 20px;
+      box-shadow: 6px 6px 12px lightgrey;
+      -webkit-transition: all 0.5s ease;;
+      -moz-transition: all 0.5s ease;;
+      -o-transition: all 0.5s ease;;
+      transition: all 0.5s ease;
+}
+
+.forward:hover {
+    background-color: rgb(10, 124, 225);
+}
+
+.messageBox {
+    position: absolute;
+    background-color: whitesmoke;
+    width: 100%;
+    height: 420px;
+    top: 100px;
+    opacity: 1;
+    
+}
+
+.praise {
+  font-size: 22px;
+  margin-top: 20px;
+  text-align: center;
+  color: rgb(44, 44, 44);
+}
+
+.review {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 14px;
+  font-weight: normal;
+  color: grey;
+  
+}
+
+.mistakesListBox {
+  margin-left: 12px;
+  margin-right: 25px;
+  font-size: 14px;
+  border: 3px solid whitesmoke;
+  height: 300px;
+}
+
+
+.smallListenButton {
+    font-family: "Segoe UI Symbol";
+    font-size: 16px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: none;
+    display: inline-block;
+ 
+    border-radius: 100%;
+    border: 0;
+    padding: 0;
+    border: 1px solid rgb(44, 44, 44);
+    color: rgb(44, 44, 44);
+ } 
+ 
+ .smallListenButton:hover {
+     background-color: rgb(44, 44, 44);
+     color: white;
+     
+ }
+
+ .starBox {
+     position: absolute;
+     top: 100px;
+     width: 500px;
+     height: 300px;
+     text-align: center;
+ }
+
+ @keyframes overturn {
+    0% {
+      transform: rotate(180deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+ #shiny {
+  margin: auto auto;
+  width: 55%;
+  animation: 0.5s ease-out 0s 1 overturn;
+}
+
+@keyframes evanescence {
+    0% {
+        opacity: 1;
+    }
+
+    25% {
+        opacity: 0;
+      }
+
+      75% {
+        opacity: 0;
+      }
+
+    100% {
+        opacity: 1;
+    }
+  }
+
+#kitty {
+    position: absolute;
+    bottom: 75px;
+    right: 40px; 
+    opacity: 1;
+    
+}
+
+#kitty:hover {
+    animation: 3s ease-out 1s 1 evanescence;
+  }
+
+
+
+
+/* MainScreen */
+
+.dictionary {
+    width: 100%;
+    position: absolute;
+    bottom: 1%;
+}
+
+#addOnTitle {
+    margin-top: 45px;
+    margin-left: 50px;
+    font-size: 16px;
+    color: darkgrey;   
+    display: inline-flex;
+    -moz-user-select: none; /* Mozilla Firefox */
+    -ms-user-select: none; /* Internet Explorer (не поддерживается) */
+    -o-user-select: none; /* Opera Presto (не поддерживается) */
+    -webkit-user-select: none; /* Google Chrome, Opera Next, Safari */
+}
+
+#dictionaryLink {
+    display: inline-flex;
+    margin-left: 20px;
+    font-size: 16px;
+    color: grey; 
+    border: 2px dotted darkgrey;
+    padding: 10px;
+    border-radius: 7px;
+    -moz-user-select: none; /* Mozilla Firefox */
+    -ms-user-select: none; /* Internet Explorer (не поддерживается) */
+    -o-user-select: none; /* Opera Presto (не поддерживается) */
+    -webkit-user-select: none; /* Google Chrome, Opera Next, Safari */
+    -webkit-transition: all 0.1s ease;;
+    -moz-transition: all 0.1s ease;;
+    -o-transition: all 0.1s ease;;
+    transition: all 0.1s ease;
+}
+
+#dictionaryLink:hover {
+    color: white; 
+    background-color: darkgrey;
+    box-shadow: 5px 5px 12px lightgrey;
+    cursor: default;
+
+}
+
+.grid {
+    display: grid;
+    width: 80%;
+    height: 400px;
+    grid-template: repeat(3, 3fr 1fr) / 1fr 1fr 1fr;
+    margin: auto;
+    align-items: center;
+    grid-template-areas: "a1 a2 a3"
+                         "a1text a2text a3text"
+                         "b1 b2 b3"
+                         "b1text b2text b3text"
+                         "c1 c2 c3"
+                         "c1text c2text c3text" 
+                         ;
+  }
+
+.emojiIcon {
+    color: dimgrey;
+    font-size: 28px;
+}
+
+.item {
+    font-family: "Segoe UI Symbol";
+    background-color: dodgerblue;
+    border: 0;
+    margin: auto;
+    color: white;
+    height: 75px;
+    width: 75px;
+    border-radius: 100%;
+    font-size: 32px;
+    margin-top: 15px;
+    box-shadow: 5px 5px 12px lightgrey;
+    -webkit-transition: all 0.5s ease;;
+    -moz-transition: all 0.5s ease;;
+    -o-transition: all 0.5s ease;;
+    transition: all 0.5s ease;
+}
+
+.item:hover {
+    background-color: rgb(10, 124, 225);
+}
+
+.itemName {
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 auto;
+    color: rgb(44, 44, 44);
+    -moz-user-select: none; /* Mozilla Firefox */
+    -ms-user-select: none; /* Internet Explorer (не поддерживается) */
+    -o-user-select: none; /* Opera Presto (не поддерживается) */
+    -webkit-user-select: none; /* Google Chrome, Opera Next, Safari */
+}
+
+#idiom1Icon, #idiom2Icon {
+    background-color: deeppink;
+}
+
+#idiom1Icon:hover, #idiom2Icon:hover {
+    background-color: rgb(238, 0, 127);
+}
+
+#proverbIcon {
+    background-color: blueviolet;
+}
+
+#proverbIcon:hover {
+    background-color: rgb(118, 23, 206);
+}
+
+
+  .a1 {
+      grid-area: a1;
+  }
+  .a2 {
+      grid-area: a2;
+  }
+  .a3 {
+    grid-area: a3;
+  }
+
+  .b1 {
+    grid-area: b1;
+  }
+  .b2 {
+    grid-area: b2;
+  }
+  .b3 {
+      grid-area: b3;
+    }
+  
+  .c1 {
+    grid-area: c1;
+  }
+  .c2 {
+      grid-area: c2;
+  }
+  .c3 {
+    grid-area: c3;
+  }
+
+
+  .a1text {
+    grid-area: a1text;
+}
+.a2text {
+    grid-area: a2text;
+}
+.a3text {
+  grid-area: a3text;
+}
+
+.b1text {
+  grid-area: b1text;
+}
+.b2text {
+  grid-area: b2text;
+}
+.b3text {
+    grid-area: b3text;
+    align-self: start;
+  }
+
+.c1text {
+  grid-area: c1text;
+}
+.c2text {
+    grid-area: c2text;
+}
+.c3text {
+  grid-area: c3text;
+  align-self: start;
+}
+
+
+/* DictionaryScreen */
+
+.toolBox {
+    height: 50px;
+    margin-left: 25px;
+    margin-right: 25px;
+
+}
+
+#searchbar {
+    height: 40px;
+    width: 100%;
+    border-radius: 20px;
+    padding-left: 20px;
+    border: none;
+    background-color: gainsboro;
+    color: dimgrey;
+    font-size: 14px;
+    
+}
+#searchbar::placeholder {
+    color: grey;
+}
+
+
+
+.topicDiscoverer {
+    border: none;
+    background: none;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    right: 25px;
+    top: 110px;
+    border: 0;
+    border-radius: 20px;
+    margin: 0;
+    padding: 0;
+    width: 40px;
+    text-align: right;
+    padding-right: 15px;
+    font-size: 16px;
+    color: dimgrey;
+    z-index: 1;
+}
+
+#topicSelectorOpened {
+    display: none;
+    border-radius: 0 20px 0 0;
+    background: none;
+    width: 40px;
+    text-align: right;
+    padding-right: 15px;
+    z-index: 2;
+}
+
+
+.topicOptions {
+    border: none;
+    background-color: white;
+    color: dimgrey;
+    height: 40px;
+    width: 225px;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    text-align: center;
+    z-index: 3;
+
+    -webkit-transition: all 0.5s ease;;
+    -moz-transition: all 0.5s ease;;
+    -o-transition: all 0.5s ease;;
+    transition: all 0.5s ease;
+
+    box-shadow: 3px 5px 5px silver;
+
+}
+
+.topicOptions:hover {
+    color: tomato;
+}
+
+#returnAll {
+    display: none;
+    position: absolute;
+    right: 25px;
+    top: 110px;
+    border-radius: 0 20px 0 0;
+}
+
+#onlyGreetings {
+    display: none;
+    position: absolute;
+    right: 25px;
+    top: 150px;
+}
+
+#onlyParenthesis {
+    display: none;
+    position: absolute;
+    right: 25px;
+    top: 190px;
+}
+
+#onlyConsents {
+    display: none;
+    position: absolute;
+    right: 25px;
+    top: 230px;
+}
+
+#onlyPolite {
+    display: none;
+    position: absolute;
+    right: 25px;
+    top: 270px;
+}
+
+#onlyConversation {
+    display: none;
+    position: absolute;
+    right: 25px;
+    top: 310px;
+}
+
+#onlyTravel {
+    display: none;
+    position: absolute;
+    right: 25px;
+    top: 350px;
+}
+
+#onlyIdioms {
+    display: none;
+    position: absolute;
+    right: 25px;
+    top: 390px;
+    
+}
+
+#onlyProverbs {
+    display: none;
+    position: absolute;
+    right: 25px;
+    top: 430px;
+    border-radius: 0 0 20px 20px;
+    height: 50px;
+    padding-bottom: 10px;
+
+}
+
+
+
+table {
+    border-spacing: 0;
+    background-color: whitesmoke;
+        
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 5px;
+    padding-bottom: 20px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+
+td {
+    font-size: 12px;
+    padding: 10px 20px;
+}
+
+th {
+    font-size: 14px;
+    font-weight: normal;
+    height: 40px;
+    padding-left: 20px;
+
+    text-align: left;
+    background-color: 		#00CCCC;
+    color: white;
+
+}
+/*#8cdd5e*/
+
+
+table tr:nth-child(2n+1) {
+    background-color: white;
+    
+ }
+ 
+table  tr:nth-child(2n) {
+    background-color: rgb(255, 248, 252);
+    
+ }
+
+    table th:first-child {
+        border-radius: 7px 0 0 0;
+        
+    }
+   
+    table th:last-child {
+       border-radius: 0 7px 0 0;
+       width: 20%;
+   }
+   
+   table tr:last-child td:first-child {
+       border-radius: 0 0 0 7px;
+     }
+     table tr:last-child td:last-child {
+       border-radius: 0 0 7px 0;
+     }
+   
+/*
+  @-moz-document url-prefix() {
+
+    table th:first-child {
+        border-radius: 0 0 0 0;
+        
+    }
+   
+    table th:last-child {
+       border-radius: 0 0 0 0;
+   }
+  }
+ */
+
+
+.buttonSort {
+    font-family: "Segoe UI Symbol";
+    border: 0;
+    margin: 0 5px;
+    padding: 2px 2px;
+    color: white;
+    background: none;
+    font-size: 100%;
+    font-size: 12px;
+}
+
+#buttonSortEnUp {
+    display: none;
+}
+  
+#buttonSortRuUp {
+    display: none;
+}
+
+#buttonSortTopicUp {
+    display: none;
+}
+
+
+#buttonSortEnDown {
+    display: inline-block;
+}
+
+#buttonSortRuDown {
+    display: inline-block;
+}
+
+#buttonSortTopicDown {
+    display: inline-block;
+}
+
+
+#notFoundBox {
+    background: whitesmoke;
+}
+
+#notFound {
+    text-align: center;
+    font-size: 18px;
+    font-weight: normal;
+    color: darkgrey;
+    margin-top: 15px;
+    padding-top: 0px;
+}
+
+#frogFace {
+    width: 50%;
+    margin-left: 125px;
+    margin-top: 50px;
+    border-bottom: 50px;
+
+    -webkit-transition: all 1.5s ease;;
+    -moz-transition: all 1.5s ease;;
+    -o-transition: all 1.5s ease;;
+    transition: all 1.5s ease;
+}
+
+#frogFace:hover {
+    width: 60%;
+    margin-left: 100px;
+    margin-top: 25px;
+    position: relative;
+
+}
+
+/*
+#frogFace:hover {
+    -webkit-animation: frogJump 0.7s ease;
+    animation: frogJump 0.7s ease;
+     -webkit-animation-iteration-count: 1;
+     animation-iteration-count: 1;
+  }
+
+  @keyframes frogJump {
+    20% {
+       -webkit-transform: translateY(-20px);
+       transform: translateY(-20px);
+    }
+    40% {
+       -webkit-transform: translateY(5px);
+       transform: translateY(5px);
+    }
+    50% {
+       -webkit-transform: translateY(0px);
+       transform: translateY(0px);
+    }
+    70% {
+      -webkit-transform: translateY(-30px);
+      transform: translateY(-30px);
+    }
+    90% {
+      -webkit-transform: translateY(7px);
+      transform: translateY(7px);
+    }
+    100% {
+      -webkit-transform: translateY(0px);
+      transform: translateY(0px);
+    }
+  }
+  
+ */
