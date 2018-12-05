@@ -16,19 +16,19 @@ self.__precacheManifest = [
     "url": "/talkfine/static/js/runtime~main.08a997e9.js"
   },
   {
-    "revision": "52d78abfc5e20233194a",
-    "url": "/talkfine/static/js/main.52d78abf.chunk.js"
+    "revision": "0989b56179cbd61cf5f6",
+    "url": "/talkfine/static/js/main.0989b561.chunk.js"
   },
   {
     "revision": "270a6717f6be2aa57dce",
     "url": "/talkfine/static/js/1.270a6717.chunk.js"
   },
   {
-    "revision": "52d78abfc5e20233194a",
+    "revision": "0989b56179cbd61cf5f6",
     "url": "/talkfine/static/css/main.2b273cd2.chunk.css"
   },
   {
-    "revision": "e5dec753c29eb915031175211f2621bd",
+    "revision": "691acecd20eb2f0db2ee820834a4a8ce",
     "url": "/talkfine/index.html"
   }
 ];
