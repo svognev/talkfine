@@ -197,7 +197,7 @@ export class ExerciseScreen extends React.Component {
 
                 { this.state.mistakes.length ? 
                 <h2 className="review">Осталось только получше запомнить вот эти фразы</h2> : 
-                <h2 className="review">Вы не сделали ни одной ошибки</h2>}
+                <h2 className="review">Вы прошли упражнение без ошибок</h2>}
 
                 { this.state.mistakes.length ? 
                     this.renderMistakes() : 
