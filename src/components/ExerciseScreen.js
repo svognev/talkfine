@@ -4,6 +4,7 @@ import { charTable } from "./charTable";
 import glowingStar from "../glowingStar.svg";
 import redCat from "../redCat.svg";
 
+
 const topics = {
     "01": "greetings",
     "02": "parenthesis",

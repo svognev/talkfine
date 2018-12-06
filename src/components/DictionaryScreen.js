@@ -3,6 +3,7 @@ import { phrases } from "./phrases";
 import frog from "../frog.svg";
 
 
+
 export class DictionaryScreen extends React.Component {
 
   constructor(props) {

@@ -431,6 +431,73 @@ li {
 
 /* MainScreen */
 
+.itemIcon {
+  opacity: 1;
+}
+
+#icon01 {
+  width: 85%;
+  margin-top: 15%;
+  margin-left: 5%;
+}
+
+#icon02 {
+    width: 87%; 
+    margin-right: 5%;
+    margin-top: 5%;
+}
+
+#icon03 {
+    margin-top: 7%;
+}
+
+
+
+
+#icon04 {
+    width: 97%;
+    margin-top: 13%;
+    margin-left: 2.9%;
+}
+
+/*
+#icon05 {
+    width: 81%; 
+    margin-top: 12%;
+    margin-left: 5%;
+}
+
+#icon04 {
+    width: 71%;
+    margin-top: 13%;
+    margin-left: 3%;
+}
+*/ 
+#icon05 {
+    width: 93%; 
+    margin-top: 7%;
+}
+
+#icon06 {
+    width: 90%;
+    margin-top: 11%;
+}
+
+#icon07 {
+    margin-top: 10%;
+    width: 95%;
+}
+
+#icon08 {
+    margin-top: 10%;
+    width: 95%;
+}
+
+#icon09 {
+    margin-top: 10%;
+}
+
+
 .dictionary {
     width: 100%;
     position: absolute;
