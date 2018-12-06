@@ -4,16 +4,20 @@ self.__precacheManifest = [
     "url": "/talkfine/static/media/icon05.96e75fea.svg"
   },
   {
-    "revision": "9f574b7b74195fffeaa5",
-    "url": "/talkfine/static/css/main.99b447e3.chunk.css"
+    "revision": "3e118b726994e87c4f08",
+    "url": "/talkfine/static/css/main.dc0c1d9c.chunk.css"
   },
   {
-    "revision": "bdd211fc7eb9c23bab41",
-    "url": "/talkfine/static/js/1.bdd211fc.chunk.js"
+    "revision": "b4df0bf87689f716aeaa",
+    "url": "/talkfine/static/js/1.b4df0bf8.chunk.js"
   },
   {
     "revision": "08a997e9994a88275282",
     "url": "/talkfine/static/js/runtime~main.08a997e9.js"
+  },
+  {
+    "revision": "1c68c0714c8d6b349d8252af998dd4cd",
+    "url": "/talkfine/static/media/iconBack.1c68c071.svg"
   },
   {
     "revision": "adfa8c44ec578ada30c4a21155297626",
@@ -32,20 +36,20 @@ self.__precacheManifest = [
     "url": "/talkfine/static/media/icon04.a399239c.svg"
   },
   {
-    "revision": "9f574b7b74195fffeaa5",
-    "url": "/talkfine/static/js/main.9f574b7b.chunk.js"
+    "revision": "3e118b726994e87c4f08",
+    "url": "/talkfine/static/js/main.3e118b72.chunk.js"
   },
   {
-    "revision": "56fc314ceaabaffea9d06386198611fd",
-    "url": "/talkfine/static/media/icon06.56fc314c.svg"
+    "revision": "8491d255459b25dd32000702041e1606",
+    "url": "/talkfine/static/media/icon06.8491d255.svg"
   },
   {
     "revision": "40090cc0974f2157093448c5c2ad5e93",
     "url": "/talkfine/static/media/icon07.40090cc0.svg"
   },
   {
-    "revision": "729ce2948bb115b0ba3563e397f80159",
-    "url": "/talkfine/static/media/icon08.729ce294.svg"
+    "revision": "fc3654582121490ffa2e8b9236e9ab18",
+    "url": "/talkfine/static/media/icon08.fc365458.svg"
   },
   {
     "revision": "453cbc109b857496a72cf1ba32ee2983",
@@ -64,7 +68,11 @@ self.__precacheManifest = [
     "url": "/talkfine/static/media/frog.25c4adbd.svg"
   },
   {
-    "revision": "b19497a23351833215b28b5b14c70b38",
+    "revision": "0adc59547ce775bb735de4d8be1066a5",
+    "url": "/talkfine/static/media/iconTriangle.0adc5954.svg"
+  },
+  {
+    "revision": "dd8873fce1f25e60a2448917225fd932",
     "url": "/talkfine/index.html"
   }
 ];
