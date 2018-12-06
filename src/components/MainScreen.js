@@ -47,33 +47,33 @@ export class MainScreen extends React.Component {
                   </div>
 
                   <div className="b1">
-                    <button className="item" onClick={() => this.props.onClick("exercise03")}>
+                    <button className="item" onClick={() => this.props.onClick("exercise04")}>
                     <img id="icon04"  className="itemIcon" src={icon04}></img>
                     </button>
                   </div>
                   <div className="b2">
-                    <button className="item" onClick={() => this.props.onClick("exercise03")}>
+                    <button className="item" onClick={() => this.props.onClick("exercise05")}>
                     <img id="icon05"  className="itemIcon" src={icon05}></img>
                     </button>
                   </div>
                   <div className="b3">
-                    <button className="item" onClick={() => this.props.onClick("exercise03")}>
+                    <button className="item" onClick={() => this.props.onClick("exercise06")}>
                     <img id="icon06"  className="itemIcon" src={icon06}></img>
                     </button>
                   </div>
 
                   <div className="c1">
-                    <button className="item" id="idiom1Icon" onClick={() => this.props.onClick("exercise03")}>
+                    <button className="item" id="idiom1Icon" onClick={() => this.props.onClick("exercise07")}>
                     <img id="icon07"  className="itemIcon" src={icon07}></img>
                     </button>
                   </div>
                   <div className="c2">
-                    <button className="item" id="idiom2Icon" onClick={() => this.props.onClick("exercise03")}>
+                    <button className="item" id="idiom2Icon" onClick={() => this.props.onClick("exercise08")}>
                     <img id="icon08"  className="itemIcon" src={icon08}></img>
                     </button>
                   </div>
                   <div className="c3">
-                    <button className="item" id="proverbIcon" onClick={() => this.props.onClick("exercise03")}>
+                    <button className="item" id="proverbIcon" onClick={() => this.props.onClick("exercise09")}>
                     <img id="icon09" className="itemIcon" src={icon09}></img>
                     </button>
                   </div>

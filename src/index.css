@@ -257,14 +257,18 @@ li {
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
-    z-index: 10;
+    z-index: 9;
   }
 
  #back:hover {
    background-color: rgb(135, 135, 135);;
  }
   
-
+#backIcon {
+  width: 40%;
+  margin-top: 19%;
+  margin-left: 3%;
+}
 
 .listenButton {
     font-family: "Segoe UI Symbol";
@@ -703,6 +707,13 @@ li {
 }
 
 
+#triangleIcon {
+    width: 35%;
+    position: absolute;
+    top: 14px;
+    left: 14px;
+}
+
 
 .topicDiscoverer {
     border: none;
@@ -796,7 +807,7 @@ li {
     top: 270px;
 }
 
-#onlyConversation {
+#onlyTalk {
     display: none;
     position: absolute;
     right: 25px;

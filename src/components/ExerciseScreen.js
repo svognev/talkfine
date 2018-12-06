@@ -3,18 +3,31 @@ import { phrases } from "./phrases";
 import { charTable } from "./charTable";
 import glowingStar from "../glowingStar.svg";
 import redCat from "../redCat.svg";
+import iconBack from "../iconBack.svg";
 
 
 const topics = {
     "01": "greetings",
     "02": "parenthesis",
     "03": "consents",
+    "04": "polite",
+    "05": "talk",
+    "06": "travel",
+    "07": "idioms",
+    "08": "idioms2",
+    "09": "proverbs",
 };
 
 const topicNames = {
     "01": "Приветствие и прощание",
     "02": "Вводные слова",
     "03": "Согласие и несогласие",
+    "04": "Слова вежливости",
+    "05": "Участие в разговоре",
+    "06": "Путешествия",
+    "07": "Идиомы. Часть I",
+    "08": "Идиомы. Часть II",
+    "09": "Пословицы",
 }
 
 const synth =  window.speechSynthesis;
@@ -47,13 +60,9 @@ export class ExerciseScreen extends React.Component {
 
     getTasks() {
         let tasks = [];
-        for (let i = 0, j = 0; i < phrases.length; i++) {
+        for (let i = 0; i < phrases.length; i++) {
             if (phrases[i].topic === topics[this.props.topic]) {
               tasks.push(phrases[i]);
-              j++;
-              if (j === 2) {
-                  break;
-              }
             } 
         }
         for (let i = 0; i < tasks.length; i++) {
@@ -351,7 +360,7 @@ export class ExerciseScreen extends React.Component {
                 {this.state.step - 1 === this.state.tasks.length && this.state.mistakes.length <= 5 && this.state.mistakes.length ?        
                 <img src={redCat} id="kitty"></img> : <p style={{"display": "none"}}></p>}
 
-                <button id="back" onClick={this.props.onClick}>↩</button>
+                <button id="back" onClick={this.props.onClick}><img src={iconBack} id="backIcon"></img></button>
                 </div>
             </div>
         );

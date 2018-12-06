@@ -1,7 +1,8 @@
 import React from "react";
 import { phrases } from "./phrases";
 import frog from "../frog.svg";
-
+import iconBack from "../iconBack.svg";
+import iconTriangle from "../iconTriangle.svg";
 
 
 export class DictionaryScreen extends React.Component {
@@ -115,7 +116,7 @@ export class DictionaryScreen extends React.Component {
     document.getElementById("onlyParenthesis").style.display = "block";
     document.getElementById("onlyConsents").style.display = "block";
     document.getElementById("onlyPolite").style.display = "block";
-    document.getElementById("onlyConversation").style.display = "block";
+    document.getElementById("onlyTalk").style.display = "block";
     document.getElementById("onlyTravel").style.display = "block";
     document.getElementById("onlyIdioms").style.display = "block";
     document.getElementById("onlyProverbs").style.display = "block";
@@ -130,7 +131,7 @@ export class DictionaryScreen extends React.Component {
     document.getElementById("onlyParenthesis").style.display = "none";
     document.getElementById("onlyConsents").style.display = "none";
     document.getElementById("onlyPolite").style.display = "none";
-    document.getElementById("onlyConversation").style.display = "none";
+    document.getElementById("onlyTalk").style.display = "none";
     document.getElementById("onlyTravel").style.display = "none";
     document.getElementById("onlyIdioms").style.display = "none";
     document.getElementById("onlyProverbs").style.display = "none";
@@ -141,7 +142,7 @@ export class DictionaryScreen extends React.Component {
     return (
         <div>
           <button id="topicSelector" className="topicDiscoverer" onClick={this.showTopics}>
-            ▾
+          <img src={iconTriangle} id="triangleIcon"></img>
           </button>
 
           <button id="topicSelectorOpened"className="topicDiscoverer" onClick={this.hideTopics}>
@@ -188,7 +189,7 @@ export class DictionaryScreen extends React.Component {
             Слова вежливости
           </button>
 
-          <button id="onlyConversation" className="topicOptions" onClick={(e) => {
+          <button id="onlyTalk" className="topicOptions" onClick={(e) => {
             this.hideTopics();
             this.limit(e.target.id.slice(4).toLowerCase());
             document.getElementById("searchbar").placeholder = "Поиск в теме «Участие в разговоре»";
@@ -314,7 +315,7 @@ export class DictionaryScreen extends React.Component {
           
           { this.renderSpreadsheet() }
 
-          <button id="back" onClick={this.props.onClick}>↩</button>
+          <button id="back" onClick={this.props.onClick}><img src={iconBack} id="backIcon"></img></button>
         </div>
       </div>
     );
