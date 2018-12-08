@@ -294,6 +294,11 @@ li {
     
 }
 
+.listenIcon {
+    width: 50%;
+    margin-top: 15%;
+}
+
 
 .forward {
     box-shadow: 5px 5px 12px rgba(235, 235, 235);
@@ -365,16 +370,21 @@ li {
     display: inline-block;
  
     border-radius: 100%;
-    border: 0;
+    border: none;
     padding: 0;
-    border: 1px solid rgb(44, 44, 44);
-    color: rgb(44, 44, 44);
+    background-color: lightgrey;
  } 
  
  .smallListenButton:hover {
-     background-color: rgb(44, 44, 44);
-     color: white;
-     
+     background-color: silver;
+     border: none;     
+ }
+
+ .smallListenIcon {
+    width: 35%;
+    color: red;
+    margin-left: 5%;
+    margin-bottom: 3%;
  }
 
  .starBox {

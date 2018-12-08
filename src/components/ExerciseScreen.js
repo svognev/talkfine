@@ -4,7 +4,8 @@ import { charTable } from "./charTable";
 import glowingStar from "../glowingStar.svg";
 import redCat from "../redCat.svg";
 import iconBack from "../iconBack.svg";
-
+import iconSound from "../iconSound.svg";
+import iconPlay from "../iconPlay.svg";
 
 const topics = {
     "01": "greetings",
@@ -242,7 +243,11 @@ export class ExerciseScreen extends React.Component {
             let  utter = new SpeechSynthesisUtterance({en}.en);
             utter.voice = this.state.voice;
               return (
-                <li key={en}><button className="smallListenButton" onClick={() => synth.speak(utter)}>🔊</button> {en} — {ru}</li>
+                <li key={en}>
+                <button className="smallListenButton" onClick={() => synth.speak(utter)}>
+                  <img className="smallListenIcon" src={iconPlay}></img>
+                </button> {en} — {ru}
+                </li>
               );
             });
 
@@ -288,13 +293,17 @@ export class ExerciseScreen extends React.Component {
             if (this.state.isCorrect && !this.state.fromRu) {
                 return (<div>
                            <p className="correctAnswer">{this.state.currentTask.en} </p>
-                           <button className="listenButton" onClick={() => synth.speak(utter)}>🔊</button>
+                           <button className="listenButton" onClick={() => synth.speak(utter)}>
+                             <img className="listenIcon" src={iconSound}></img>
+                           </button>
                         </div>
                 );
             } else if (this.state.fromRu) {
                 return (<div>
                     <p className="correctAnswer">{this.state.currentTask.en} </p>
-                    <button className="listenButton" onClick={() => synth.speak(utter)}>🔊</button>
+                    <button className="listenButton" onClick={() => synth.speak(utter)}>
+                      <img className="listenIcon" src={iconSound}></img>
+                    </button>
                  </div>
                 );
             } else {

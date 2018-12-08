@@ -100,7 +100,11 @@ export class DictionaryScreen extends React.Component {
       this.setState( { data: phrases } );
     } else {
       const limited = phrases.filter(phrase => {
-        return phrase.topic === subject;
+        if (phrase.topic[phrase.topic.length - 1] === "2") {                    // option for 
+          return phrase.topic.slice(0, phrase.topic.length - 1) === subject;    // idioms2
+        } else {
+          return phrase.topic === subject;
+        }
       });
   
       this.setState( { data: limited } );
@@ -228,6 +232,9 @@ export class DictionaryScreen extends React.Component {
   renderSpreadsheet() {
     if (this.state.data.length) {
       let rows = this.state.data.map(({en, ru, topic}) => {
+        if (topic[topic.length - 1] === "2") {
+          topic = topic.slice(0, topic.length - 1);
+        }
         return (
           <tr>
             <td id={en}>{en}</td>

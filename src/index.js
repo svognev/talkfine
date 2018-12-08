@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { phrases } from "./components/phrases";
 import { MainScreen } from "./components/MainScreen";
 import { ExerciseScreen } from "./components/ExerciseScreen";
 import { DictionaryScreen } from "./components/DictionaryScreen";
