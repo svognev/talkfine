@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <g class="layer" id="imagebot_1">
+  <title>Layer 1</title>
+  <g id="imagebot_6" transform="matrix(-0.745487 0 0 0.727071 427.673 79.987)">
+   <g id="imagebot_7">
+    <polygon fill="#696969" id="imagebot_8" points="312.04296875,30.29089605808258 439.54296875,157.79089415073395 567.042724609375,30.29089605808258 " stroke="#696969" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+   </g>
+  </g>
+  <g id="imagebot_3" transform="matrix(-0.745487 0 0 0.727071 427.673 -13.0781)">
+   <g id="imagebot_4">
+    <polygon fill="#696969" id="imagebot_5" points="312.04296875,26.164750456809998 439.54296875,153.66474854946136 567.042724609375,26.164750456809998 " stroke="#696969" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+   </g>
+  </g>
+ </g>
+</svg>

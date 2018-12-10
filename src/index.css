@@ -937,6 +937,10 @@ table  tr:nth-child(2n) {
     font-size: 12px;
 }
 
+.iconSort {
+  width: 9px;
+}
+
 #buttonSortEnUp {
     display: none;
 }

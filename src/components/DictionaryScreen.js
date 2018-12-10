@@ -3,55 +3,92 @@ import { phrases } from "./phrases";
 import frog from "../frog.svg";
 import iconBack from "../iconBack.svg";
 import iconTriangle from "../iconTriangle.svg";
+import iconArrowDownWhite from "../iconArrowDownWhite.svg";
+import iconArrowDownBlack from "../iconArrowDownBlack.svg";
+import iconArrowUpBlack from "../iconArrowUpBlack.svg";
 
+let dictionary = phrases;
 
 export class DictionaryScreen extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      data: phrases,
-      term: "",
+      data: dictionary,
+      lastSearch: dictionary,
       reduction: "",
     };
     this.search = this.search.bind(this);
     this.sort = this.sort.bind(this);
     this.sortButtonsHandler = this.sortButtonsHandler.bind(this);
     this.limit = this.limit.bind(this);
+    this.sortButtonsDefault = this.sortButtonsDefault.bind(this);
+    this.hideTopics = this.hideTopics.bind(this);
   }
 
   search(e) {
     if(e.target.value === ""){
-      this.setState( { data: phrases });
+      this.setState( { data: dictionary, lastSearch: dictionary,});
     } else {
       const searchString = e.target.value.toLowerCase().trim();
       
-      let filtered = phrases.filter(phrase => {
+      let filtered = dictionary.filter(phrase => {
         return phrase.en.toLowerCase().includes(searchString);
       });
   
       if (!filtered.length) {
-        filtered = phrases.filter(phrase => {
+        filtered = dictionary.filter(phrase => {
           return phrase.ru.toLowerCase().includes(searchString);
         });
       }
-      this.setState( {data: filtered} );
+      this.setState( {data: filtered, lastSearch: filtered, } );
     }
+
+  }
+
+    limit(subject) {
+    if (subject === "all") {
+      this.setState( { data: this.state.lastSearch } );
+    } else {
+      const limited = this.state.lastSearch.filter(phrase => {
+        if (phrase.topic[phrase.topic.length - 1] === "2") {                    // option for 
+          return phrase.topic.slice(0, phrase.topic.length - 1) === subject;    // idioms2
+        } else {
+          return phrase.topic === subject;
+        }
+      });
+  
+      this.setState( { data: limited } );
+    }
+
   }
 
   sort(subject, direction) {
+    dictionary = [].slice.call(dictionary).sort((a, b) => {
+      if (a[subject] === b[subject]) { 
+        return 0; 
+      }
+      return a[subject] > b[subject] ? direction : direction * -1;
+    });
     const sorted = [].slice.call(this.state.data).sort((a, b) => {
       if (a[subject] === b[subject]) { 
         return 0; 
       }
       return a[subject] > b[subject] ? direction : direction * -1;
     });
-
-    this.setState( { data: sorted } );
+    const lastSearch = [].slice.call(this.state.lastSearch).sort((a, b) => {
+      if (a[subject] === b[subject]) { 
+        return 0; 
+      }
+      return a[subject] > b[subject] ? direction : direction * -1;
+    });
+    
+     this.setState( { data: sorted, lastSearch: lastSearch, } );
+    
   }
 
   sortButtonsHandler(e) {
-    const clicked = e.target;
+    const clicked = e.target.id[0] === "i" ? document.getElementById(e.target.id.slice(1)) : e.target;
     let newButton;
     if (clicked.id.includes("Up")) {
       newButton = document.getElementById(clicked.id.slice(0, clicked.id.length - 2) + "Down");
@@ -73,6 +110,17 @@ export class DictionaryScreen extends React.Component {
       this.sort("topic", -1);
     }
 
+    this.sortButtonsDefault();
+    
+    clicked.style.display = "none";
+    newButton.style.display = "inline-block";
+    
+    newButton.id.includes("Up") ? 
+    document.getElementById("i" + newButton.id).src = iconArrowDownBlack :
+    document.getElementById("i" + newButton.id).src = iconArrowUpBlack;
+  }
+
+  sortButtonsDefault() {
     let buttons = [
       document.getElementById("buttonSortEnDown"), 
       document.getElementById("buttonSortEnUp"),
@@ -82,34 +130,14 @@ export class DictionaryScreen extends React.Component {
       document.getElementById("buttonSortTopicUp"),
     ];
 
-    for (let button of buttons) {
-      button.style.color = "white";
-      button.id.includes("Up") ? button.style.display = "none" : button.style.display = "inline-block";
-      button.innerHTML = "⏬";
-      }
-    
-    clicked.style.display = "none";
-    newButton.style.display = "inline-block";
-    newButton.style.color = "dimgrey";
-    newButton.id.includes("Up") ? newButton.innerHTML = "⏬" : newButton.innerHTML = "⏫";
-  }
-  
-
-  limit(subject) {
-    if (subject === "all") {
-      this.setState( { data: phrases } );
-    } else {
-      const limited = phrases.filter(phrase => {
-        if (phrase.topic[phrase.topic.length - 1] === "2") {                    // option for 
-          return phrase.topic.slice(0, phrase.topic.length - 1) === subject;    // idioms2
-        } else {
-          return phrase.topic === subject;
+    if (buttons[0]) {
+      for (let button of buttons) {
+        document.getElementById("i" + button.id).src = iconArrowDownWhite;
+        button.id.includes("Up") ? button.style.display = "none" : button.style.display = "inline-block";
         }
-      });
-  
-      this.setState( { data: limited } );
     }
   }
+  
 
   showTopics() {
     document.getElementById("topicSelector").style.display = "none";
@@ -139,6 +167,8 @@ export class DictionaryScreen extends React.Component {
     document.getElementById("onlyTravel").style.display = "none";
     document.getElementById("onlyIdioms").style.display = "none";
     document.getElementById("onlyProverbs").style.display = "none";
+
+    this.sortButtonsDefault();
   }
 
 
@@ -250,27 +280,27 @@ export class DictionaryScreen extends React.Component {
         <thead>
           <tr>
             <th>Фраза
-              <button id="buttonSortEnDown" className="buttonSort" onClick={this.sortButtonsHandler}>
-                ⏬  ️
+              <button id="buttonSortEnDown" className="buttonSort" onClick={this.sortButtonsHandler}> 
+                <img id="ibuttonSortEnDown" className="iconSort" src={iconArrowDownWhite}></img>  ️ ️
               </button>
               <button id="buttonSortEnUp" className="buttonSort" onClick={this.sortButtonsHandler}>
-                ⏬  ️
+                <img id="ibuttonSortEnUp" className="iconSort" src={iconArrowDownBlack}></img>  ️
               </button>
             </th>
             <th>Значение
               <button id="buttonSortRuDown" className="buttonSort" onClick={this.sortButtonsHandler}>
-                ⏬  ️
+                <img id="ibuttonSortRuDown" className="iconSort" src={iconArrowDownWhite}></img>  ️
               </button>
               <button id="buttonSortRuUp" className="buttonSort" onClick={this.sortButtonsHandler}>
-                ⏬  ️  ️
+                <img id="ibuttonSortRuUp" className="iconSort" src={iconArrowDownBlack}></img>  ️  ️
               </button>
             </th>
             <th>Тема
               <button id="buttonSortTopicDown" className="buttonSort" onClick={this.sortButtonsHandler}>
-                ⏬  ️  ️
+                <img id="ibuttonSortTopicDown" className="iconSort" src={iconArrowDownWhite}></img>  ️  ️
               </button>
               <button id="buttonSortTopicUp" className="buttonSort" onClick={this.sortButtonsHandler}>
-                ⏬  ️  ️
+                <img id="ibuttonSortTopicUp" className="iconSort" src={iconArrowDownBlack}></img>  ️  ️
               </button>
             </th>
           </tr>
