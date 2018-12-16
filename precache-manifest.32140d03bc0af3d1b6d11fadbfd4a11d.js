@@ -1,27 +1,27 @@
 self.__precacheManifest = [
   {
-    "revision": "96e75fea822dddb59bda7d2caf84c58a",
-    "url": "/talkfine/static/media/icon05.96e75fea.svg"
+    "revision": "883cd36b8bb3a7af37998a1974c26636",
+    "url": "/talkfine/static/media/icon06.883cd36b.svg"
   },
   {
-    "revision": "96f41f3a8435a6a5759c",
-    "url": "/talkfine/static/css/main.39d12523.chunk.css"
+    "revision": "ccf2bb9dab0f0f3fa677",
+    "url": "/talkfine/static/css/main.b53aea09.chunk.css"
   },
   {
-    "revision": "d3ef1391633615b51ecd",
-    "url": "/talkfine/static/js/1.d3ef1391.chunk.js"
+    "revision": "cf1968854efd40b533a1",
+    "url": "/talkfine/static/js/1.cf196885.chunk.js"
   },
   {
     "revision": "08a997e9994a88275282",
     "url": "/talkfine/static/js/runtime~main.08a997e9.js"
   },
   {
-    "revision": "7afd8de764a623f583fe942180017bfa",
-    "url": "/talkfine/static/media/iconArrowDownWhite.7afd8de7.svg"
+    "revision": "0564fe3148893ea58e77c68ac1c6f3d6",
+    "url": "/talkfine/static/media/iconArrowDownWhite.0564fe31.svg"
   },
   {
-    "revision": "b4ff62662b6d365e3589fe8cc4e2c58b",
-    "url": "/talkfine/static/media/iconArrowDownBlack.b4ff6266.svg"
+    "revision": "8f6d90062d43121ef58e274ea678c4cd",
+    "url": "/talkfine/static/media/iconArrowDownBlack.8f6d9006.svg"
   },
   {
     "revision": "1c68c0714c8d6b349d8252af998dd4cd",
@@ -48,12 +48,12 @@ self.__precacheManifest = [
     "url": "/talkfine/static/media/icon04.a399239c.svg"
   },
   {
-    "revision": "96f41f3a8435a6a5759c",
-    "url": "/talkfine/static/js/main.96f41f3a.chunk.js"
+    "revision": "96e75fea822dddb59bda7d2caf84c58a",
+    "url": "/talkfine/static/media/icon05.96e75fea.svg"
   },
   {
-    "revision": "8491d255459b25dd32000702041e1606",
-    "url": "/talkfine/static/media/icon06.8491d255.svg"
+    "revision": "ccf2bb9dab0f0f3fa677",
+    "url": "/talkfine/static/js/main.ccf2bb9d.chunk.js"
   },
   {
     "revision": "40090cc0974f2157093448c5c2ad5e93",
@@ -66,6 +66,18 @@ self.__precacheManifest = [
   {
     "revision": "453cbc109b857496a72cf1ba32ee2983",
     "url": "/talkfine/static/media/icon09.453cbc10.svg"
+  },
+  {
+    "revision": "f58960567de88f349f977470428f23ed",
+    "url": "/talkfine/static/media/icon10.f5896056.svg"
+  },
+  {
+    "revision": "d9e1c30f70384cb3b90fe3bfca9d9c03",
+    "url": "/talkfine/static/media/iconDownwards.d9e1c30f.svg"
+  },
+  {
+    "revision": "f911c8f4aee4f251d35ccc19d58e9c0f",
+    "url": "/talkfine/static/media/iconUpwards.f911c8f4.svg"
   },
   {
     "revision": "ec6a85dd6ae1b5f01ee33d216d206da0",
@@ -88,11 +100,11 @@ self.__precacheManifest = [
     "url": "/talkfine/static/media/iconTriangle.0adc5954.svg"
   },
   {
-    "revision": "9109df3a81a9a4a97450b160cab63956",
-    "url": "/talkfine/static/media/iconArrowUpBlack.9109df3a.svg"
+    "revision": "14bee938667c3e0df69b2aaf3cf7c838",
+    "url": "/talkfine/static/media/iconArrowUpBlack.14bee938.svg"
   },
   {
-    "revision": "faf5dae064c507c48649eea3c2d2938b",
+    "revision": "2771d30a89d49ae4c560cf306560d55d",
     "url": "/talkfine/index.html"
   }
 ];
