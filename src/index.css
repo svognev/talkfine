@@ -1003,8 +1003,7 @@ table  tr:nth-child(2n) {
     display: grid;
     height: 100vh;
     width: 177vh;
-    grid-template: repeat(18, minmax(12.5px, 5.555vh)) / repeat(32, minmax(12.5px, 5.555vh));
-
+    grid-template: repeat(18, minmax(25px, 5.555vh)) / repeat(32, minmax(25px, 5.555vh));
     background-color: cornsilk;
     }
 
@@ -1283,10 +1282,11 @@ table  tr:nth-child(2n) {
 
 
 
-  @media all and (max-width: 550px) {
+  @media all and (max-width: 800px) {
 
     #container {
       height: 177vw;
+      min-height: 400px;
       width: 100vw;
       grid-template: repeat(32, minmax(12.5px, 5.53125vw)) / repeat(18, minmax(12.5px, 5.53125vw));
       }
@@ -1462,25 +1462,29 @@ table  tr:nth-child(2n) {
       }
   }
 
+  
 
-  @media all and (max-height: 400px)  {
+  @media all and (max-height: 450px) and (min-width: 800px)  {
 
     #logo {
-      font-size: 16px;
+      font-size: 22px;
     }
 
+    
     #subtitle {
-      font-size: 11px; 
+      font-size: 14px; 
     }
+
 
     #extraTitle {
-      font-size: 11px;
-      margin-left: 0;
+      font-size: 14px;
     }
 
     .subscript {
-      font-size: 8px;
+      font-size: 10px;
     }
+
+
   }
 
 
