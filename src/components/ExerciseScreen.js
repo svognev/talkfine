@@ -2,7 +2,6 @@ import React from "react";
 import { phrases } from "./phrases";
 import { charTable } from "./charTable";
 import glowingStar from "../glowingStar.svg";
-import redCat from "../redCat.svg";
 import iconBack from "../iconBack.svg";
 import iconSound from "../iconSound.svg";
 import iconPlay from "../iconPlay.svg";
@@ -32,7 +31,8 @@ const topicNames = {
 }
 
 const synth =  window.speechSynthesis;
-
+const isMobile = navigator.userAgent.toLowerCase().match(/android|ipad|iphone|ipod|webos|blackberry/i) != null;
+let exceptionalKey = false;
 
 export class ExerciseScreen extends React.Component {
     constructor(props) {
@@ -49,14 +49,16 @@ export class ExerciseScreen extends React.Component {
             comment: " ",
             voice: voice,
             mistakes: [],
-        }
+            }
+
         this.nextStep = this.nextStep.bind(this);
         this.getTasks = this.getTasks.bind(this);
         this.examine = this.examine.bind(this);
         this.answerHandler = this.answerHandler.bind(this);
         this.renderButtons = this.renderButtons.bind(this);
-        this.renderRepeat = this.renderRepeat.bind(this);
+        this.renderCorrect = this.renderCorrect.bind(this);
         this.changeText = this.changeText.bind(this);
+        this.unifyMistakes = this.unifyMistakes.bind(this);
     }
 
     getTasks() {
@@ -96,20 +98,55 @@ export class ExerciseScreen extends React.Component {
         const isFromRu = this.state.fromRu ? 1 : 0;
         const area = document.getElementById("area");
         let newChar = getChar(event);
-
         
-        if (charTable[isFromRu][newChar]) {
+        if (!exceptionalKey && charTable[isFromRu][newChar]) {
           newChar = charTable[isFromRu][newChar];
           setTimeout(function() { area.value = area.value.slice(0, area.value.length - 1); }, 0);
           setTimeout(function() { area.value = area.value.concat(newChar); }, 0);
-
+        } else {
+            if (exceptionalKey) {
+                if (isFromRu) {
+                    if (newChar === "ю") {
+                        newChar = ".";
+                    } else if (newChar === "Ю") {
+                        newChar = ">";
+                    } else if (newChar === "." && exceptionalKey === "191") {
+                        newChar = "/";
+                    } else if (newChar === "," && exceptionalKey === "191") {
+                        newChar = "?";
+                    } else if (newChar === "б") {
+                        newChar = ",";
+                    } else if (newChar === "Б") {
+                        newChar = "<";
+                    }
+                    setTimeout(function() { area.value = area.value.slice(0, area.value.length - 1); }, 0);
+                    setTimeout(function() { area.value = area.value.concat(newChar); }, 0);
+                }
+                if (!isFromRu) {
+                    if (newChar === "." && exceptionalKey === "190") {
+                        newChar = "ю";
+                    } else if (newChar === ">") {
+                        newChar = "Ю";
+                    } else if (newChar === "," && exceptionalKey === "188") {
+                        newChar = "б";
+                    } else if (newChar === "<") {
+                        newChar = "Б";
+                    } else if (newChar === "/") {
+                        newChar = ".";
+                    } else if (newChar === "?") {
+                        newChar = ",";
+                    }
+                    setTimeout(function() { area.value = area.value.slice(0, area.value.length - 1); }, 0);
+                    setTimeout(function() { area.value = area.value.concat(newChar); }, 0);
+                }
+            }
         }
         
 
         function getChar(e) { 
             if (e.which == null) {
                 if (e.keyCode < 32) {
-                    return "";
+                   return "";
                     }
                 return String.fromCharCode(e.keyCode);
             }
@@ -117,7 +154,7 @@ export class ExerciseScreen extends React.Component {
             if (e.which !== 0 && e.charCode !== 0) {
                 if (e.which < 32) {
                     return "";
-                    }
+                    }                  
                 return String.fromCharCode(e.which);
             } 
 
@@ -126,17 +163,21 @@ export class ExerciseScreen extends React.Component {
     }
 
     newLineCheck(str) {
-      if (str[str.length - 1] === "\n") {
-          this.answerHandler();
-      }
+      for (let i = 0; i < str.length; i++) {
+        if (str[i] === "\n") {
+            document.getElementById("area").value = document.getElementById("area").value.replace("\n", "");
+            this.answerHandler();
+        }
+      }  
+      
     }
 
     examine() {
         let userText = document.getElementById("area").value;
 
         let correctText = this.state.currentTask[this.state.fromRu ? "en" : "ru"];
-        correctText = correctText.replace(/[\u2000-\u206F\u2E00-\u2E7F\\'!…"#$%&()*+,\n\-.\/:;<=>?@\[\]^_`{|}~]/g, "").replace(/\s+/g, " ").replace(/ё/g, "е").toLowerCase();
-        userText = userText.replace(/[\u2000-\u206F\u2E00-\u2E7F\\'!…"#$%&()*+,\n\-.\/:;<=>?@\[\]^_`{|}~]/g, "").replace(/\s+/g, " ").replace(/ё/g, "е").toLowerCase();
+        correctText = correctText.replace(/[\u2000-\u206F\u2E00-\u2E7F\\'!?…"#$%&()*+,\n\-.\/:;<=>@\[\]^_`{|}~]/g, "").trim().replace(/\s+/g, " ").replace(/ё/g, "е").toLowerCase();
+        userText = userText.replace(/[\u2000-\u206F\u2E00-\u2E7F\\'!?…"#$%&()*+,\n\-.\/:;<=>@\[\]^_`{|}~]/g, "").trim().replace(/\s+/g, " ").replace(/ё/g, "е").toLowerCase();
     
         const altLang = this.state.fromRu ? "altEn" : "altRu";
 
@@ -148,7 +189,7 @@ export class ExerciseScreen extends React.Component {
             return correctText === userText;
         } else {
             for(let i = 0; i < this.state.currentTask[altLang].length; i++) {
-                if (this.state.currentTask[altLang][i] === userText) {
+                if (userText === this.state.currentTask[altLang][i]) {
                     return true;
                 }
             }
@@ -168,7 +209,7 @@ export class ExerciseScreen extends React.Component {
         document.getElementById("area").disabled = true;
         if (answer) {
             this.setState( { 
-                comment: "Правильно!" + (!this.state.fromRu ? " Запомните: " : ""),
+                comment: "Правильно! Запомните: ",
                 isCorrect: true,
             } );
             document.getElementById("area").style.border = "3px solid PaleGreen";
@@ -176,7 +217,7 @@ export class ExerciseScreen extends React.Component {
             this.setState({ 
                 comment: "Oшибка! Правильный ответ: ",
                 tasks: this.state.tasks.concat(this.state.currentTask),
-                mistakes: this.state.mistakes.concat(this.state.currentTask),
+                mistakes: this.unifyMistakes(this.state.mistakes.concat(this.state.currentTask)),
                 isCorrect: false,
             });
             document.getElementById("area").style.border = "3px solid Tomato";
@@ -197,66 +238,82 @@ export class ExerciseScreen extends React.Component {
         document.getElementById("area").focus();
     }
 
-    renderMessage() {
-        if (this.state.step - 1 === this.state.tasks.length && this.state.mistakes.length <= 5) {
-          return (
-              <section className="messageBox">
-                
-                { this.state.mistakes.length ? 
-                <h2 className="praise">У вас отлично получается!</h2> :
-                <h2 className="praise">Великолепно!</h2>}
+    unifyMistakes(allMistakes) {
+        let uniqueMistakes = [];
+        uniqueMistakes[0] = allMistakes[0];
 
-                { this.state.mistakes.length ? 
-                <h2 className="review">Осталось только получше запомнить вот эти фразы</h2> : 
-                <h2 className="review">Вы прошли упражнение без ошибок</h2>}
-
-                { this.state.mistakes.length ? 
-                    this.renderMistakes() : 
-                    (<div className="starBox">
-                      <img src={glowingStar} id="shiny"></img>
-                    </div>)}
-
-              </section>
-          );
-        }
-    }
-
-    renderMistakes() {
-        let currentMistakes = this.state.mistakes;
-        console.log(currentMistakes);
-        let mistakesList = [];
-        mistakesList[0] = currentMistakes[0];
-
-        for (let i = 0, willPush = true; i < currentMistakes.length; i++) {
-            for (let j = 0; j < mistakesList.length; j++) {
-                if (mistakesList[j].en === currentMistakes[i].en) {
+        for (let i = 0, willPush = true; i < allMistakes.length; i++) {
+            for (let j = 0; j < uniqueMistakes.length; j++) {
+                if (uniqueMistakes[j].en === allMistakes[i].en) {
                     willPush = false;
                 }
             }
             if (willPush) {
-                mistakesList.push(currentMistakes[i]);
+                uniqueMistakes.push(allMistakes[i]);
             }
             willPush = true;
         }
 
-        mistakesList = mistakesList.map(({en, ru}) => {
-            let  utter = new SpeechSynthesisUtterance({en}.en);
-            utter.voice = this.state.voice;
+        return uniqueMistakes;
+    }
+
+    renderMessage() {
+
+        if (this.state.step - 1 === this.state.tasks.length) {
+
+            if (this.state.mistakes.length <= 5) {
+              document.getElementById("messageBox").style.display = "block";
               return (
-                <li key={en}>
-                <button className="smallListenButton" onClick={() => synth.speak(utter)}>
-                  <img className="smallListenIcon" src={iconPlay}></img>
-                </button> {en} — {ru}
+                <div id="innerMessageBox">
+
+                  { this.state.mistakes.length ? 
+                  <div id="praiseBox"><p id="praise" className="unselectable">У вас отлично получается!</p></div> :
+                  <div id="praiseBox"><p id="praise" className="unselectable">Великолепно!</p></div> 
+                  }
+  
+                  { this.state.mistakes.length ? 
+                  <div id="reviewBox"><p id="review" className="unselectable">Осталось только получше запомнить вот эти фразы</p></div> : 
+                  <div id="reviewBox"><p id="review" className="unselectable">Вы прошли упражнение без ошибок</p></div> 
+                  }
+ 
+                  { this.state.mistakes.length ? 
+                  this.renderMistakes() : 
+                  (<div id="starBox">
+                    <img id="star" src={glowingStar}></img>
+                  </div>)
+                  }
+                
+                </div>
+              );
+            }
+        }
+    }
+
+    renderMistakes() {
+
+        let mistakes = this.state.mistakes;
+        mistakes = mistakes.map(({en, ru}) => {
+              return (
+                <li key={en} className="mistake">
+                <button className="play" onClick={() => {
+                    let  utter = new SpeechSynthesisUtterance({en}.en);
+                    utter.voice = this.state.voice;
+                    synth.speak(utter)}
+                    }>
+                  <img className="playIcon" src={iconPlay}></img>
+                </button><p className="mistakeText"><b>{en}</b> — {ru}</p>
                 </li>
               );
             });
 
+        
+
         return (
-        <div className="mistakesListBox">
-          <ul className="mistakesList">
-              {mistakesList}
-          </ul>
-        </div>
+              <div id="mistakesBox">
+                <ul id="mistakes">
+                  {mistakes}
+                </ul>
+              </div>
         );
 
     }
@@ -265,10 +322,12 @@ export class ExerciseScreen extends React.Component {
     renderButtons() {
 
         if (!this.state.isAnswered) {
-            return <button className="forward" onClick={this.answerHandler}>Проверить</button>
+            return <button id="forward" onClick={this.answerHandler} 
+            style={{"opacity": 0 , "transition": "none", "-webkit-transition": "none", 
+            "-moz-transition": "none", "-o-transition": "none"}}>Проверить</button>
         } else if (this.state.step - 1 === this.state.tasks.length) {
             document.getElementById("area").blur(); // for Firefox that keeps focus on the text-area
-            return <button className="forward" onClick={this.props.onClick}>В меню</button>
+            return <button id="forward" onClick={this.props.onClick }>В меню</button>
         } else {
             document.body.onkeypress = (e) => { 
                 if (e.keyCode === 13 && this.state.isAnswered) {
@@ -280,36 +339,49 @@ export class ExerciseScreen extends React.Component {
                 } 
             };
             document.getElementById("area").blur(); // for Firefox that keeps focus on the text-area
-            return <button className="forward" onClick={this.nextStep}>Дальше</button>
+            return <button id="forward" onClick={this.nextStep}>Дальше</button>
         }
     }
+    
 
-    renderRepeat() {
-        let  utter = new SpeechSynthesisUtterance(this.state.currentTask.en);
-
-        utter.voice = this.state.voice;
+    renderCorrect() {        
 
         if (this.state.isAnswered) {
             if (this.state.isCorrect && !this.state.fromRu) {
-                return (<div>
-                           <p className="correctAnswer">{this.state.currentTask.en} </p>
-                           <button className="listenButton" onClick={() => synth.speak(utter)}>
-                             <img className="listenIcon" src={iconSound}></img>
+                return (<div id="innerCorectBox">
+                           <button id="listen" onClick={() => {  
+                               let  utter = new SpeechSynthesisUtterance(this.state.currentTask.en);
+                               utter.voice = this.state.voice;
+                               synth.speak(utter);
+                               }}>
+                             <img id="listenIcon" src={iconSound}></img>
                            </button>
+                           <p id="correct">{this.state.currentTask.en} </p>  
                         </div>
                 );
             } else if (this.state.fromRu) {
-                return (<div>
-                    <p className="correctAnswer">{this.state.currentTask.en} </p>
-                    <button className="listenButton" onClick={() => synth.speak(utter)}>
-                      <img className="listenIcon" src={iconSound}></img>
+                return (<div id="innerCorectBox">
+                    <button id="listen" onClick={() => {  
+                               let  utter = new SpeechSynthesisUtterance(this.state.currentTask.en);
+                               utter.voice = this.state.voice;
+                               synth.speak(utter);
+                               }}>
+                      <img id="listenIcon" src={iconSound}></img>
                     </button>
+                    <p id="correct">{this.state.currentTask.en} </p>
                  </div>
                 );
             } else {
-              return (
-                <p className="correctAnswer">{this.state.currentTask.ru} </p>
-              );  
+              return (<div id="innerCorectBox">
+                <button id="listen" onClick={() => {  
+                           let  utter = new SpeechSynthesisUtterance(this.state.currentTask.en);
+                           utter.voice = this.state.voice;
+                           synth.speak(utter);
+                           }}>
+                  <img id="listenIcon" src={iconSound}></img>
+                </button>
+                <p id="correct">{this.state.currentTask.ru} </p>
+             </div>);  
             }
         }
     }
@@ -317,61 +389,76 @@ export class ExerciseScreen extends React.Component {
 
 
     render() {
-        return (
-            <div>
-                <div className="workspace">
-
-                  <section className="titleBox">
-                    <h1 className="title">Толк файн</h1>
-                  </section>
-
-                  <section className="innerTitleBox">
-                  </section>
+       return (
+          <div id="container">
+            <div id="titleBox"></div> 
+            <div id="statusBox"></div>
+            <div id="taskBox"></div>
+            <div id="answerBox"></div>
 
 
-                  <section className="topicBox">
-                    <p id="currentTopic">Тема: {topicNames[this.props.topic]}</p>
-                  </section>
-                  
-                  <div className="progressBox">
-                    <section className="progressBar" style={{
-                        backgroundColor: "PaleGreen", 
-                        width: Math.floor( ( (this.state.step - 1) / this.state.tasks.length ) * 100 ) + "%"}}>
-                   </section>
-                  </div>
-                
-                  <section className="instructionBox">
-                    <h2 id="instruction">{"Напишите это на " + (this.state.fromRu ? "английском: " : "русском: ")}</h2>                
-                  </section>
-
-                  <section className="taskBox">
-                    <h1 id="currentTask">{this.state.currentTask[this.state.fromRu ? "ru" : "en"]}</h1>
-                  </section>
-
-                <section className="areaBox">
-                  <textarea onInput={() => this.newLineCheck(document.getElementById("area").value)} 
-                  onKeyPress={(event) => this.changeText(event)} id="area" lang="en" 
-                  placeholder="Введите перевод" autoFocus>
-                  </textarea>
-                </section>
-                
-                { this.renderButtons() }
-                
-                <section className="commentBox">
-                  <h3 id="currentComment">{this.state.comment}</h3>
-                  <div id="currentRepeat">
-                    { this.renderRepeat() }
-                  </div>
-                </section>
-
-                { this.renderMessage() }
-
-                {this.state.step - 1 === this.state.tasks.length && this.state.mistakes.length <= 5 && this.state.mistakes.length ?        
-                <img src={redCat} id="kitty"></img> : <p style={{"display": "none"}}></p>}
-
-                <button id="back" onClick={this.props.onClick}><img src={iconBack} id="backIcon"></img></button>
-                </div>
+            <div id="innerTitleBox">
+              <h3 id="logo" className="unselectable">Толк файн</h3>
             </div>
+            <div id="backBox">
+              <button id="back" onClick={this.props.onClick}>
+                <img src={iconBack} id="backIcon"></img>
+              </button>
+            </div>
+
+            <div id="topicBox">
+              <p id="topic" className="unselectable">{topicNames[this.props.topic]}</p>
+            </div>
+            <div id="progressBox">
+              <div id="unfilled" className="progressBar">
+                <div id="filled" className="progressBar" 
+                style={{ width: Math.floor( ( (this.state.step - 1) / this.state.tasks.length ) * 100 ) + "%"}}>
+                </div>
+              </div>
+            </div>
+
+            <div id="instructionBox">
+              <p id="instruction" className="unselectable">{"Напишите это на " + (this.state.fromRu ? "английском: " : "русском: ")}</p>
+            </div>
+            <div id="innerTaskBox">
+              <p id="task">{this.state.currentTask[this.state.fromRu ? "ru" : "en"]}</p>
+            </div>
+
+            <div id="areaBox">
+            <textarea id="area" lang="en" placeholder="Введите перевод" autoFocus 
+                onInput={() => {
+                    this.newLineCheck(document.getElementById("area").value)
+                    if (document.getElementById("area").value !== "") {
+                      document.getElementById("forward").style.opacity = 0.9;
+                    } else {
+                      document.getElementById("forward").style.opacity = 0;
+                    }
+                }} 
+                onKeyDown={ (event) => { 
+                    if (event.keyCode === 188) {
+                      exceptionalKey = "188"
+                    } else if (event.keyCode === 190) {
+                      exceptionalKey = "190"
+                    } else if (event.keyCode === 191) {
+                      exceptionalKey = "191"
+                    } else { 
+                      exceptionalKey = false 
+                    } 
+                }}
+                onKeyPress={ (event) => { if (!isMobile) { this.changeText(event); } } }>
+              </textarea>
+            </div>
+            <div id="forwardBox">
+              { this.renderButtons() }
+            </div>
+            <div id="commentBox">
+              <p id="comment" className="unselectable">{this.state.comment}</p>
+            </div>
+            <div id="correctBox">
+              { this.renderCorrect() }
+            </div>
+            <div id="messageBox">{ this.renderMessage() }</div>
+          </div>
         );
     }
 }

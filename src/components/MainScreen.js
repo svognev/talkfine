@@ -24,13 +24,13 @@ export class MainScreen extends React.Component {
               <div id="glossaryBox"></div>
             
               <div id="innerTitleBox">
-                <h3 id="logo">Толк файн</h3>
+                <h3 id="logo" className="unselectable">Толк файн</h3>
               </div>
               <div id="innerSubtitleBox">
-                <p id="subtitle">Упражнения по темам:</p>
+                <p id="subtitle" className="unselectable">Упражнения по темам:</p>
               </div>
               <div id="innerExtraTitleBox">
-                <p id="extraTitle">Дополнительно:</p>
+                <p id="extraTitle" className="unselectable">Дополнительно:</p>
               </div>
   
               <div id="itemBox01" className="itemBox">
@@ -39,7 +39,7 @@ export class MainScreen extends React.Component {
                 </button>
               </div>
               <div id="subscriptBox01" className="subscriptBox">
-                <p id="subscript01" className="subscript">Приветствие<br />и прощание</p>
+                <p id="subscript01" className="subscript unselectable">Приветствие<br />и прощание</p>
               </div>
   
               <div id="itemBox02" className="itemBox">
@@ -48,7 +48,7 @@ export class MainScreen extends React.Component {
                 </button>
               </div>
               <div id="subscriptBox02" className="subscriptBox">
-                <p id="subscript02" className="subscript">Вводные слова</p>
+                <p id="subscript02" className="subscript unselectable">Вводные слова</p>
               </div>
   
               <div id="itemBox03" className="itemBox">
@@ -57,7 +57,7 @@ export class MainScreen extends React.Component {
                 </button>
               </div>
               <div id="subscriptBox03" className="subscriptBox">
-                <p id="subscript03" className="subscript">Согласие и<br />несогласие</p>
+                <p id="subscript03" className="subscript unselectable">Согласие и<br />несогласие</p>
               </div>
   
               <div id="itemBox04" className="itemBox">
@@ -66,7 +66,7 @@ export class MainScreen extends React.Component {
                 </button>
               </div>
               <div id="subscriptBox04" className="subscriptBox">
-                <p id="subscript04" className="subscript">Слова<br />вежливости</p>
+                <p id="subscript04" className="subscript unselectable">Слова<br />вежливости</p>
               </div>
   
               <div id="itemBox05" className="itemBox">
@@ -75,7 +75,7 @@ export class MainScreen extends React.Component {
                 </button>
               </div>
               <div id="subscriptBox05" className="subscriptBox">
-                <p id="subscript05" className="subscript">Участие в разговоре</p>
+                <p id="subscript05" className="subscript unselectable">Участие в разговоре</p>
               </div>
   
               <div id="itemBox06" className="itemBox">
@@ -84,7 +84,7 @@ export class MainScreen extends React.Component {
                 </button>
               </div>
               <div id="subscriptBox06" className="subscriptBox">
-                <p id="subscript06" className="subscript">Путешествия</p>
+                <p id="subscript06" className="subscript unselectable">Путешествия</p>
               </div>
   
               <div id="itemBox07" className="itemBox">
@@ -93,7 +93,7 @@ export class MainScreen extends React.Component {
                 </button>
               </div>
               <div id="subscriptBox07" className="subscriptBox">
-                <p id="subscript07" className="subscript">Идиомы<br />Уровень I</p>
+                <p id="subscript07" className="subscript unselectable">Идиомы<br />Уровень I</p>
               </div>
   
               <div id="itemBox08" className="itemBox">
@@ -102,7 +102,7 @@ export class MainScreen extends React.Component {
                 </button>
               </div>
               <div id="subscriptBox08" className="subscriptBox">
-                <p id="subscript08" className="subscript">Идиомы<br />Уровень II</p>
+                <p id="subscript08" className="subscript unselectable">Идиомы<br />Уровень II</p>
               </div>
   
               <div id="itemBox09" className="itemBox">
@@ -111,7 +111,7 @@ export class MainScreen extends React.Component {
                 </button>
               </div>
               <div id="subscriptBox09" className="subscriptBox">
-                <p id="subscript09" className="subscript">Пословицы</p>
+                <p id="subscript09" className="subscript unselectable">Пословицы</p>
               </div>
   
   
@@ -121,7 +121,7 @@ export class MainScreen extends React.Component {
                 </button>
               </div>
               <div id="subscriptBox10" className="subscriptBox">
-                  <p id="subscript10" className="subscript">Словарь<br />выражений</p>
+                  <p id="subscript10" className="subscript unselectable">Словарь<br />выражений</p>
               </div>
 
               <div id="levelBox">

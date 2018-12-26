@@ -23,6 +23,7 @@ export class DictionaryScreen extends React.Component {
     this.sortButtonsHandler = this.sortButtonsHandler.bind(this);
     this.limit = this.limit.bind(this);
     this.sortButtonsDefault = this.sortButtonsDefault.bind(this);
+    this.showTopics = this.showTopics.bind(this);
     this.hideTopics = this.hideTopics.bind(this);
   }
 
@@ -140,124 +141,96 @@ export class DictionaryScreen extends React.Component {
   
 
   showTopics() {
-    document.getElementById("topicSelector").style.display = "none";
-
-    document.getElementById("topicSelectorOpened").style.display = "block";
-    document.getElementById("returnAll").style.display = "block";
-    document.getElementById("onlyGreetings").style.display = "block";
-    document.getElementById("onlyParenthesis").style.display = "block";
-    document.getElementById("onlyConsents").style.display = "block";
-    document.getElementById("onlyPolite").style.display = "block";
-    document.getElementById("onlyTalk").style.display = "block";
-    document.getElementById("onlyTravel").style.display = "block";
-    document.getElementById("onlyIdioms").style.display = "block";
-    document.getElementById("onlyProverbs").style.display = "block";
-  }
-
-  hideTopics() {
-    document.getElementById("topicSelector").style.display = "block";
-
-    document.getElementById("topicSelectorOpened").style.display = "none";
-    document.getElementById("returnAll").style.display = "none";
-    document.getElementById("onlyGreetings").style.display = "none";
-    document.getElementById("onlyParenthesis").style.display = "none";
-    document.getElementById("onlyConsents").style.display = "none";
-    document.getElementById("onlyPolite").style.display = "none";
-    document.getElementById("onlyTalk").style.display = "none";
-    document.getElementById("onlyTravel").style.display = "none";
-    document.getElementById("onlyIdioms").style.display = "none";
-    document.getElementById("onlyProverbs").style.display = "none";
-
+    document.getElementById("options").style.display = "grid";
     this.sortButtonsDefault();
   }
 
+  hideTopics() {
+    document.getElementById("options").style.display = "none";
+    this.sortButtonsDefault();
+  }
 
-  renderTopicSelector() {
+  renderOptions() {
     return (
-        <div>
-          <button id="topicSelector" className="topicDiscoverer" onClick={this.showTopics}>
-          <img src={iconTriangle} id="triangleIcon"></img>
-          </button>
-
-          <button id="topicSelectorOpened"className="topicDiscoverer" onClick={this.hideTopics}>
-            ▴
-          </button>
-
-          <button id="returnAll" className="topicOptions" onClick={(e) => {
+      <div id="options">
+      
+          <div id="returnAll" className="option" onClick={(e) => {
             this.hideTopics();
             this.limit(e.target.id.slice(6).toLowerCase());
             document.getElementById("searchbar").placeholder = "Искать среди всех фраз";
           }}>
-          Все темы
-          </button>
-          
-          <button id="onlyGreetings" className="topicOptions" onClick={(e) => {
+            Все темы
+          </div>
+
+          <div id="onlygreetings" className="option" onClick={(e) => {
             this.hideTopics();
-            this.limit(e.target.id.slice(4).toLowerCase());
+            this.limit(e.target.id.slice(4));
             document.getElementById("searchbar").placeholder = "Поиск в теме «Приветствия и прощания»";
           }}>
-          Приветствие и прощание
-          </button>
+            Приветствие и прощание
+          </div>
 
-          <button id="onlyParenthesis" className="topicOptions" onClick={(e) => {
+          <div id="onlyparenthesis" className="option" onClick={(e) => {
             this.hideTopics();
-            this.limit(e.target.id.slice(4).toLowerCase());
+            this.limit(e.target.id.slice(4));
             document.getElementById("searchbar").placeholder = "Поиск в теме «Вводные слова»";
           }}>
-          Вводные слова
-          </button>
+            Вводные слова
+          </div>
 
-          <button id="onlyConsents" className="topicOptions" onClick={(e) => {
+          <div id="onlyconsents" className="option" onClick={(e) => {
             this.hideTopics();
-            this.limit(e.target.id.slice(4).toLowerCase());
+            this.limit(e.target.id.slice(4));
             document.getElementById("searchbar").placeholder = "Поиск в теме «Согласие и несогласие»";
           }}>
-          Согласие и несогласие
-          </button>
+            Согласие и несогласие
+          </div>
 
-          <button id="onlyPolite" className="topicOptions" onClick={(e) => {
+          <div id="onlypolite" className="option" onClick={(e) => {
             this.hideTopics();
-            this.limit(e.target.id.slice(4).toLowerCase());
+            this.limit(e.target.id.slice(4));
             document.getElementById("searchbar").placeholder = "Поиск в теме «Слова вежливости»";
           }}>
             Слова вежливости
-          </button>
+          </div>
 
-          <button id="onlyTalk" className="topicOptions" onClick={(e) => {
+          <div id="onlytalk" className="option" onClick={(e) => {
             this.hideTopics();
-            this.limit(e.target.id.slice(4).toLowerCase());
+            this.limit(e.target.id.slice(4));
             document.getElementById("searchbar").placeholder = "Поиск в теме «Участие в разговоре»";
           }}>
             Участие в разговоре
-          </button>
+          </div>
 
-          <button id="onlyTravel" className="topicOptions" onClick={(e) => {
+          <div id="onlytravel" className="option" onClick={(e) => {
             this.hideTopics();
-            this.limit(e.target.id.slice(4).toLowerCase());
+            this.limit(e.target.id.slice(4));
             document.getElementById("searchbar").placeholder = "Поиск в теме «Путешествия»";
           }}>
             Путешествия
-          </button>
+          </div>
 
-          <button id="onlyIdioms" className="topicOptions" onClick={(e) => {
+          <div id="onlyidioms" className="option" onClick={(e) => {
             this.hideTopics();
-            this.limit(e.target.id.slice(4).toLowerCase());
+            this.limit(e.target.id.slice(4));
             document.getElementById("searchbar").placeholder = "Поиск в теме «Идиомы»";
           }}>
             Идиомы
-          </button>
+          </div>
 
-          <button id="onlyProverbs" className="topicOptions" onClick={(e) => {
+          <div id="onlyproverbs" className="option" onClick={(e) => {
             this.hideTopics();
               document.getElementById("searchbar").placeholder = "Поиск в теме «Пословицы»";
-            this.limit(e.target.id.slice(4).toLowerCase());
+            this.limit(e.target.id.slice(4));
           }}>
             Пословицы
-          </button>
+          </div>
 
         </div>
     );
   }
+
+
 
   renderSpreadsheet() {
     if (this.state.data.length) {
@@ -279,7 +252,7 @@ export class DictionaryScreen extends React.Component {
         
         <thead>
           <tr>
-            <th>Фраза
+            <th className="unselectable">Фраза
               <button id="buttonSortEnDown" className="buttonSort" onClick={this.sortButtonsHandler}> 
                 <img id="ibuttonSortEnDown" className="iconSort" src={iconArrowDownWhite}></img>  ️ ️
               </button>
@@ -287,7 +260,7 @@ export class DictionaryScreen extends React.Component {
                 <img id="ibuttonSortEnUp" className="iconSort" src={iconArrowDownBlack}></img>  ️
               </button>
             </th>
-            <th>Значение
+            <th className="unselectable">Значение
               <button id="buttonSortRuDown" className="buttonSort" onClick={this.sortButtonsHandler}>
                 <img id="ibuttonSortRuDown" className="iconSort" src={iconArrowDownWhite}></img>  ️
               </button>
@@ -295,7 +268,7 @@ export class DictionaryScreen extends React.Component {
                 <img id="ibuttonSortRuUp" className="iconSort" src={iconArrowDownBlack}></img>  ️  ️
               </button>
             </th>
-            <th>Тема
+            <th className="unselectable">Тема
               <button id="buttonSortTopicDown" className="buttonSort" onClick={this.sortButtonsHandler}>
                 <img id="ibuttonSortTopicDown" className="iconSort" src={iconArrowDownWhite}></img>  ️  ️
               </button>
@@ -312,47 +285,49 @@ export class DictionaryScreen extends React.Component {
       );
     } else {
       return (
-        <section id="notFoundBox">
-          <h2 id="notFound">Ничего не найдено</h2>
-          <img src={frog} id="frogFace"/>
-        </section>
+        <div id="notFoundBox">
+          <p id="notFound">Ничего не найдено</p>
+          <div id="frogBox">
+            <img src={frog} id="frogFace" />
+          </div>
+        </div>
       );
     }
   }
 
   render() {
+
+
     
     return (
-      <div>
-        <div className="workspace">
-          
-          <section className="titleBox">
-            <h1 className="title">Толк файн</h1>
-          </section>
+      <div id="container">
+        <div id="titleBox"></div> 
+        <div id="toolsBox" onClick={this.hideTopics}></div>
+        <div id="sheetBox"></div>
 
-          <section className="innerTitleBox">
-          </section>
+        <div id="innerTitleBox">
+          <h3 id="logo" className="unselectable">Толк файн</h3>
+        </div>
+        <div id="backBox">
+          <button id="back" onClick={this.props.onClick}>
+            <img src={iconBack} id="backIcon"></img>
+          </button>
+        </div>
 
-          <section className="space10"></section>
-
-
-          <section className="toolBox">
-            <input type="text" id="searchbar" placeholder="Искать среди всех фраз" 
+        <div id="searchBox">
+            <input id="searchbar" autoFocus type="text" placeholder="Искать среди всех фраз" 
             onClick={this.hideTopics} onChange={this.search}/>
-          </section>
+        </div>
+        <div id="selectorBox">
+          <button id="selector" onClick={this.showTopics}>
+            <img id="triangleIcon" src={iconTriangle}></img>
+          </button>
+        </div>
 
-          <section className ="topicSelectorBox">
-        
-          {this.renderTopicSelector()}
-        
-          </section>
+        { this.renderOptions() }
 
-
-          
-          
+        <div id="sheet" onClick={ () => { document.getElementById("options").style.display = "none" } }>
           { this.renderSpreadsheet() }
-
-          <button id="back" onClick={this.props.onClick}><img src={iconBack} id="backIcon"></img></button>
         </div>
       </div>
     );

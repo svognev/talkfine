@@ -1,11 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="emoji" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 72 72" enable-background="new 0 0 72 72" xml:space="preserve">
-<g id="_xD83D__xDD3A_">
-	<path fill="#FFF" d="M33.5,15.3L11.3,53.7c-1.1,1.9,0.3,4.3,2.5,4.3h44.5c2.2,0,3.5-2.4,2.5-4.3L38.5,15.3
-		C37.4,13.4,34.6,13.4,33.5,15.3z"/>
-	<path fill="none" stroke="#FFF" stroke-width="2" stroke-miterlimit="10" d="M33.5,15.3L11.3,53.7c-1.1,1.9,0.3,4.3,2.5,4.3
-		h44.5c2.2,0,3.5-2.4,2.5-4.3L38.5,15.3C37.4,13.4,34.6,13.4,33.5,15.3z"/>
-</g>
+<svg width="1284" height="1693" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>Layer 1</title>
+  <g transform="translate(-608 -60)" id="imagebot_1">
+   <path id="imagebot_2" transform="matrix(1 0 0 -1 0 1638)" d="M1249,1578L1892,702L1487,702L1487,-115L1009,-115L1009,702L608,702L1249,1578z" fill="#ffffff"/>
+  </g>
+ </g>
 </svg>
