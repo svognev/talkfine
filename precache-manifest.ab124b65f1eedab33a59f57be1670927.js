@@ -4,12 +4,12 @@ self.__precacheManifest = [
     "url": "/talkfine/static/media/icon06.883cd36b.svg"
   },
   {
-    "revision": "73f90f046d77322b6f58",
-    "url": "/talkfine/static/css/main.2a6efd4e.chunk.css"
+    "revision": "671b4d6c5435ffa4b48e",
+    "url": "/talkfine/static/css/main.2cccf204.chunk.css"
   },
   {
-    "revision": "cf1968854efd40b533a1",
-    "url": "/talkfine/static/js/1.cf196885.chunk.js"
+    "revision": "e88547a5bdd93efbb290",
+    "url": "/talkfine/static/js/1.e88547a5.chunk.js"
   },
   {
     "revision": "08a997e9994a88275282",
@@ -52,8 +52,8 @@ self.__precacheManifest = [
     "url": "/talkfine/static/media/icon05.96e75fea.svg"
   },
   {
-    "revision": "73f90f046d77322b6f58",
-    "url": "/talkfine/static/js/main.73f90f04.chunk.js"
+    "revision": "671b4d6c5435ffa4b48e",
+    "url": "/talkfine/static/js/main.671b4d6c.chunk.js"
   },
   {
     "revision": "40090cc0974f2157093448c5c2ad5e93",
@@ -72,20 +72,16 @@ self.__precacheManifest = [
     "url": "/talkfine/static/media/icon10.f5896056.svg"
   },
   {
-    "revision": "d9e1c30f70384cb3b90fe3bfca9d9c03",
-    "url": "/talkfine/static/media/iconDownwards.d9e1c30f.svg"
+    "revision": "f535ca5fd9a75c5ec319e0c9dc6e0df9",
+    "url": "/talkfine/static/media/iconDownwards.f535ca5f.svg"
   },
   {
-    "revision": "f911c8f4aee4f251d35ccc19d58e9c0f",
-    "url": "/talkfine/static/media/iconUpwards.f911c8f4.svg"
+    "revision": "6a5fd87b90845b1012663547663346c7",
+    "url": "/talkfine/static/media/iconUpwards.6a5fd87b.svg"
   },
   {
     "revision": "ec6a85dd6ae1b5f01ee33d216d206da0",
     "url": "/talkfine/static/media/glowingStar.ec6a85dd.svg"
-  },
-  {
-    "revision": "fccfea042e12dc8a141ddd16777c3951",
-    "url": "/talkfine/static/media/redCat.fccfea04.svg"
   },
   {
     "revision": "7c1e798b273fd1f5c01c791f9d5a4d30",
@@ -104,7 +100,7 @@ self.__precacheManifest = [
     "url": "/talkfine/static/media/iconArrowUpBlack.14bee938.svg"
   },
   {
-    "revision": "0091b42d6e17c30ac6f0c90358bae295",
+    "revision": "facea23c4d6a67e6e2d4fb4a71d946f6",
     "url": "/talkfine/index.html"
   }
 ];
