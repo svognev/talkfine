@@ -1,14 +1,14 @@
 {
-  "main.css": "/talkfine/static/css/main.2cccf204.chunk.css",
-  "main.js": "/talkfine/static/js/main.671b4d6c.chunk.js",
-  "main.js.map": "/talkfine/static/js/main.671b4d6c.chunk.js.map",
+  "main.css": "/talkfine/static/css/main.c2ba9265.chunk.css",
+  "main.js": "/talkfine/static/js/main.420fe53d.chunk.js",
+  "main.js.map": "/talkfine/static/js/main.420fe53d.chunk.js.map",
   "static/js/1.e88547a5.chunk.js": "/talkfine/static/js/1.e88547a5.chunk.js",
   "static/js/1.e88547a5.chunk.js.map": "/talkfine/static/js/1.e88547a5.chunk.js.map",
   "runtime~main.js": "/talkfine/static/js/runtime~main.08a997e9.js",
   "runtime~main.js.map": "/talkfine/static/js/runtime~main.08a997e9.js.map",
   "static/media/index.css": "/talkfine/static/media/iconArrowUpBlack.14bee938.svg",
-  "static/css/main.2cccf204.chunk.css.map": "/talkfine/static/css/main.2cccf204.chunk.css.map",
+  "static/css/main.c2ba9265.chunk.css.map": "/talkfine/static/css/main.c2ba9265.chunk.css.map",
   "index.html": "/talkfine/index.html",
-  "precache-manifest.ab124b65f1eedab33a59f57be1670927.js": "/talkfine/precache-manifest.ab124b65f1eedab33a59f57be1670927.js",
+  "precache-manifest.b79935bee046d20c4246fec327fc0902.js": "/talkfine/precache-manifest.b79935bee046d20c4246fec327fc0902.js",
   "service-worker.js": "/talkfine/service-worker.js"
 }
