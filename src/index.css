@@ -880,6 +880,10 @@ p {
     border-radius: 100%;
     box-shadow: 5px 5px 12px lightgrey;
     
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 
 .item:hover {

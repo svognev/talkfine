@@ -154,7 +154,7 @@ export class DictionaryScreen extends React.Component {
     return (
       <div id="options">
       
-          <div id="returnAll" className="option" onClick={(e) => {
+          <div id="returnAll" className="option unselectable" onClick={(e) => {
             this.hideTopics();
             this.limit(e.target.id.slice(6).toLowerCase());
             document.getElementById("searchbar").placeholder = "Искать среди всех фраз";
@@ -162,7 +162,7 @@ export class DictionaryScreen extends React.Component {
             Все темы
           </div>
 
-          <div id="onlygreetings" className="option" onClick={(e) => {
+          <div id="onlygreetings" className="option unselectable" onClick={(e) => {
             this.hideTopics();
             this.limit(e.target.id.slice(4));
             document.getElementById("searchbar").placeholder = "Поиск в теме «Приветствия и прощания»";
@@ -170,7 +170,7 @@ export class DictionaryScreen extends React.Component {
             Приветствие и прощание
           </div>
 
-          <div id="onlyparenthesis" className="option" onClick={(e) => {
+          <div id="onlyparenthesis" className="option unselectable" onClick={(e) => {
             this.hideTopics();
             this.limit(e.target.id.slice(4));
             document.getElementById("searchbar").placeholder = "Поиск в теме «Вводные слова»";
@@ -178,7 +178,7 @@ export class DictionaryScreen extends React.Component {
             Вводные слова
           </div>
 
-          <div id="onlyconsents" className="option" onClick={(e) => {
+          <div id="onlyconsents" className="option unselectable" onClick={(e) => {
             this.hideTopics();
             this.limit(e.target.id.slice(4));
             document.getElementById("searchbar").placeholder = "Поиск в теме «Согласие и несогласие»";
@@ -186,7 +186,7 @@ export class DictionaryScreen extends React.Component {
             Согласие и несогласие
           </div>
 
-          <div id="onlypolite" className="option" onClick={(e) => {
+          <div id="onlypolite" className="option unselectable" onClick={(e) => {
             this.hideTopics();
             this.limit(e.target.id.slice(4));
             document.getElementById("searchbar").placeholder = "Поиск в теме «Слова вежливости»";
@@ -194,7 +194,7 @@ export class DictionaryScreen extends React.Component {
             Слова вежливости
           </div>
 
-          <div id="onlytalk" className="option" onClick={(e) => {
+          <div id="onlytalk" className="option unselectable" onClick={(e) => {
             this.hideTopics();
             this.limit(e.target.id.slice(4));
             document.getElementById("searchbar").placeholder = "Поиск в теме «Участие в разговоре»";
@@ -202,7 +202,7 @@ export class DictionaryScreen extends React.Component {
             Участие в разговоре
           </div>
 
-          <div id="onlytravel" className="option" onClick={(e) => {
+          <div id="onlytravel" className="option unselectable" onClick={(e) => {
             this.hideTopics();
             this.limit(e.target.id.slice(4));
             document.getElementById("searchbar").placeholder = "Поиск в теме «Путешествия»";
@@ -210,7 +210,7 @@ export class DictionaryScreen extends React.Component {
             Путешествия
           </div>
 
-          <div id="onlyidioms" className="option" onClick={(e) => {
+          <div id="onlyidioms" className="option unselectable" onClick={(e) => {
             this.hideTopics();
             this.limit(e.target.id.slice(4));
             document.getElementById("searchbar").placeholder = "Поиск в теме «Идиомы»";
@@ -218,7 +218,7 @@ export class DictionaryScreen extends React.Component {
             Идиомы
           </div>
 
-          <div id="onlyproverbs" className="option" onClick={(e) => {
+          <div id="onlyproverbs" className="option unselectable" onClick={(e) => {
             this.hideTopics();
               document.getElementById("searchbar").placeholder = "Поиск в теме «Пословицы»";
             this.limit(e.target.id.slice(4));
