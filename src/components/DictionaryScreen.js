@@ -1,12 +1,12 @@
 import React from "react";
 import { phrases } from "./phrases";
-import logo from "../logo.svg";
-import frog from "../frog.svg";
-import iconBack from "../iconBack.svg";
-import iconTriangle from "../iconTriangle.svg";
-import iconArrowDownWhite from "../iconArrowDownWhite.svg";
-import iconArrowDownBlack from "../iconArrowDownBlack.svg";
-import iconArrowUpBlack from "../iconArrowUpBlack.svg";
+import logo from "../icons/logo.svg";
+import frog from "../icons/frog.svg";
+import iconBack from "../icons/iconBack.svg";
+import iconTriangle from "../icons/iconTriangle.svg";
+import iconArrowDownWhite from "../icons/iconArrowDownWhite.svg";
+import iconArrowDownBlack from "../icons/iconArrowDownBlack.svg";
+import iconArrowUpBlack from "../icons/iconArrowUpBlack.svg";
 
 let dictionary = phrases;
 
@@ -30,7 +30,7 @@ export class DictionaryScreen extends React.Component {
 
   search(e) {
     if(e.target.value === ""){
-      this.setState( { data: dictionary, lastSearch: dictionary,});
+      this.setState( { data: dictionary, lastSearch: dictionary,} );
     } else {
       const searchString = e.target.value.toLowerCase().trim();
       
@@ -86,7 +86,6 @@ export class DictionaryScreen extends React.Component {
     });
     
      this.setState( { data: sorted, lastSearch: lastSearch, } );
-    
   }
 
   sortButtonsHandler(e) {
@@ -155,7 +154,7 @@ export class DictionaryScreen extends React.Component {
     return (
       <div id="options">
       
-          <div id="returnAll" className="option unselectable" onClick={(e) => {
+          <div id="returnAll" className="option unselectable transitional" onClick={(e) => {
             this.hideTopics();
             this.limit(e.target.id.slice(6).toLowerCase());
             document.getElementById("searchbar").placeholder = "Искать среди всех фраз";
@@ -163,7 +162,7 @@ export class DictionaryScreen extends React.Component {
             Все темы
           </div>
 
-          <div id="onlygreetings" className="option unselectable" onClick={(e) => {
+          <div id="onlygreeting" className="option unselectable transitional" onClick={(e) => {
             this.hideTopics();
             this.limit(e.target.id.slice(4));
             document.getElementById("searchbar").placeholder = "Поиск в теме «Приветствия и прощания»";
@@ -171,7 +170,7 @@ export class DictionaryScreen extends React.Component {
             Приветствие и прощание
           </div>
 
-          <div id="onlyparenthesis" className="option unselectable" onClick={(e) => {
+          <div id="onlyintro" className="option unselectable transitional" onClick={(e) => {
             this.hideTopics();
             this.limit(e.target.id.slice(4));
             document.getElementById("searchbar").placeholder = "Поиск в теме «Вводные слова»";
@@ -179,7 +178,7 @@ export class DictionaryScreen extends React.Component {
             Вводные слова
           </div>
 
-          <div id="onlyconsents" className="option unselectable" onClick={(e) => {
+          <div id="onlyconsent" className="option unselectable transitional" onClick={(e) => {
             this.hideTopics();
             this.limit(e.target.id.slice(4));
             document.getElementById("searchbar").placeholder = "Поиск в теме «Согласие и несогласие»";
@@ -187,7 +186,7 @@ export class DictionaryScreen extends React.Component {
             Согласие и несогласие
           </div>
 
-          <div id="onlypolite" className="option unselectable" onClick={(e) => {
+          <div id="onlycourtesy" className="option unselectable transitional" onClick={(e) => {
             this.hideTopics();
             this.limit(e.target.id.slice(4));
             document.getElementById("searchbar").placeholder = "Поиск в теме «Слова вежливости»";
@@ -195,7 +194,7 @@ export class DictionaryScreen extends React.Component {
             Слова вежливости
           </div>
 
-          <div id="onlytalk" className="option unselectable" onClick={(e) => {
+          <div id="onlytalk" className="option unselectable transitional" onClick={(e) => {
             this.hideTopics();
             this.limit(e.target.id.slice(4));
             document.getElementById("searchbar").placeholder = "Поиск в теме «Участие в разговоре»";
@@ -203,7 +202,7 @@ export class DictionaryScreen extends React.Component {
             Участие в разговоре
           </div>
 
-          <div id="onlytravel" className="option unselectable" onClick={(e) => {
+          <div id="onlytravel" className="option unselectable transitional" onClick={(e) => {
             this.hideTopics();
             this.limit(e.target.id.slice(4));
             document.getElementById("searchbar").placeholder = "Поиск в теме «Путешествия»";
@@ -211,7 +210,7 @@ export class DictionaryScreen extends React.Component {
             Путешествия
           </div>
 
-          <div id="onlyidioms" className="option unselectable" onClick={(e) => {
+          <div id="onlyidiom" className="option unselectable transitional" onClick={(e) => {
             this.hideTopics();
             this.limit(e.target.id.slice(4));
             document.getElementById("searchbar").placeholder = "Поиск в теме «Идиомы»";
@@ -219,7 +218,7 @@ export class DictionaryScreen extends React.Component {
             Идиомы
           </div>
 
-          <div id="onlyproverbs" className="option unselectable" onClick={(e) => {
+          <div id="onlyproverb" className="option unselectable transitional" onClick={(e) => {
             this.hideTopics();
               document.getElementById("searchbar").placeholder = "Поиск в теме «Пословицы»";
             this.limit(e.target.id.slice(4));
@@ -250,31 +249,30 @@ export class DictionaryScreen extends React.Component {
   
       return (
       <table className="user-list table table-striped">
-        
         <thead>
           <tr>
             <th className="unselectable">Фраза
               <button id="buttonSortEnDown" className="buttonSort" onClick={this.sortButtonsHandler}> 
-                <img id="ibuttonSortEnDown" className="iconSort" src={iconArrowDownWhite}></img>  ️ ️
+                <img id="ibuttonSortEnDown" className="iconSort" src={iconArrowDownWhite} alt=" "></img>  ️ ️
               </button>
               <button id="buttonSortEnUp" className="buttonSort" onClick={this.sortButtonsHandler}>
-                <img id="ibuttonSortEnUp" className="iconSort" src={iconArrowDownBlack}></img>  ️
+                <img id="ibuttonSortEnUp" className="iconSort" src={iconArrowDownBlack} alt=" "></img>  ️
               </button>
             </th>
             <th className="unselectable">Значение
               <button id="buttonSortRuDown" className="buttonSort" onClick={this.sortButtonsHandler}>
-                <img id="ibuttonSortRuDown" className="iconSort" src={iconArrowDownWhite}></img>  ️
+                <img id="ibuttonSortRuDown" className="iconSort" src={iconArrowDownWhite} alt=" "></img>  ️
               </button>
               <button id="buttonSortRuUp" className="buttonSort" onClick={this.sortButtonsHandler}>
-                <img id="ibuttonSortRuUp" className="iconSort" src={iconArrowDownBlack}></img>  ️  ️
+                <img id="ibuttonSortRuUp" className="iconSort" src={iconArrowDownBlack} alt=" "></img>  ️  ️
               </button>
             </th>
             <th className="unselectable">Тема
               <button id="buttonSortTopicDown" className="buttonSort" onClick={this.sortButtonsHandler}>
-                <img id="ibuttonSortTopicDown" className="iconSort" src={iconArrowDownWhite}></img>  ️  ️
+                <img id="ibuttonSortTopicDown" className="iconSort" src={iconArrowDownWhite} alt=" "></img>  ️  ️
               </button>
               <button id="buttonSortTopicUp" className="buttonSort" onClick={this.sortButtonsHandler}>
-                <img id="ibuttonSortTopicUp" className="iconSort" src={iconArrowDownBlack}></img>  ️  ️
+                <img id="ibuttonSortTopicUp" className="iconSort" src={iconArrowDownBlack} alt=" "></img>  ️  ️
               </button>
             </th>
           </tr>
@@ -289,7 +287,7 @@ export class DictionaryScreen extends React.Component {
         <div id="notFoundBox">
           <p id="notFound">Ничего не найдено</p>
           <div id="frogBox">
-            <img src={frog} id="frogFace" />
+            <img src={frog} id="frogFace" alt=" "></img> 
           </div>
         </div>
       );
@@ -297,9 +295,7 @@ export class DictionaryScreen extends React.Component {
   }
 
   render() {
-
-
-    
+ 
     return (
       <div id="container">
         <div id="titleBox"></div> 
@@ -307,11 +303,11 @@ export class DictionaryScreen extends React.Component {
         <div id="sheetBox"></div>
 
         <div id="innerTitleBox">
-          <img id="logoPic" src={logo}></img>
+          <img id="logoPic" src={logo} alt=" "></img>
         </div>
         <div id="backBox">
-          <button id="back" onClick={this.props.onClick}>
-            <img src={iconBack} id="backIcon"></img>
+          <button id="back" className="transitional" onClick={this.props.onClick}>
+            <img src={iconBack} id="backIcon" alt=" "></img>
           </button>
         </div>
 
@@ -321,7 +317,7 @@ export class DictionaryScreen extends React.Component {
         </div>
         <div id="selectorBox">
           <button id="selector" onClick={this.showTopics}>
-            <img id="triangleIcon" src={iconTriangle}></img>
+            <img id="triangleIcon" src={iconTriangle} alt=" "></img>
           </button>
         </div>
 

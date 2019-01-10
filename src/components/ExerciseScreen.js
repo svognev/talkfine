@@ -1,24 +1,24 @@
 import React from "react";
 import { phrases } from "./phrases";
 import { charTable } from "./charTable";
-import logo from "../logo.svg";
-import glowingStar from "../glowingStar.svg";
-import iconBack from "../iconBack.svg";
-import iconSound from "../iconSound.svg";
-import iconPlay from "../iconPlay.svg";
-import iconLeft from "../iconLeft.svg"
-import iconRight from "../iconRight.svg"
+import logo from "../icons/logo.svg";
+import glowingStar from "../icons/glowingStar.svg";
+import iconBack from "../icons/iconBack.svg";
+import iconSound from "../icons/iconSound.svg";
+import iconPlay from "../icons/iconPlay.svg";
+import iconLeft from "../icons/iconLeft.svg"
+import iconRight from "../icons/iconRight.svg"
 
 const topics = {
-    "01": "greetings",
-    "02": "parenthesis",
-    "03": "consents",
-    "04": "polite",
+    "01": "greeting",
+    "02": "intro",
+    "03": "consent",
+    "04": "courtesy",
     "05": "talk",
     "06": "travel",
-    "07": "idioms",
-    "08": "idioms2",
-    "09": "proverbs",
+    "07": "idiom",
+    "08": "idiom2",
+    "09": "proverb",
 };
 
 const topicNames = {
@@ -183,8 +183,8 @@ export class ExerciseScreen extends React.Component {
         let userText = document.getElementById("area").value;
 
         let correctText = this.state.currentTask[this.state.fromRu ? "en" : "ru"];
-        correctText = correctText.replace(/[\u2000-\u206F\u2E00-\u2E7F\\'!?…"#$%&()*+,\n\-.\/:;<=>@\[\]^_`{|}~]/g, "").trim().replace(/\s+/g, " ").replace(/ё/g, "е").toLowerCase();
-        userText = userText.replace(/[\u2000-\u206F\u2E00-\u2E7F\\'!?…"#$%&()*+,\n\-.\/:;<=>@\[\]^_`{|}~]/g, "").trim().replace(/\s+/g, " ").replace(/ё/g, "е").toLowerCase();
+        correctText = correctText.replace(/[\u2000-\u206F\u2E00-\u2E7F\\'!?…"#$%&()*+,\n\-./:;<=>@[\]^_`{|}~]/g, "").trim().replace(/\s+/g, " ").replace(/ё/g, "е").toLowerCase();
+        userText = userText.replace(/[\u2000-\u206F\u2E00-\u2E7F\\'!?…"#$%&()*+,\n\-./:;<=>@[\]^_`{|}~]/g, "").trim().replace(/\s+/g, " ").replace(/ё/g, "е").toLowerCase();
     
         const altLang = this.state.fromRu ? "altEn" : "altRu";
 
@@ -319,7 +319,7 @@ export class ExerciseScreen extends React.Component {
                   { this.state.mistakes.length ? 
                   this.renderMistakes(this.state.mistakes) : 
                   (<div id="starBox">
-                    <img id="star" src={glowingStar}></img>
+                    <img id="star" src={glowingStar} alt=" "></img>
                   </div>)
                   }
                 
@@ -339,14 +339,12 @@ export class ExerciseScreen extends React.Component {
                     utter.voice = this.state.voice;
                     synth.speak(utter)}
                     }>
-                  <img className="playIcon" src={iconPlay}></img>
+                  <img className="playIcon" src={iconPlay} alt=" "></img>
                 </button>
                 <p className="mistakeText"><b>{en}</b> — {ru}</p>
                 </li>
               );
             });
-
-        
 
         return (
               <div id="mistakesBox">
@@ -355,19 +353,17 @@ export class ExerciseScreen extends React.Component {
                 </ul>
               </div>
         );
-
     }
 
 
     renderButtons() {
 
         if (!this.state.isAnswered) {
-            return <button id="forward" onClick={this.answerHandler} 
-            style={{"opacity": 0 , "transition": "none", "-webkit-transition": "none", 
-            "-moz-transition": "none", "-o-transition": "none"}}>Проверить</button>
+            return <button id="forward" className="mainButton" onClick={this.answerHandler} 
+            style={{"opacity": 0}}>Проверить</button>
         } else if (this.state.step - 1 === this.state.tasks.length) {
             document.getElementById("area").blur(); // for Firefox that keeps focus on the text-area
-            return <button id="forward" onClick={this.props.onClick }>В меню</button>
+            return <button id="forward" className="mainButton transitional" onClick={this.props.onClick }>В меню</button>
         } else {
             document.body.onkeypress = (e) => { 
                 if (e.keyCode === 13 && this.state.isAnswered) {
@@ -379,7 +375,7 @@ export class ExerciseScreen extends React.Component {
                 } 
             };
             document.getElementById("area").blur(); // for Firefox that keeps focus on the text-area
-            return <button id="forward" onClick={this.nextStep}>Дальше</button>
+            return <button id="forward"  className="mainButton transitional" onClick={this.nextStep}>Дальше</button>
         }
     }
     
@@ -389,36 +385,36 @@ export class ExerciseScreen extends React.Component {
         if (this.state.isAnswered) {
             if (this.state.isCorrect && !this.state.fromRu) {
                 return (<div id="innerCorectBox">
-                           <button id="listen" onClick={() => {  
+                           <button id="listen" className="transitional" onClick={() => {  
                                let  utter = new SpeechSynthesisUtterance(this.state.currentTask.en);
                                utter.voice = this.state.voice;
                                synth.speak(utter);
                                }}>
-                             <img id="listenIcon" src={iconSound}></img>
+                             <img id="listenIcon" src={iconSound} alt=" "></img>
                            </button>
                            <p id="correct">{this.state.currentTask.en} </p>  
                         </div>
                 );
             } else if (this.state.fromRu) {
                 return (<div id="innerCorectBox">
-                    <button id="listen" onClick={() => {  
+                    <button id="listen" className="transitional" onClick={() => {  
                                let  utter = new SpeechSynthesisUtterance(this.state.currentTask.en);
                                utter.voice = this.state.voice;
                                synth.speak(utter);
                                }}>
-                      <img id="listenIcon" src={iconSound}></img>
+                      <img id="listenIcon" src={iconSound} alt=" "></img>
                     </button>
                     <p id="correct">{this.state.currentTask.en} </p>
                  </div>
                 );
             } else {
               return (<div id="innerCorectBox">
-                <button id="listen" onClick={() => {  
+                <button id="listen" className="transitional" onClick={() => {  
                            let  utter = new SpeechSynthesisUtterance(this.state.currentTask.en);
                            utter.voice = this.state.voice;
                            synth.speak(utter);
                            }}>
-                  <img id="listenIcon" src={iconSound}></img>
+                  <img id="listenIcon" src={iconSound} alt=" "></img>
                 </button>
                 <p id="correct">{this.state.currentTask.ru} </p>
              </div>);  
@@ -438,11 +434,11 @@ export class ExerciseScreen extends React.Component {
 
 
             <div id="innerTitleBox">
-              <img id="logoPic" src={logo}></img>
+              <img id="logoPic" src={logo} alt=" "></img>
             </div>
             <div id="backBox">
-              <button id="back" onClick={this.props.onClick}>
-                <img src={iconBack} id="backIcon"></img>
+              <button id="back" className="transitional" onClick={this.props.onClick}>
+                <img src={iconBack} id="backIcon" alt=" "></img>
               </button>
             </div>
 
@@ -451,8 +447,8 @@ export class ExerciseScreen extends React.Component {
               <p id="topic" className="unselectable">{topicNames[this.props.topic]}</p>
             </div>
             <div id="progressBox">
-              <div id="unfilled" className="progressBar">
-                <div id="filled" className="progressBar" 
+              <div id="unfilled" className="progressBar transitional">
+                <div id="filled" className="progressBar transitional" 
                 style={{ width: Math.floor( ( (this.state.step - 1) / this.state.tasks.length ) * 100 ) + "%"}}>
                 </div>
               </div>
@@ -506,7 +502,7 @@ export class ExerciseScreen extends React.Component {
               : <div id="invisible"></div>  }
             { this.state.step === 1 
               ? <div id="startBox">
-                   <button id="start" onClick={() => {
+                   <button id="start" className="mainButton transitional" onClick={() => {
                      document.getElementById("startBox").style.display = "none";
                      document.getElementById("messageBox").style.display = "none";
                      document.getElementById("pageNumberBox").style.display = "none";
@@ -520,11 +516,13 @@ export class ExerciseScreen extends React.Component {
               ? 
               <div id="pageNumberBox">
                 <button id="turnLeft" className="turner" onClick={() => { this.turnThePage(false); } }>
-                  <img id="turnLeftIcon" className="turnerIcon" src={iconLeft}></img>
+                  <img id="turnLeftIcon" className="turnerIcon" src={iconLeft} alt=" "></img>
                 </button>
-                <p id="pageNumber" className="unselectable">{this.state.currentPage + 1}/{Math.ceil(orderedTasks.length / 5)}</p>
+                  <p id="pageNumber" className="unselectable">
+                    {this.state.currentPage + 1}/{Math.ceil(orderedTasks.length / 5)}
+                  </p>
                 <button id="turnRight" className="turner" onClick={() => { this.turnThePage(true); } }>
-                  <img id="turnRightIcon" className="turnerIcon" src={iconRight}></img>
+                  <img id="turnRightIcon" className="turnerIcon" src={iconRight} alt=" "></img>
                 </button>
               </div>
               : <div id="invisible"></div>

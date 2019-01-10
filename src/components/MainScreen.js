@@ -1,18 +1,18 @@
 import React from "react";
-import logo from "../logo.svg";
-import icon01 from "../icon01.svg";
-import icon02 from "../icon02.svg";
-import icon03 from "../icon03.svg";
-import icon04 from "../icon04.svg";
-import icon05 from "../icon05.svg";
-import icon06 from "../icon06.svg";
-import icon07 from "../icon07.svg";
-import icon08 from "../icon08.svg";
-import icon09 from "../icon09.svg";
-import icon10 from "../icon10.svg";
-import iconDownwards from "../iconDownwards.svg";
-import iconUpwards from "../iconUpwards.svg"
-import close from "../close.svg";
+import logo from "../icons/logo.svg";
+import icon01 from "../icons/icon01.svg";
+import icon02 from "../icons/icon02.svg";
+import icon03 from "../icons/icon03.svg";
+import icon04 from "../icons/icon04.svg";
+import icon05 from "../icons/icon05.svg";
+import icon06 from "../icons/icon06.svg";
+import icon07 from "../icons/icon07.svg";
+import icon08 from "../icons/icon08.svg";
+import icon09 from "../icons/icon09.svg";
+import icon10 from "../icons/icon10.svg";
+import iconDownwards from "../icons/iconDownwards.svg";
+import iconUpwards from "../icons/iconUpwards.svg"
+import close from "../icons/close.svg";
 
 
 
@@ -28,7 +28,7 @@ export class MainScreen extends React.Component {
               <div id="glossaryBox"></div>
             
               <div id="innerTitleBox">
-                <img id="logoPic" src={logo}></img>
+                <img id="logoPic" src={logo} alt=" "></img>
               </div>
 
               <div id="innerSubtitleBox">
@@ -39,8 +39,8 @@ export class MainScreen extends React.Component {
               </div>
   
               <div id="itemBox01" className="itemBox">
-                <button className="item" onClick={() => this.props.onClick("exercise01")}>
-                  <img id="icon01" className="icons" src={icon01}></img>
+                <button className="item transitional" onClick={() => this.props.onClick("exercise01")}>
+                  <img id="icon01" className="icons" src={icon01} alt=" "></img>
                 </button>
               </div>
               <div id="subscriptBox01" className="subscriptBox">
@@ -48,8 +48,8 @@ export class MainScreen extends React.Component {
               </div>
   
               <div id="itemBox02" className="itemBox">
-                <button className="item" onClick={() => this.props.onClick("exercise02")}>
-                  <img id="icon02" className="icons" src={icon02}></img>
+                <button className="item transitional" onClick={() => this.props.onClick("exercise02")}>
+                  <img id="icon02" className="icons" src={icon02} alt=" "></img>
                 </button>
               </div>
               <div id="subscriptBox02" className="subscriptBox">
@@ -57,8 +57,8 @@ export class MainScreen extends React.Component {
               </div>
   
               <div id="itemBox03" className="itemBox">
-                <button className="item" onClick={() => this.props.onClick("exercise03")}>
-                  <img id="icon03"  className="icons" src={icon03}></img>
+                <button className="item transitional" onClick={() => this.props.onClick("exercise03")}>
+                  <img id="icon03"  className="icons" src={icon03} alt=" "></img>
                 </button>
               </div>
               <div id="subscriptBox03" className="subscriptBox">
@@ -66,8 +66,8 @@ export class MainScreen extends React.Component {
               </div>
   
               <div id="itemBox04" className="itemBox">
-                <button className="item" onClick={() => this.props.onClick("exercise04")}>
-                  <img id="icon04"  className="icons" src={icon04}></img>
+                <button className="item transitional" onClick={() => this.props.onClick("exercise04")}>
+                  <img id="icon04"  className="icons" src={icon04} alt=" "></img>
                 </button>
               </div>
               <div id="subscriptBox04" className="subscriptBox">
@@ -75,8 +75,8 @@ export class MainScreen extends React.Component {
               </div>
   
               <div id="itemBox05" className="itemBox">
-                <button className="item" onClick={() => this.props.onClick("exercise05")}>
-                  <img id="icon05"  className="icons" src={icon05}></img>
+                <button className="item transitional" onClick={() => this.props.onClick("exercise05")}>
+                  <img id="icon05"  className="icons" src={icon05} alt=" "></img>
                 </button>
               </div>
               <div id="subscriptBox05" className="subscriptBox">
@@ -84,8 +84,8 @@ export class MainScreen extends React.Component {
               </div>
   
               <div id="itemBox06" className="itemBox">
-                <button className="item" onClick={() => this.props.onClick("exercise06")}>
-                  <img id="icon06"  className="icons" src={icon06}></img>
+                <button className="item transitional" onClick={() => this.props.onClick("exercise06")}>
+                  <img id="icon06"  className="icons" src={icon06} alt=" "></img>
                 </button>
               </div>
               <div id="subscriptBox06" className="subscriptBox">
@@ -93,8 +93,8 @@ export class MainScreen extends React.Component {
               </div>
   
               <div id="itemBox07" className="itemBox">
-                <button className="item" id="idiom1Item" onClick={() => this.props.onClick("exercise07")}>
-                  <img id="icon07"  className="icons" src={icon07}></img>
+                <button className="item transitional" id="idiom1Item" onClick={() => this.props.onClick("exercise07")}>
+                  <img id="icon07"  className="icons" src={icon07} alt=" "></img>
                 </button>
               </div>
               <div id="subscriptBox07" className="subscriptBox">
@@ -102,8 +102,8 @@ export class MainScreen extends React.Component {
               </div>
   
               <div id="itemBox08" className="itemBox">
-                <button className="item" id="idiom2Item" onClick={() => this.props.onClick("exercise08")}>
-                  <img id="icon08"  className="icons" src={icon08}></img>
+                <button className="item transitional" id="idiom2Item" onClick={() => this.props.onClick("exercise08")}>
+                  <img id="icon08"  className="icons" src={icon08} alt=" "></img>
                 </button>
               </div>
               <div id="subscriptBox08" className="subscriptBox">
@@ -111,8 +111,8 @@ export class MainScreen extends React.Component {
               </div>
   
               <div id="itemBox09" className="itemBox">
-                <button className="item" id="proverbItem" onClick={() => this.props.onClick("exercise09")}>
-                  <img id="icon09" className="icons" src={icon09}></img>
+                <button className="item transitional" id="proverbItem" onClick={() => this.props.onClick("exercise09")}>
+                  <img id="icon09" className="icons" src={icon09} alt=" "></img>
                 </button>
               </div>
               <div id="subscriptBox09" className="subscriptBox">
@@ -121,8 +121,8 @@ export class MainScreen extends React.Component {
   
   
               <div id="itemBox10" className="itemBox">
-                <button className="item" id="glossaryItem" onClick={() => this.props.onClick("dictionary")}>
-                   <img id="icon10" className="icons" src={icon10}></img>
+                <button className="item transitional" id="glossaryItem" onClick={() => this.props.onClick("dictionary")}>
+                   <img id="icon10" className="icons" src={icon10} alt=" "></img>
                 </button>
               </div>
               <div id="subscriptBox10" className="subscriptBox">
@@ -138,7 +138,7 @@ export class MainScreen extends React.Component {
                   document.getElementById("itemBox08").style.zIndex = 4;
                   document.getElementById("subscriptBox08").style.zIndex = 4;
                 }}>
-                  <img className="iconLevel" id="iconLevelUp" src={iconUpwards}></img>
+                  <img className="iconLevel" id="iconLevelUp" src={iconUpwards} alt=" "></img>
                 </button>
                 <button className="idiomsLevel" id="levelDown" onClick={() => {
                   document.getElementById("levelDown").style.display = "none";
@@ -148,7 +148,7 @@ export class MainScreen extends React.Component {
                   document.getElementById("itemBox07").style.zIndex = 4;
                   document.getElementById("subscriptBox07").style.zIndex = 4;
                 }}>
-                  <img className="iconLevel" id="iconLevelDown" src={iconDownwards}></img>
+                  <img className="iconLevel" id="iconLevelDown" src={iconDownwards} alt=" "></img>
                 </button>
               </div>
 
@@ -175,7 +175,7 @@ export class MainScreen extends React.Component {
                 document.getElementById("aboutInnerBox").style.display = "none";
                 document.getElementById("aboutClose").style.display = "none";
                 ;}}>
-                  <img id="closeIcon" src={close}></img>
+                  <img id="closeIcon" src={close} alt=" "></img>
               </div>
 
               <div id="aboutInnerBox">
@@ -200,7 +200,7 @@ export class MainScreen extends React.Component {
                   <br />
                   сумму на карту Сбербанка:
                   <br />
-                  5469 4200 1460 0269
+                  0000 0000 0000 0000
                   </p>
                 </div>
               </div>
