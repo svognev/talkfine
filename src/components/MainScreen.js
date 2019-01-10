@@ -1,4 +1,5 @@
 import React from "react";
+import logo from "../logo.svg";
 import icon01 from "../icon01.svg";
 import icon02 from "../icon02.svg";
 import icon03 from "../icon03.svg";
@@ -11,6 +12,9 @@ import icon09 from "../icon09.svg";
 import icon10 from "../icon10.svg";
 import iconDownwards from "../iconDownwards.svg";
 import iconUpwards from "../iconUpwards.svg"
+import close from "../close.svg";
+
+
 
 export class MainScreen extends React.Component {
 
@@ -24,8 +28,9 @@ export class MainScreen extends React.Component {
               <div id="glossaryBox"></div>
             
               <div id="innerTitleBox">
-                <h3 id="logo" className="unselectable">Толк файн</h3>
+                <img id="logoPic" src={logo}></img>
               </div>
+
               <div id="innerSubtitleBox">
                 <p id="subtitle" className="unselectable">Упражнения по темам:</p>
               </div>
@@ -145,6 +150,59 @@ export class MainScreen extends React.Component {
                 }}>
                   <img className="iconLevel" id="iconLevelDown" src={iconDownwards}></img>
                 </button>
+              </div>
+
+
+              <div id="infoBox">
+                <div id="info" onClick={() => {
+                  document.getElementById("aboutBox").style.display = "grid";
+                  document.getElementById("aboutInnerBox").style.display = "flex";
+                  document.getElementById("aboutClose").style.display = "flex";
+                  }}>
+                <p id="infoScript" className="unselectable">i</p>
+                </div>
+              </div>
+
+              <div id="aboutBox" onClick={() => {
+                document.getElementById("aboutBox").style.display = "none"
+                document.getElementById("aboutInnerBox").style.display = "none";
+                document.getElementById("aboutClose").style.display = "none";
+                ;}}>
+              </div>
+
+              <div id="aboutClose" onClick={() => {
+                document.getElementById("aboutBox").style.display = "none"
+                document.getElementById("aboutInnerBox").style.display = "none";
+                document.getElementById("aboutClose").style.display = "none";
+                ;}}>
+                  <img id="closeIcon" src={close}></img>
+              </div>
+
+              <div id="aboutInnerBox">
+                <div id="aboutWindow">
+
+                  <p id="about">
+                  «Толк Файн» поможет вам
+                  <br />
+                  приятно провести время и выучить
+                  <br />
+                  самые популярные устойчивые 
+                  <br />
+                  выражения английского языка.
+                  <br /><br />
+                  Почта для предложений и вопросов: <b>svognev@yandex.ru</b>
+                  <br /><br />
+                  Проект существует за счет свободных 
+                  <br />
+                  пожертвований. Если вам нравится то, 
+                  <br />
+                  что мы делаем, присылайте любую
+                  <br />
+                  сумму на карту Сбербанка:
+                  <br />
+                  5469 4200 1460 0269
+                  </p>
+                </div>
               </div>
            </div>
         );

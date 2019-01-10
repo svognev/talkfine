@@ -1,5 +1,6 @@
 import React from "react";
 import { phrases } from "./phrases";
+import logo from "../logo.svg";
 import frog from "../frog.svg";
 import iconBack from "../iconBack.svg";
 import iconTriangle from "../iconTriangle.svg";
@@ -306,7 +307,7 @@ export class DictionaryScreen extends React.Component {
         <div id="sheetBox"></div>
 
         <div id="innerTitleBox">
-          <h3 id="logo" className="unselectable">Толк файн</h3>
+          <img id="logoPic" src={logo}></img>
         </div>
         <div id="backBox">
           <button id="back" onClick={this.props.onClick}>

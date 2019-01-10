@@ -12,6 +12,17 @@
   }
 }
 
+@keyframes advent {
+  0% {
+    opacity: 0;
+
+  }
+  
+  100% {
+    opacity: 1;
+
+  }
+}
 
 * {                   
     box-sizing: border-box;
@@ -28,6 +39,7 @@ body {
 
   body:after {
     content:
+        url("./logo.svg")
         url("./frog.svg")
         url("./glowingStar.svg")
         url("./icon01.svg")
@@ -48,8 +60,7 @@ body {
         url("./iconPlay.svg")
         url("./iconSound.svg")
         url("./iconTriangle.svg")
-        url("./iconUpwards.svg")
-        
+        url("./iconUpwards.svg")  
     ;
     display: none;
 } 
@@ -123,15 +134,6 @@ li {
   -webkit-user-select: none; /* Google Chrome, Opera Next, Safari */
 }
 
-
-
-
-
-
-.space10 {
-    height: 10px;
-}
-  
   .workspace {
     width: 500px;
     position: absolute;
@@ -609,7 +611,7 @@ p {
     grid-row: 1 / 3;
     
     background-color: white;
-    box-shadow: 0px 1px 20px rgba(168, 168, 168, 0.8);
+    box-shadow: 0px 1px 20px rgba(169, 169, 169, 0.8);
     
     z-index: 4;
   }
@@ -620,33 +622,110 @@ p {
 
     display: flex;
     justify-content: center;
+    align-items: center;
 
-    margin-left: 5%;
     z-index: 5;
   }
 
-  #logo {
-    font-family: Georgia, "Times New Roman", Times, serif;
-    font-size: 5vh;
-    color: rgb(126, 126, 126);
-
-    align-self: center;
+  #logoPic {
+    width: 52%;
   }
 
+  #infoBox {
+    grid-column: 30 / 32;
+    grid-row: 1 / 3;
 
+    z-index: 6;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+  }
+
+  #info {
+    border: 1px solid lightgrey;
+    text-align: center;
+    width: 50%;
+    height: 50%;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: silver;
+
+  }
+
+  #info:hover {
+    border: 1px solid silver;
+  }
+
+  #infoScript {
+    font-size: 2.6vh;
+    font-family: serif;
+  }
+
+  #aboutBox {
+    display: none;
+    grid-column: 1 / 33;
+    grid-row: 1 / 19;
+
+    background-color: black;
+    opacity: 0.7;
+    z-index: 6;
+  }
+
+  #aboutInnerBox {
+    display: none;
+    grid-column: 10 / 23;
+    grid-row: 4 / 17;
+    z-index: 7;
+  }
+
+  #aboutWindow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 100%;
+    padding: 8%;
+  }
+
+  #about {
+    text-align: center;
+    font-size: 2.7vh;
+  }
+
+  #aboutClose {
+    grid-column: 22 / 23;
+    grid-row: 4 / 5;
+
+    z-index: 8;
+    background: none;
+    display: none;
+  }
+
+  #closeIcon {
+    align-self: flex-end;
+    justify-self: flex-start;
+    width: 65%;
+
+  }
 
 /* MAIN SCREEN */
 
   #subtitle {
     font-size: 3vh;
     align-self: center;
-    color: darkgrey;
+    color: silver;
   }
 
   #extraTitle {
     font-size: 3vh;
     align-self: center;
-    color: darkgrey;
+    color: silver;
     margin-left: 2vh;
   }
 
@@ -845,7 +924,7 @@ p {
     margin: auto;
     width: 100%;
     height: 100%;
-    background-color: rgb(165, 165, 165);
+    background-color: darkgrey;
     z-index: 5;
     border-radius: 100%;
     margin-top: -25%;
@@ -992,6 +1071,10 @@ p {
  
   /*EXERCISE SCREEN*/
 
+  #invisible {
+    display: none;
+  }
+
 
   #topic {
     font-size: 3vh;
@@ -1061,7 +1144,7 @@ p {
     width: 50%;
     color: white;
     box-shadow: 4px 4px 12px rgba(240, 240, 240);
-    background-color: rgb(155, 155, 155);
+    background-color: rgb(173, 173, 173);
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -1069,7 +1152,7 @@ p {
   }
 
    #back:hover {
-     background-color: rgb(135, 135, 135);;
+     background-color: rgb(153, 153, 153);
    }
   
   #backIcon {
@@ -1207,7 +1290,73 @@ p {
     background-color: rgb(10, 124, 225);
     
   }
-  
+
+  #startBox {
+    grid-column: 13 / 20;
+    grid-row: 16 / 18;
+
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 4;
+  }
+
+  #start {
+      background-color: dodgerblue;
+
+      border-radius: 1.7vh;
+
+      box-shadow: 1px 1px 3px silver;
+
+      padding: 0;
+      width: 100%;
+      height: 80%;
+      color: white;
+      font-size: 3.2vh;
+      -webkit-transition: all 0.5s ease;;
+      -moz-transition: all 0.5s ease;;
+      -o-transition: all 0.5s ease;;
+      transition: all 0.5s ease;
+      opacity: 0.9;
+}
+
+  #start:hover {
+    background-color: rgb(10, 124, 225);
+    
+  }
+
+  #pageNumberBox {
+    grid-column: 14 / 19;
+    grid-row: 14 / 16;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 4;
+  }
+
+  #pageNumber {
+    font-size: 3vh;
+    font-weight: bold;
+    color: black;
+    }
+
+    .turner {
+      border-radius: 100%;
+      width: 6vh;
+      height: 6vh;
+      background: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 2%;
+      margin-right: 2.3%;
+    }
+    
+    .turnerIcon {
+      width: 80%;
+    }
+
   #commentBox {
     grid-column: 13 / 20;
     grid-row: 15 / 16;
@@ -1270,6 +1419,7 @@ p {
   font-size: 3.8vh;
   font-weight: bold;
   margin-top: 2%;
+  margin-left: -4vh;
   color: rgb(44, 44, 44);
   }
   
@@ -1283,10 +1433,12 @@ p {
     font-size: 2.6vh;
     display: flex;
     align-items: center;
+    margin-left: 1.5vh;
   }
 
   .mistakeText {
     margin-left: 1.5vh;
+    
   }
 
 
@@ -1296,7 +1448,7 @@ p {
   grid-row: 3 / 19;
 
   z-index: 3;
-  display: none;
+  display: block;
 }
 
 #innerMessageBox {
@@ -1349,7 +1501,7 @@ p {
 
 
 #mistakesBox {
-  grid-column: 10 / 32;
+  grid-column: 10 / 27;
   grid-row: 5 / 19;
   display: flex;
   justify-content: left;
@@ -1373,6 +1525,7 @@ padding-left: 5.8%;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-shrink: 0;
 } 
 
 .play:hover {
@@ -1385,6 +1538,9 @@ padding-left: 5.8%;
   margin-left: 5%;
 }
 
+.dislocated {
+  margin-left: -4vh;
+}
 
 /* DICTIONARY SCREEN */
 
@@ -1447,6 +1603,7 @@ th {
   padding-top: 0px;
   display: block;
   margin-top: -0.5%;
+  margin-left: -3%;
 }
 
 
@@ -1622,6 +1779,7 @@ width: 1.6vh;
 
 #frogBox {
   margin-top: 6%;
+  margin-left: -1%;
   width: 100%;
   height: 50vh;
   text-align: center;
@@ -1663,9 +1821,11 @@ width: 1.6vh;
       grid-column: 6 / 14;
       grid-row: 2 / 3;
     }
-    #logo {
-      font-size: 7vw;
-    }
+
+    #logoPic {
+      width: 85%;
+    }    
+
 
     /* MAIN SCREEN */
 
@@ -1811,6 +1971,41 @@ width: 1.6vh;
       grid-row: 31 / 32;
     }
 
+    #infoBox {
+      grid-column: 15 / 18;
+      grid-row: 1 / 4;
+  
+    }
+  
+    #infoScript {
+      font-size: 3.5vw;
+    }
+  
+      #aboutBox {
+        grid-column: 1 / 19;
+        grid-row: 1 / 33;
+      }
+    
+      #aboutInnerBox {
+        grid-column: 2 / 18;
+        grid-row: 5 / 21;
+      }
+    
+      #about {
+        font-size: 3.4vw;
+      }
+    
+      #aboutClose {
+        grid-column: 16 / 17;
+        grid-row: 5 / 6;
+  
+      }
+  
+      #closeIcon {
+        width: 75%;
+      }
+  
+
     /*EXERCISE SCREEN*/
 
     #topic {
@@ -1833,6 +2028,35 @@ width: 1.6vh;
       font-size: 4.2vw;
       border-radius: 2.5vw;
     }
+    #start {
+      font-size: 4.2vw;
+      border-radius: 2.5vw;
+    }
+    
+  #pageNumberBox {
+    grid-column: 7 / 13;
+    grid-row: 19 / 21;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 4;
+  }
+
+  #pageNumber {
+    font-size: 4.2vw;
+    }
+
+    .turner {
+      width: 8vw;
+      height: 8vw;
+      margin-left: 2%;
+      margin-right: 2.3%;
+    }
+    
+    .turnerIcon {
+      width: 80%;
+    }
+
     #comment {
       font-size: 2.8vw;
     }
@@ -1893,6 +2117,11 @@ width: 1.6vh;
       grid-column: 5 / 15;
       grid-row: 19 / 22;
     }
+
+    #startBox {
+      grid-column: 5 / 15;
+      grid-row: 21 / 24;
+    }
     
     #commentBox {
       grid-column: 5 / 15;
@@ -1923,6 +2152,7 @@ width: 1.6vh;
     #praise {
       font-size: 4.38vw;
       margin-top: 7%;
+      margin-left: 0;
     }
       
     #review {
@@ -1935,6 +2165,7 @@ width: 1.6vh;
     .mistake {
       margin-top: 2vw;
       font-size: 3.5vw;
+      margin-left: 0;
     }
 
     .mistakeText {
@@ -1956,7 +2187,7 @@ width: 1.6vh;
     }
     
     #praiseBox {
-      grid-column: 3 / 17;
+      grid-column: 2 / 18;
       grid-row: 2 / 4; 
     }
     
@@ -1991,6 +2222,10 @@ width: 1.6vh;
       width: 4.5vw;
       height: 4.5vw;
     } 
+
+    .dislocated {
+      margin-left: 0;
+    }
 
     /* DICTIONARY SCREEN */
     
@@ -2029,6 +2264,7 @@ width: 1.6vh;
     
     #notFound {
       font-size: 3.5vw;
+      margin-left: 0;
     }
     
     
@@ -2083,6 +2319,7 @@ width: 1.6vh;
     #frogBox {
       margin-top: 12%;
       height: 80vw;
+      margin-left: 0;
     }
     
     #frogFace {
@@ -2119,11 +2356,6 @@ width: 1.6vh;
 
   @media all and (max-height: 450px) and (min-width: 800px)  {
 
-    #logo {
-      font-size: 22px;
-    }
-
-    
     #subtitle {
       font-size: 14px; 
     }
@@ -2139,6 +2371,14 @@ width: 1.6vh;
 
     .iconLevel {
       width: 10px;
+    }
+
+    #about {
+      font-size: 12px;
+    }
+
+    #infoScript {
+      font-size: 10px;
     }
 
 
@@ -2166,6 +2406,10 @@ width: 1.6vh;
     }
 
     #forward {
+      font-size: 14px;
+    }
+
+    #start {
       font-size: 14px;
     }
 
@@ -2197,6 +2441,16 @@ width: 1.6vh;
       width: 18px;
       height: 18px;
   }
+
+  #pageNumber {
+    font-size: 14px;
+    }
+
+    .turner {
+      width: 27px;
+      height: 27px;
+    }
+    
 
   /* DICTIONARY SCREEN */
 

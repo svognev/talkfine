@@ -1,10 +1,13 @@
 import React from "react";
 import { phrases } from "./phrases";
 import { charTable } from "./charTable";
+import logo from "../logo.svg";
 import glowingStar from "../glowingStar.svg";
 import iconBack from "../iconBack.svg";
 import iconSound from "../iconSound.svg";
 import iconPlay from "../iconPlay.svg";
+import iconLeft from "../iconLeft.svg"
+import iconRight from "../iconRight.svg"
 
 const topics = {
     "01": "greetings",
@@ -31,8 +34,9 @@ const topicNames = {
 }
 
 const synth =  window.speechSynthesis;
-const isMobile = navigator.userAgent.toLowerCase().match(/android|ipad|iphone|ipod|webos|blackberry/i) != null;
+const isMobile = navigator.userAgent.toLowerCase().match(/android|ipad|iphone|ipod|webos|firefox|blackberry/i) != null;
 let exceptionalKey = false;
+let orderedTasks = [];
 
 export class ExerciseScreen extends React.Component {
     constructor(props) {
@@ -49,6 +53,7 @@ export class ExerciseScreen extends React.Component {
             comment: " ",
             voice: voice,
             mistakes: [],
+            currentPage: 0,
             }
 
         this.nextStep = this.nextStep.bind(this);
@@ -68,6 +73,8 @@ export class ExerciseScreen extends React.Component {
               tasks.push(phrases[i]);
             } 
         }
+        orderedTasks = tasks.slice();
+
         for (let i = 0; i < tasks.length; i++) {
             let j = Math.floor(Math.random() * tasks.length);
             let k = Object.assign({}, tasks[i]);
@@ -257,12 +264,45 @@ export class ExerciseScreen extends React.Component {
         return uniqueMistakes;
     }
 
+    turnThePage(isForward) {
+        let lastPage = Math.floor(this.state.tasks.length / 5);
+        if (isForward) {
+            if (this.state.currentPage < lastPage) {
+                this.setState( { currentPage: this.state.currentPage + 1, } );
+            } else {
+                this.setState( { currentPage: 0, } );
+            }
+            
+        } else {
+            if (this.state.currentPage > 0) {
+                this.setState( { currentPage: this.state.currentPage - 1, } );
+            } else {
+                this.setState( { currentPage: lastPage, } );
+            }
+        }
+    }
+
     renderMessage() {
+
+        if (this.state.step === 1) {
+              return (
+                <div id="innerMessageBox">
+                  <div id="praiseBox">
+                    <p id="praise" className="unselectable">Исследуйте список выражений</p>
+                  </div> 
+
+                  <div id="reviewBox">
+                    <p id="review" className="unselectable dislocated">Или начните упражнение сразу</p>
+                  </div> 
+
+                  { this.renderMistakes(orderedTasks.slice(this.state.currentPage * 5, this.state.currentPage * 5 + 5)) }
+                </div>
+              );
+        }
 
         if (this.state.step - 1 === this.state.tasks.length) {
 
             if (this.state.mistakes.length <= 5) {
-              document.getElementById("messageBox").style.display = "block";
               return (
                 <div id="innerMessageBox">
 
@@ -277,7 +317,7 @@ export class ExerciseScreen extends React.Component {
                   }
  
                   { this.state.mistakes.length ? 
-                  this.renderMistakes() : 
+                  this.renderMistakes(this.state.mistakes) : 
                   (<div id="starBox">
                     <img id="star" src={glowingStar}></img>
                   </div>)
@@ -289,9 +329,8 @@ export class ExerciseScreen extends React.Component {
         }
     }
 
-    renderMistakes() {
+    renderMistakes(mistakes) {
 
-        let mistakes = this.state.mistakes;
         mistakes = mistakes.map(({en, ru}) => {
               return (
                 <li key={en} className="mistake">
@@ -301,7 +340,8 @@ export class ExerciseScreen extends React.Component {
                     synth.speak(utter)}
                     }>
                   <img className="playIcon" src={iconPlay}></img>
-                </button><p className="mistakeText"><b>{en}</b> — {ru}</p>
+                </button>
+                <p className="mistakeText"><b>{en}</b> — {ru}</p>
                 </li>
               );
             });
@@ -398,13 +438,14 @@ export class ExerciseScreen extends React.Component {
 
 
             <div id="innerTitleBox">
-              <h3 id="logo" className="unselectable">Толк файн</h3>
+              <img id="logoPic" src={logo}></img>
             </div>
             <div id="backBox">
               <button id="back" onClick={this.props.onClick}>
                 <img src={iconBack} id="backIcon"></img>
               </button>
             </div>
+
 
             <div id="topicBox">
               <p id="topic" className="unselectable">{topicNames[this.props.topic]}</p>
@@ -425,7 +466,7 @@ export class ExerciseScreen extends React.Component {
             </div>
 
             <div id="areaBox">
-            <textarea id="area" lang="en" placeholder="Введите перевод" autoFocus 
+            <textarea id="area" lang="en" placeholder="Введите перевод" autoFocus disabled="true"
                 onInput={() => {
                     this.newLineCheck(document.getElementById("area").value)
                     if (document.getElementById("area").value !== "") {
@@ -457,7 +498,37 @@ export class ExerciseScreen extends React.Component {
             <div id="correctBox">
               { this.renderCorrect() }
             </div>
-            <div id="messageBox">{ this.renderMessage() }</div>
+            { this.state.step - 1 === this.state.tasks.length
+              ? <div id="messageBox">{ this.renderMessage() }</div>
+              : <div id="invisible"></div>  }
+            { this.state.step === 1
+              ? <div id="messageBox">{ this.renderMessage() }</div>
+              : <div id="invisible"></div>  }
+            { this.state.step === 1 
+              ? <div id="startBox">
+                   <button id="start" onClick={() => {
+                     document.getElementById("startBox").style.display = "none";
+                     document.getElementById("messageBox").style.display = "none";
+                     document.getElementById("pageNumberBox").style.display = "none";
+                     document.getElementById("area").disabled = false;
+                     document.getElementById("area").focus();  
+                   }}>Начать</button>
+                </div>
+              : <div id="invisible"></div>
+            }
+            { this.state.step === 1
+              ? 
+              <div id="pageNumberBox">
+                <button id="turnLeft" className="turner" onClick={() => { this.turnThePage(false); } }>
+                  <img id="turnLeftIcon" className="turnerIcon" src={iconLeft}></img>
+                </button>
+                <p id="pageNumber" className="unselectable">{this.state.currentPage + 1}/{Math.ceil(orderedTasks.length / 5)}</p>
+                <button id="turnRight" className="turner" onClick={() => { this.turnThePage(true); } }>
+                  <img id="turnRightIcon" className="turnerIcon" src={iconRight}></img>
+                </button>
+              </div>
+              : <div id="invisible"></div>
+            }
           </div>
         );
     }
