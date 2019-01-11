@@ -34,8 +34,6 @@ const topicNames = {
 }
 
 const synth =  window.speechSynthesis;
-synth.onvoiceschanged = function() { synth.getVoices(); };
-
 const isMobile = navigator.userAgent.toLowerCase().match(/android|ipad|iphone|ipod|webos|firefox|blackberry/i) != null;
 let exceptionalKey = false;
 let orderedTasks = [];

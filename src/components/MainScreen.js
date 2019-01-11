@@ -14,7 +14,7 @@ import iconDownwards from "../icons/iconDownwards.svg";
 import iconUpwards from "../icons/iconUpwards.svg"
 import close from "../icons/close.svg";
 
-
+window.speechSynthesis.onvoiceschanged = function() { window.speechSynthesis.getVoices(); };
 
 export class MainScreen extends React.Component {
 
