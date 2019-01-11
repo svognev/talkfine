@@ -34,6 +34,8 @@ const topicNames = {
 }
 
 const synth =  window.speechSynthesis;
+synth.onvoiceschanged = function() { synth.getVoices(); };
+
 const isMobile = navigator.userAgent.toLowerCase().match(/android|ipad|iphone|ipod|webos|firefox|blackberry/i) != null;
 let exceptionalKey = false;
 let orderedTasks = [];
@@ -42,8 +44,8 @@ export class ExerciseScreen extends React.Component {
     constructor(props) {
         super(props);
         let tasks = this.getTasks();
-        let voice = this.selectVoice();
-        alert(voice + " has been chosed");
+        presetVoice();
+        voice = this.selectVoice();
         this.state = {
             fromRu: true,
             step: 1,
@@ -83,6 +85,12 @@ export class ExerciseScreen extends React.Component {
             tasks[j] = Object.assign({}, k);
         }
         return tasks;
+    }
+
+    presetVoice() {
+        let salutation = new SpeechSynthesisUtterance("hello");  //  the very first start of a synthetic voice
+        salutation.voice = synth.getVoices()[0];            //   always plays with a delay -
+        synth.speak(salutation);                            //    let it be empty 
     }
     
     selectVoice() {
