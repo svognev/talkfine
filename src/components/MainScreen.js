@@ -16,9 +16,9 @@ import close from "../icons/close.svg";
 
 window.speechSynthesis.onvoiceschanged = function() { 
   window.speechSynthesis.getVoices(); 
-  let salutation = new SpeechSynthesisUtterance("");  //  the very first start of a synthetic voice
-  salutation.voice = voices[i];                       //   always plays with a delay -
-  window.speechSynthesis.speak(salutation);                            //    let it be empty 
+  let salutation = new SpeechSynthesisUtterance("");         //  the very first start of a synthetic voice
+  salutation.voice = window.speechSynthesis.getVoices()[0];  //   always plays with a delay -
+  window.speechSynthesis.speak(salutation);                  //    let it be empty 
 };
 
 export class MainScreen extends React.Component {
