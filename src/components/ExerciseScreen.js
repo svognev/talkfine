@@ -51,7 +51,7 @@ export class ExerciseScreen extends React.Component {
             isAnswered: false,
             isCorrect: true,
             comment: " ",
-            voice: voice,
+            voice: voice || this.selectVoice(),
             mistakes: [],
             currentPage: 0,
             }
@@ -90,10 +90,10 @@ export class ExerciseScreen extends React.Component {
         };
 
         let voices = window.speechSynthesis.getVoices();
-        alert(voices.length);
+
         for (let i = voices.length - 1; i >= 0; i--) {
             alert(voices[i].lang);
-            if(voices[i].lang === "en-US" || voices[i].lang === "en-GB") {
+            if(voices[i].lang === "en-US" || voices[i].lang === "en-GB" || voices[i].lang === "en_US" || voices[i].lang === "en_GB") {
                 let salutation = new SpeechSynthesisUtterance("");  //  the very first start of a synthetic voice
                 alert(voices[i].name);
                 salutation.voice = voices[i];                       //   always plays with a delay -
