@@ -35,6 +35,7 @@ const topicNames = {
 
 const synth =  window.speechSynthesis;
 synth.onvoiceschanged = function() { synth.getVoices(); };
+synth.onvoiceschanged();
 
 const isMobile = navigator.userAgent.toLowerCase().match(/android|ipad|iphone|ipod|webos|firefox|blackberry/i) != null;
 let exceptionalKey = false;
@@ -88,17 +89,15 @@ export class ExerciseScreen extends React.Component {
     }
 
     presetVoice(voice) {
-        let salutation = new SpeechSynthesisUtterance("hi!");  //  the very first start of a synthetic voice
+        let salutation = new SpeechSynthesisUtterance("");  //  the very first start of a synthetic voice
         salutation.voice = voice || synth.getVoices()[0];   //   always plays with a delay -
         synth.speak(salutation);                            //    let it be empty 
     }
     
     selectVoice() {
         let voices = synth.getVoices();
-        alert(voices.length);
         for (let i = voices.length - 1; i >= 0; i--) {
             if (voices[i].lang === "en-US" || voices[i].lang === "en-GB" || voices[i].lang === "en_US" || voices[i].lang === "en_GB") {
-                alert(voices[i].name);
                 return voices[i];
             }
         }
@@ -284,9 +283,9 @@ export class ExerciseScreen extends React.Component {
             }
         }
     }
+    
 
     renderMessage() {
-
         if (this.state.step === 1) {
               return (
                 <div id="innerMessageBox">
@@ -304,7 +303,6 @@ export class ExerciseScreen extends React.Component {
         }
 
         if (this.state.step - 1 === this.state.tasks.length) {
-
             if (this.state.mistakes.length <= 5) {
               return (
                 <div id="innerMessageBox">
@@ -333,7 +331,6 @@ export class ExerciseScreen extends React.Component {
     }
 
     renderMistakes(mistakes) {
-
         mistakes = mistakes.map(({en, ru}) => {
               return (
                 <li key={en} className="mistake">
@@ -358,9 +355,7 @@ export class ExerciseScreen extends React.Component {
         );
     }
 
-
     renderButtons() {
-
         if (!this.state.isAnswered) {
             return <button id="forward" className="mainButton" onClick={this.answerHandler} 
             style={{"opacity": 0}}>Проверить</button>
@@ -382,9 +377,7 @@ export class ExerciseScreen extends React.Component {
         }
     }
     
-
     renderCorrect() {        
-
         if (this.state.isAnswered) {
             if (this.state.isCorrect && !this.state.fromRu) {
                 return (<div id="innerCorectBox">
@@ -424,8 +417,6 @@ export class ExerciseScreen extends React.Component {
             }
         }
     }
-
-
 
     render() {
        return (
