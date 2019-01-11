@@ -32,10 +32,7 @@ const topicNames = {
     "08": "Идиомы. Часть II",
     "09": "Пословицы",
 }
- 
-window.speechSynthesis.onvoiceschanged = function(e) {
-  loadVoices();
-};
+
 
 const synth =  window.speechSynthesis;
 const isMobile = navigator.userAgent.toLowerCase().match(/android|ipad|iphone|ipod|webos|firefox|blackberry/i) != null;
@@ -89,10 +86,6 @@ export class ExerciseScreen extends React.Component {
     }
     
     selectVoice() {
-        window.speechSynthesis.onvoiceschanged = function() {
-            window.speechSynthesis.getVoices();
-        };
-
         let voices = window.speechSynthesis.getVoices();
 
         for (let i = voices.length - 1; i >= 0; i--) {
@@ -102,10 +95,10 @@ export class ExerciseScreen extends React.Component {
                 alert(voices[i].name);
                 salutation.voice = voices[i];                       //   always plays with a delay -
                 synth.speak(salutation);                            //    let it be empty 
-                setState( { voice: voices[i] } );
+                this.setState( { voice: voices[i] } );
             }
         }
-        return 0;
+        alert(0);
     }
 
     changeText(event) { 
