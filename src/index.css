@@ -1628,6 +1628,7 @@ width: 1.6vh;
     display: grid;
     height: 160.4vw;
     width: 100vw;
+    min-width: 100vw;
     grid-template: repeat(32, minmax(12.5px, 5.53125vw)) / repeat(18, minmax(12.5px, 5.53125vw));
   }
   
