@@ -32,6 +32,10 @@ const topicNames = {
     "08": "Идиомы. Часть II",
     "09": "Пословицы",
 }
+ 
+window.speechSynthesis.onvoiceschanged = function(e) {
+  loadVoices();
+};
 
 const synth =  window.speechSynthesis;
 const isMobile = navigator.userAgent.toLowerCase().match(/android|ipad|iphone|ipod|webos|firefox|blackberry/i) != null;
@@ -42,7 +46,6 @@ export class ExerciseScreen extends React.Component {
     constructor(props) {
         super(props);
         let tasks = this.getTasks();
-        let voice = this.selectVoice();
         this.state = {
             fromRu: true,
             step: 1,
@@ -51,7 +54,7 @@ export class ExerciseScreen extends React.Component {
             isAnswered: false,
             isCorrect: true,
             comment: " ",
-            voice: voice || this.selectVoice(),
+            voice: 0,
             mistakes: [],
             currentPage: 0,
             }
@@ -64,6 +67,7 @@ export class ExerciseScreen extends React.Component {
         this.renderCorrect = this.renderCorrect.bind(this);
         this.changeText = this.changeText.bind(this);
         this.unifyMistakes = this.unifyMistakes.bind(this);
+        synth.onvoiceschanged = function() { this.selectVoice(); }        
     }
 
     getTasks() {
@@ -98,7 +102,7 @@ export class ExerciseScreen extends React.Component {
                 alert(voices[i].name);
                 salutation.voice = voices[i];                       //   always plays with a delay -
                 synth.speak(salutation);                            //    let it be empty 
-                return voices[i];
+                setState( { voice: voices[i] } );
             }
         }
         return 0;
