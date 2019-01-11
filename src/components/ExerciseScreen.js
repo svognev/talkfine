@@ -97,7 +97,7 @@ export class ExerciseScreen extends React.Component {
         let voices = synth.getVoices();
         alert(voices.length);
         for (let i = voices.length - 1; i >= 0; i--) {
-            if(voices[i].lang === "en-US" || voices[i].lang === "en-GB" || voices[i].lang === "en_US" || voices[i].lang === "en_GB") {
+            if(voices[i].lang === "en-US" || voices[i].lang === "en-GB") {
                 alert(voices[i].name);
                 return voices[i];
             }
