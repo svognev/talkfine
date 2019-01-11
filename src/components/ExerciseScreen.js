@@ -42,7 +42,6 @@ export class ExerciseScreen extends React.Component {
     constructor(props) {
         super(props);
         let tasks = this.getTasks();
-        this.selectVoice();
         let voice = this.selectVoice();
         this.state = {
             fromRu: true,
@@ -94,13 +93,25 @@ export class ExerciseScreen extends React.Component {
         alert(voices.length);
         for (let i = voices.length - 1; i >= 0; i--) {
             if(voices[i].lang === "en-US" || voices[i].lang === "en-GB") {
+                alert("the first time");
                 let salutation = new SpeechSynthesisUtterance("");  //  the very first start of a synthetic voice
+                alert(voices[i].name);
                 salutation.voice = voices[i];                       //   always plays with a delay -
                 synth.speak(salutation);                            //    let it be empty 
                 return voices[i];
             }
         }
-        
+        alert(voices.length);
+        for (let i = voices.length - 1; i >= 0; i--) {
+            if(voices[i].lang === "en-US" || voices[i].lang === "en-GB") {
+                alert("the second time");
+                let salutation = new SpeechSynthesisUtterance("");  //  the very first start of a synthetic voice
+                alert(voices[i].name);
+                salutation.voice = voices[i];                       //   always plays with a delay -
+                synth.speak(salutation);                            //    let it be empty 
+                return voices[i];
+            }
+        }
     }
 
     changeText(event) { 
