@@ -14,7 +14,12 @@ import iconDownwards from "../icons/iconDownwards.svg";
 import iconUpwards from "../icons/iconUpwards.svg"
 import close from "../icons/close.svg";
 
-window.speechSynthesis.onvoiceschanged = function() { window.speechSynthesis.getVoices(); };
+window.speechSynthesis.onvoiceschanged = function() { 
+  window.speechSynthesis.getVoices(); 
+  let salutation = new SpeechSynthesisUtterance("");  //  the very first start of a synthetic voice
+  salutation.voice = voices[i];                       //   always plays with a delay -
+  window.speechSynthesis.speak(salutation);                            //    let it be empty 
+};
 
 export class MainScreen extends React.Component {
 

@@ -90,9 +90,6 @@ export class ExerciseScreen extends React.Component {
         alert(voices.length);
         for (let i = voices.length - 1; i >= 0; i--) {
             if(voices[i].lang === "en-US" || voices[i].lang === "en-GB" || voices[i].lang === "en_US" || voices[i].lang === "en_GB") {
-                let salutation = new SpeechSynthesisUtterance("");  //  the very first start of a synthetic voice
-                salutation.voice = voices[i];                       //   always plays with a delay -
-                synth.speak(salutation);                            //    let it be empty 
                 alert(voices[i].name);
                 return voices[i];
             }
