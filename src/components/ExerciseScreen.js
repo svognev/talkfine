@@ -96,6 +96,7 @@ export class ExerciseScreen extends React.Component {
                 salutation.voice = voices[i];                       //   always plays with a delay -
                 synth.speak(salutation);                            //    let it be empty 
                 this.setState( { voice: voices[i] } );
+                return;
             }
         }
         alert(0);
