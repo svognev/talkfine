@@ -26,7 +26,7 @@ export class MainScreen extends React.Component {
     };
   }
     render() {
-      setVoice();
+      this.setVoice();
       return (
           <div id="container">
             <div id="titleBox"></div> 
