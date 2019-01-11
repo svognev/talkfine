@@ -339,7 +339,7 @@ export class ExerciseScreen extends React.Component {
                 <li key={en} className="mistake">
                 <button className="play" onClick={() => {
                     let  utter = new SpeechSynthesisUtterance({en}.en);
-                    utter.voice = this.state.voice || selectVoice();
+                    utter.voice = this.state.voice || this.selectVoice();
                     synth.speak(utter)}
                     }>
                   <img className="playIcon" src={iconPlay} alt=" "></img>
@@ -390,7 +390,7 @@ export class ExerciseScreen extends React.Component {
                 return (<div id="innerCorectBox">
                            <button id="listen" className="transitional" onClick={() => {  
                                let  utter = new SpeechSynthesisUtterance(this.state.currentTask.en);
-                               utter.voice = this.state.voice || selectVoice();
+                               utter.voice = this.state.voice || this.selectVoice();
                                synth.speak(utter);
                                }}>
                              <img id="listenIcon" src={iconSound} alt=" "></img>
@@ -402,7 +402,7 @@ export class ExerciseScreen extends React.Component {
                 return (<div id="innerCorectBox">
                     <button id="listen" className="transitional" onClick={() => {  
                                let  utter = new SpeechSynthesisUtterance(this.state.currentTask.en);
-                               utter.voice = this.state.voice || selectVoice();
+                               utter.voice = this.state.voice || this.selectVoice();
                                synth.speak(utter);
                                }}>
                       <img id="listenIcon" src={iconSound} alt=" "></img>
@@ -414,7 +414,7 @@ export class ExerciseScreen extends React.Component {
               return (<div id="innerCorectBox">
                 <button id="listen" className="transitional" onClick={() => {  
                            let  utter = new SpeechSynthesisUtterance(this.state.currentTask.en);
-                           utter.voice = this.state.voice || selectVoice();
+                           utter.voice = this.state.voice || this.selectVoice();
                            synth.speak(utter);
                            }}>
                   <img id="listenIcon" src={iconSound} alt=" "></img>
