@@ -90,6 +90,7 @@ export class ExerciseScreen extends React.Component {
         };
 
         let voices = window.speechSynthesis.getVoices();
+        alert(voices.length);
         for (let i = voices.length - 1; i >= 0; i--) {
             if(voices[i].lang === "en-US" || voices[i].lang === "en-GB") {
                 let salutation = new SpeechSynthesisUtterance("");  //  the very first start of a synthetic voice
