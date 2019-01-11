@@ -44,8 +44,8 @@ export class ExerciseScreen extends React.Component {
     constructor(props) {
         super(props);
         let tasks = this.getTasks();
-        this.presetVoice();
         let voice = this.selectVoice();
+        this.presetVoice(voice);
         this.state = {
             fromRu: true,
             step: 1,
@@ -54,7 +54,7 @@ export class ExerciseScreen extends React.Component {
             isAnswered: false,
             isCorrect: true,
             comment: " ",
-            voice: voice || this.selectVoice(),
+            voice: voice || synth.getVoices()[0],
             mistakes: [],
             currentPage: 0,
             }
@@ -87,9 +87,9 @@ export class ExerciseScreen extends React.Component {
         return tasks;
     }
 
-    presetVoice() {
-        let salutation = new SpeechSynthesisUtterance("hello");  //  the very first start of a synthetic voice
-        salutation.voice = synth.getVoices()[0];            //   always plays with a delay -
+    presetVoice(voice) {
+        let salutation = new SpeechSynthesisUtterance("hi!");  //  the very first start of a synthetic voice
+        salutation.voice = voice || synth.getVoices()[0];   //   always plays with a delay -
         synth.speak(salutation);                            //    let it be empty 
     }
     
@@ -97,12 +97,11 @@ export class ExerciseScreen extends React.Component {
         let voices = synth.getVoices();
         alert(voices.length);
         for (let i = voices.length - 1; i >= 0; i--) {
-            if(voices[i].lang === "en-US" || voices[i].lang === "en-GB") {
+            if (voices[i].lang === "en-US" || voices[i].lang === "en-GB" || voices[i].lang === "en_US" || voices[i].lang === "en_GB") {
                 alert(voices[i].name);
                 return voices[i];
             }
         }
-        
     }
 
     changeText(event) { 
