@@ -33,8 +33,9 @@ const topicNames = {
     "09": "Пословицы",
 }
 
-
 const synth =  window.speechSynthesis;
+synth.onvoiceschanged = function() { synth.getVoices(); };
+
 const isMobile = navigator.userAgent.toLowerCase().match(/android|ipad|iphone|ipod|webos|firefox|blackberry/i) != null;
 let exceptionalKey = false;
 let orderedTasks = [];
@@ -43,6 +44,7 @@ export class ExerciseScreen extends React.Component {
     constructor(props) {
         super(props);
         let tasks = this.getTasks();
+        let voice = this.selectVoice();
         this.state = {
             fromRu: true,
             step: 1,
@@ -51,7 +53,7 @@ export class ExerciseScreen extends React.Component {
             isAnswered: false,
             isCorrect: true,
             comment: " ",
-            voice: 0,
+            voice: voice,
             mistakes: [],
             currentPage: 0,
             }
@@ -64,7 +66,6 @@ export class ExerciseScreen extends React.Component {
         this.renderCorrect = this.renderCorrect.bind(this);
         this.changeText = this.changeText.bind(this);
         this.unifyMistakes = this.unifyMistakes.bind(this);
-        synth.onvoiceschanged = function() { this.selectVoice(); }        
     }
 
     getTasks() {
@@ -86,20 +87,18 @@ export class ExerciseScreen extends React.Component {
     }
     
     selectVoice() {
-        let voices = window.speechSynthesis.getVoices();
-
+        let voices = synth.getVoices();
+        alert(voices.length);
         for (let i = voices.length - 1; i >= 0; i--) {
-            alert(voices[i].lang);
             if(voices[i].lang === "en-US" || voices[i].lang === "en-GB" || voices[i].lang === "en_US" || voices[i].lang === "en_GB") {
                 let salutation = new SpeechSynthesisUtterance("");  //  the very first start of a synthetic voice
-                alert(voices[i].name);
                 salutation.voice = voices[i];                       //   always plays with a delay -
                 synth.speak(salutation);                            //    let it be empty 
-                this.setState( { voice: voices[i] } );
-                return;
+                alert(voices[i].name);
+                return voices[i];
             }
         }
-        alert(0);
+        
     }
 
     changeText(event) { 
@@ -337,7 +336,7 @@ export class ExerciseScreen extends React.Component {
                 <li key={en} className="mistake">
                 <button className="play" onClick={() => {
                     let  utter = new SpeechSynthesisUtterance({en}.en);
-                    utter.voice = this.state.voice || this.selectVoice();
+                    utter.voice = this.state.voice;
                     synth.speak(utter)}
                     }>
                   <img className="playIcon" src={iconPlay} alt=" "></img>
@@ -388,7 +387,7 @@ export class ExerciseScreen extends React.Component {
                 return (<div id="innerCorectBox">
                            <button id="listen" className="transitional" onClick={() => {  
                                let  utter = new SpeechSynthesisUtterance(this.state.currentTask.en);
-                               utter.voice = this.state.voice || this.selectVoice();
+                               utter.voice = this.state.voice;
                                synth.speak(utter);
                                }}>
                              <img id="listenIcon" src={iconSound} alt=" "></img>
@@ -400,7 +399,7 @@ export class ExerciseScreen extends React.Component {
                 return (<div id="innerCorectBox">
                     <button id="listen" className="transitional" onClick={() => {  
                                let  utter = new SpeechSynthesisUtterance(this.state.currentTask.en);
-                               utter.voice = this.state.voice || this.selectVoice();
+                               utter.voice = this.state.voice;
                                synth.speak(utter);
                                }}>
                       <img id="listenIcon" src={iconSound} alt=" "></img>
@@ -412,7 +411,7 @@ export class ExerciseScreen extends React.Component {
               return (<div id="innerCorectBox">
                 <button id="listen" className="transitional" onClick={() => {  
                            let  utter = new SpeechSynthesisUtterance(this.state.currentTask.en);
-                           utter.voice = this.state.voice || this.selectVoice();
+                           utter.voice = this.state.voice;
                            synth.speak(utter);
                            }}>
                   <img id="listenIcon" src={iconSound} alt=" "></img>
