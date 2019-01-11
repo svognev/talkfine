@@ -16,7 +16,7 @@ import close from "../icons/close.svg";
 
 window.speechSynthesis.onvoiceschanged = function() { 
   window.speechSynthesis.getVoices(); 
-  let salutation = new SpeechSynthesisUtterance("");         //  the very first start of a synthetic voice
+  let salutation = new SpeechSynthesisUtterance("hello");         //  the very first start of a synthetic voice
   salutation.voice = window.speechSynthesis.getVoices()[0];  //   always plays with a delay -
   window.speechSynthesis.speak(salutation);                  //    let it be empty 
 };
