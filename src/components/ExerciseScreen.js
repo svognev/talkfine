@@ -46,7 +46,7 @@ export class ExerciseScreen extends React.Component {
         super(props);
         let tasks = this.getTasks();
         let voice = this.selectVoice();
-        alert[voice.name];
+        alert(voice.name);
         this.presetVoice(voice);
         this.state = {
             fromRu: true,
