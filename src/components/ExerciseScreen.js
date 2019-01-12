@@ -56,7 +56,7 @@ export class ExerciseScreen extends React.Component {
             isAnswered: false,
             isCorrect: true,
             comment: " ",
-            voice: voice || synth.getVoices()[0],
+            voice: voice,
             mistakes: [],
             currentPage: 0,
             }
@@ -91,7 +91,7 @@ export class ExerciseScreen extends React.Component {
 
     presetVoice(voice) {
         let salutation = new SpeechSynthesisUtterance("");  //  the very first start of a synthetic voice
-        salutation.voice = voice || synth.getVoices()[0];   //   always plays with a delay -
+        salutation.voice = voice;                           //   always plays with a delay -
         synth.speak(salutation);                            //    let it be empty 
     }
     
