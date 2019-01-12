@@ -47,7 +47,6 @@ export class ExerciseScreen extends React.Component {
         let tasks = this.getTasks();
         let voice = this.selectVoice();
         alert(voice.name);
-        this.presetVoice(voice);
         this.state = {
             fromRu: true,
             step: 1,
@@ -61,6 +60,7 @@ export class ExerciseScreen extends React.Component {
             currentPage: 0,
             }
 
+        this.presetVoice(voice);
         this.nextStep = this.nextStep.bind(this);
         this.getTasks = this.getTasks.bind(this);
         this.examine = this.examine.bind(this);
@@ -90,7 +90,7 @@ export class ExerciseScreen extends React.Component {
     }
 
     presetVoice(voice) {
-        let salutation = new SpeechSynthesisUtterance("");  //  the very first start of a synthetic voice
+        let salutation = new SpeechSynthesisUtterance("Nice to meet you!"); //  the very first start of a synthetic voice
         salutation.voice = voice;                           //   always plays with a delay -
         synth.speak(salutation);                            //    let it be empty 
     }
