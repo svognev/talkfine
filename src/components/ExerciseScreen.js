@@ -97,12 +97,15 @@ export class ExerciseScreen extends React.Component {
     
     selectVoice() {
         let voices = synth.getVoices();
+        let lastChoice;
         for (let i = voices.length - 1; i >= 0; i--) {
             if (voices[i].lang.toLowerCase().includes("en")) {
                 alert(voices[i].lang);
                 this.presetVoice(voices[i]);
+                lastChoice = voices[i];
             }
         }
+        return lastChoice;
     }
 
     changeText(event) { 
@@ -339,7 +342,7 @@ export class ExerciseScreen extends React.Component {
                 <button className="play" onClick={() => {
                     let  utter = new SpeechSynthesisUtterance({en}.en);
                     utter.voice = this.state.voice;
-                    alert(utter.voice.name);
+                    alert(this.state.voice.name);
                     synth.speak(utter)}
                     }>
                   <img className="playIcon" src={iconPlay} alt=" "></img>
@@ -387,7 +390,6 @@ export class ExerciseScreen extends React.Component {
                            <button id="listen" className="transitional" onClick={() => {  
                                let  utter = new SpeechSynthesisUtterance(this.state.currentTask.en);
                                utter.voice = this.state.voice;
-                               alert(utter.voice.name);
                                synth.speak(utter);
                                }}>
                              <img id="listenIcon" src={iconSound} alt=" "></img>
@@ -400,7 +402,6 @@ export class ExerciseScreen extends React.Component {
                     <button id="listen" className="transitional" onClick={() => {  
                                let  utter = new SpeechSynthesisUtterance(this.state.currentTask.en);
                                utter.voice = this.state.voice;
-                               alert(utter.voice.name);
                                synth.speak(utter);
                                }}>
                       <img id="listenIcon" src={iconSound} alt=" "></img>
@@ -413,7 +414,6 @@ export class ExerciseScreen extends React.Component {
                 <button id="listen" className="transitional" onClick={() => {  
                            let  utter = new SpeechSynthesisUtterance(this.state.currentTask.en);
                            utter.voice = this.state.voice;
-                           alert(utter.voice.name);
                            synth.speak(utter);
                            }}>
                   <img id="listenIcon" src={iconSound} alt=" "></img>
