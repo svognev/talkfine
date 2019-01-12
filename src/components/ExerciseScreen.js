@@ -46,7 +46,8 @@ export class ExerciseScreen extends React.Component {
         super(props);
         let tasks = this.getTasks();
         let voice = this.selectVoice();
-        alert(voice.name);
+        this.presetVoice(voice);
+
         this.state = {
             fromRu: true,
             step: 1,
@@ -60,7 +61,6 @@ export class ExerciseScreen extends React.Component {
             currentPage: 0,
             }
 
-        this.presetVoice(voice);
         this.nextStep = this.nextStep.bind(this);
         this.getTasks = this.getTasks.bind(this);
         this.examine = this.examine.bind(this);
@@ -90,7 +90,7 @@ export class ExerciseScreen extends React.Component {
     }
 
     presetVoice(voice) {
-        let salutation = new SpeechSynthesisUtterance("Nice to meet you!"); //  the very first start of a synthetic voice
+        let salutation = new SpeechSynthesisUtterance("");  //  the very first start of a synthetic voice
         salutation.voice = voice;                           //   always plays with a delay -
         synth.speak(salutation);                            //    let it be empty 
     }
@@ -100,8 +100,9 @@ export class ExerciseScreen extends React.Component {
         let lastChoice;
         for (let i = voices.length - 1; i >= 0; i--) {
             if (voices[i].lang.toLowerCase().includes("en")) {
-                alert(voices[i].lang);
-                this.presetVoice(voices[i]);
+                if (!isMobile) {
+                    return voices[i];
+                }
                 lastChoice = voices[i];
             }
         }
@@ -342,7 +343,6 @@ export class ExerciseScreen extends React.Component {
                 <button className="play" onClick={() => {
                     let  utter = new SpeechSynthesisUtterance({en}.en);
                     utter.voice = this.state.voice;
-                    alert(this.state.voice.name);
                     synth.speak(utter)}
                     }>
                   <img className="playIcon" src={iconPlay} alt=" "></img>
