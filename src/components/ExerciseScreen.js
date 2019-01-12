@@ -46,6 +46,7 @@ export class ExerciseScreen extends React.Component {
         super(props);
         let tasks = this.getTasks();
         let voice = this.selectVoice();
+        alert[voice.name];
         this.presetVoice(voice);
         this.state = {
             fromRu: true,
@@ -97,7 +98,8 @@ export class ExerciseScreen extends React.Component {
     selectVoice() {
         let voices = synth.getVoices();
         for (let i = voices.length - 1; i >= 0; i--) {
-            if (voices[i].lang === "en-US" || voices[i].lang === "en-GB" || voices[i].lang === "en_US" || voices[i].lang === "en_GB") {
+            if (voices[i].lang.toLowerCase().includes("en")) {
+                alert(voices[i].lang);
                 return voices[i];
             }
         }
