@@ -88,12 +88,6 @@ export class ExerciseScreen extends React.Component {
         }
         return tasks;
     }
-
-    presetVoice(voice) {
-        let salutation = new SpeechSynthesisUtterance("");  //  the very first start of a synthetic voice
-        salutation.voice = voice;                           //   always plays with a delay -
-        synth.speak(salutation);                            //    let it be empty 
-    }
     
     selectVoice() {
         let voices = synth.getVoices();
@@ -107,6 +101,12 @@ export class ExerciseScreen extends React.Component {
             }
         }
         return lastChoice;
+    }
+
+    presetVoice(voice) {
+        let salutation = new SpeechSynthesisUtterance("");  //  the very first start of a synthetic voice
+        salutation.voice = voice;                           //   always plays with a delay -
+        synth.speak(salutation);                            //    let it be empty 
     }
 
     changeText(event) { 
