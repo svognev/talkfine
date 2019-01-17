@@ -95,7 +95,7 @@ export class ExerciseScreen extends React.Component {
         for (let i = voices.length - 1; i >= 0; i--) {
             if (voices[i].lang.toLowerCase().includes("en")) {
                 lastChoice = voices[i];
-                presetVoice(lastChoice);  
+                this.presetVoice(lastChoice);  
                 if (!isMobile) {
                     return voices[i];
                 }
