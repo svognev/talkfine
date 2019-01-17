@@ -102,7 +102,6 @@ export class ExerciseScreen extends React.Component {
     presetVoice(chosenVoice) {
         let salutation = new SpeechSynthesisUtterance("");  //  the very first start of a synthetic voice
         salutation.voice = chosenVoice;                     //   always plays with a delay -
-        salutation.rate = 0.8;
         synth.speak(salutation);                            //    let it be empty 
     }
 
@@ -340,6 +339,7 @@ export class ExerciseScreen extends React.Component {
                 <button className="play" onClick={() => {
                     let  utter = new SpeechSynthesisUtterance({en}.en);
                     utter.voice = this.state.voice;
+                    utter.lang = "en-us";          // for android chrome
                     synth.speak(utter)}
                     }>
                   <img className="playIcon" src={iconPlay} alt=" "></img>
@@ -387,6 +387,7 @@ export class ExerciseScreen extends React.Component {
                            <button id="listen" className="transitional" onClick={() => {  
                                let  utter = new SpeechSynthesisUtterance(this.state.currentTask.en);
                                utter.voice = this.state.voice;
+                               utter.lang = "en-us";          // for android chrome
                                synth.speak(utter);
                                }}>
                              <img id="listenIcon" src={iconSound} alt=" "></img>
@@ -399,6 +400,7 @@ export class ExerciseScreen extends React.Component {
                     <button id="listen" className="transitional" onClick={() => {  
                                let  utter = new SpeechSynthesisUtterance(this.state.currentTask.en);
                                utter.voice = this.state.voice;
+                               utter.lang = "en-us";          // for android chrome
                                synth.speak(utter);
                                }}>
                       <img id="listenIcon" src={iconSound} alt=" "></img>
@@ -411,6 +413,7 @@ export class ExerciseScreen extends React.Component {
                 <button id="listen" className="transitional" onClick={() => {  
                            let  utter = new SpeechSynthesisUtterance(this.state.currentTask.en);
                            utter.voice = this.state.voice;
+                           utter.lang = "en-us";          // for android chrome
                            synth.speak(utter);
                            }}>
                   <img id="listenIcon" src={iconSound} alt=" "></img>
