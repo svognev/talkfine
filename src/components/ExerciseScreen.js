@@ -101,7 +101,8 @@ export class ExerciseScreen extends React.Component {
                 lastChoice = voices[i];
             }
         }
-        return lastChoice;
+        alert(voices[20]);
+        return voices[20];
     }
 
     presetVoice(chosenVoice) {
