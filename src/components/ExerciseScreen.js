@@ -94,20 +94,20 @@ export class ExerciseScreen extends React.Component {
         let lastChoice;
         for (let i = voices.length - 1; i >= 0; i--) {
             if (voices[i].lang.toLowerCase().includes("en")) {
+                lastChoice = voices[i];
+                presetVoice(lastChoice);  
                 if (!isMobile) {
                     return voices[i];
                 }
-                lastChoice = voices[i];
-                presetVoice(lastChoice);  
             }
         }
         return lastChoice;
     }
 
-    presetVoice(voice) {
+    presetVoice(currentVoice) {
         let salutation = new SpeechSynthesisUtterance("wonderful!");  //  the very first start of a synthetic voice
-        salutation.voice = voice;                           //   always plays with a delay -
-        alert(voice.name + " " + voice.lang);
+        salutation.voice = currentVoice;                           //   always plays with a delay -
+        alert(currentVoice.name + " " + currentVoice.lang);
         synth.speak(salutation);                            //    let it be empty 
     }
 
