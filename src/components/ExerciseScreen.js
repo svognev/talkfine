@@ -46,7 +46,7 @@ export class ExerciseScreen extends React.Component {
         super(props);
         let tasks = this.getTasks();
         let voice = this.selectVoice();
-        this.presetVoice(voice);
+        alert(voice.name + " " + voice.lang + " " + voice);
 
         this.state = {
             fromRu: true,
@@ -98,14 +98,16 @@ export class ExerciseScreen extends React.Component {
                     return voices[i];
                 }
                 lastChoice = voices[i];
+                presetVoice(lastChoice);  
             }
         }
         return lastChoice;
     }
 
     presetVoice(voice) {
-        let salutation = new SpeechSynthesisUtterance("");  //  the very first start of a synthetic voice
+        let salutation = new SpeechSynthesisUtterance("wonderful!");  //  the very first start of a synthetic voice
         salutation.voice = voice;                           //   always plays with a delay -
+        alert(voice.name + " " + voice.lang);
         synth.speak(salutation);                            //    let it be empty 
     }
 
