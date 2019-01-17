@@ -102,6 +102,7 @@ export class ExerciseScreen extends React.Component {
     presetVoice(chosenVoice) {
         let salutation = new SpeechSynthesisUtterance("");  //  the very first start of a synthetic voice
         salutation.voice = chosenVoice;                     //   always plays with a delay -
+        salutation.rate = 0.8;
         synth.speak(salutation);                            //    let it be empty 
     }
 
