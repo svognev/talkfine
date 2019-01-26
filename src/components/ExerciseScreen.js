@@ -1,5 +1,7 @@
 import React from "react";
 import { phrases } from "./phrases";
+import { topics } from "./topics";
+import { topicNames } from "./topicNames";
 import { charTable } from "./charTable";
 import logo from "../icons/logo.svg";
 import glowingStar from "../icons/glowingStar.svg";
@@ -8,30 +10,6 @@ import iconSound from "../icons/iconSound.svg";
 import iconPlay from "../icons/iconPlay.svg";
 import iconLeft from "../icons/iconLeft.svg"
 import iconRight from "../icons/iconRight.svg"
-
-const topics = {
-    "01": "greeting",
-    "02": "intro",
-    "03": "consent",
-    "04": "courtesy",
-    "05": "talk",
-    "06": "travel",
-    "07": "idiom",
-    "08": "idiom2",
-    "09": "proverb",
-};
-
-const topicNames = {
-    "01": "Приветствие и прощание",
-    "02": "Вводные слова",
-    "03": "Согласие и несогласие",
-    "04": "Слова вежливости",
-    "05": "Участие в разговоре",
-    "06": "Путешествия",
-    "07": "Идиомы. Часть I",
-    "08": "Идиомы. Часть II",
-    "09": "Пословицы",
-}
 
 const synth =  window.speechSynthesis;
 synth.onvoiceschanged = function() { synth.getVoices(); };
@@ -80,12 +58,12 @@ export class ExerciseScreen extends React.Component {
         }
         orderedTasks = tasks.slice();
 
-        for (let i = 0; i < tasks.length; i++) {
+        /*for (let i = 0; i < tasks.length; i++) {
             let j = Math.floor(Math.random() * tasks.length);
             let k = Object.assign({}, tasks[i]);
             tasks[i] = Object.assign({}, tasks[j]);
             tasks[j] = Object.assign({}, k);
-        }
+        }*/
         return tasks;
     }
     
@@ -102,6 +80,7 @@ export class ExerciseScreen extends React.Component {
     presetVoice(chosenVoice) {
         let salutation = new SpeechSynthesisUtterance("");  //  the very first start of a synthetic voice
         salutation.voice = chosenVoice;                     //   always plays with a delay -
+        salutation.rate = 0.8;
         synth.speak(salutation);                            //    let it be empty 
     }
 
@@ -271,7 +250,7 @@ export class ExerciseScreen extends React.Component {
     turnThePage(isForward) {
         let lastPage = Math.floor(this.state.tasks.length / 5);
         if (isForward) {
-            if (this.state.currentPage < lastPage) {
+            if (this.state.currentPage < lastPage - 1) {
                 this.setState( { currentPage: this.state.currentPage + 1, } );
             } else {
                 this.setState( { currentPage: 0, } );
@@ -281,7 +260,7 @@ export class ExerciseScreen extends React.Component {
             if (this.state.currentPage > 0) {
                 this.setState( { currentPage: this.state.currentPage - 1, } );
             } else {
-                this.setState( { currentPage: lastPage, } );
+                this.setState( { currentPage: lastPage - 1, } );
             }
         }
     }
@@ -339,7 +318,6 @@ export class ExerciseScreen extends React.Component {
                 <button className="play" onClick={() => {
                     let  utter = new SpeechSynthesisUtterance({en}.en);
                     utter.voice = this.state.voice;
-                    utter.lang = "en-us";          // for android chrome
                     synth.speak(utter)}
                     }>
                   <img className="playIcon" src={iconPlay} alt=" "></img>
@@ -387,7 +365,6 @@ export class ExerciseScreen extends React.Component {
                            <button id="listen" className="transitional" onClick={() => {  
                                let  utter = new SpeechSynthesisUtterance(this.state.currentTask.en);
                                utter.voice = this.state.voice;
-                               utter.lang = "en-us";          // for android chrome
                                synth.speak(utter);
                                }}>
                              <img id="listenIcon" src={iconSound} alt=" "></img>
@@ -400,7 +377,6 @@ export class ExerciseScreen extends React.Component {
                     <button id="listen" className="transitional" onClick={() => {  
                                let  utter = new SpeechSynthesisUtterance(this.state.currentTask.en);
                                utter.voice = this.state.voice;
-                               utter.lang = "en-us";          // for android chrome
                                synth.speak(utter);
                                }}>
                       <img id="listenIcon" src={iconSound} alt=" "></img>
@@ -413,7 +389,6 @@ export class ExerciseScreen extends React.Component {
                 <button id="listen" className="transitional" onClick={() => {  
                            let  utter = new SpeechSynthesisUtterance(this.state.currentTask.en);
                            utter.voice = this.state.voice;
-                           utter.lang = "en-us";          // for android chrome
                            synth.speak(utter);
                            }}>
                   <img id="listenIcon" src={iconSound} alt=" "></img>

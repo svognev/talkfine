@@ -14,6 +14,8 @@ import iconDownwards from "../icons/iconDownwards.svg";
 import iconUpwards from "../icons/iconUpwards.svg"
 import close from "../icons/close.svg";
 
+
+
 export class MainScreen extends React.Component {
 
     render() {

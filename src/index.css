@@ -66,6 +66,10 @@ p {
   padding: 0;
 }
 
+::selection {
+  background-color: gold;
+}
+
 input {
   -moz-user-select: none; 
   -ms-user-select: none; 
@@ -609,6 +613,10 @@ li {
   color: rgb(44, 44, 44);
 }
 
+#correct::selection {
+  background-color: lightgrey;
+}
+
 #statusBox {
   grid-column: 1 / 33;
   grid-row: 3 / 7;
@@ -736,8 +744,8 @@ li {
   text-align: center;
   font-weight: normal;
   border-radius: 1.7vh;
-  padding: 1.7vh;
-  padding-top: 2.4vh;
+  padding: 1.5vh;
+  padding-top: 2.2vh;
   border: 2px dotted lightgrey;
   
   -webkit-transition: all 0.1s ease;;
@@ -1008,6 +1016,10 @@ li {
 
 #searchbar::placeholder {
   color: dimgrey;
+}
+
+#searchbar::selection {
+  background-color: silver;
 }
 
 .option {
@@ -1680,11 +1692,6 @@ width: 1.6vh;
     border-radius: 3.5vw;
     padding-left: 3.5vw;
     font-size: 3vw;
-    background-color: lightgrey;
-  }
-
-  #searchbar::placeholder {
-    color: dimgrey;
   }
 
   .option {
