@@ -12,9 +12,6 @@ import iconLeft from "../icons/iconLeft.svg"
 import iconRight from "../icons/iconRight.svg"
 
 const synth =  window.speechSynthesis;
-synth.onvoiceschanged = function() { synth.getVoices(); };
-synth.onvoiceschanged();
-
 const isMobile = navigator.userAgent.toLowerCase().match(/android|ipad|iphone|ipod|webos|firefox|blackberry/i) != null;
 let exceptionalKey = false;
 let orderedTasks = [];
@@ -47,6 +44,12 @@ export class ExerciseScreen extends React.Component {
         this.renderCorrect = this.renderCorrect.bind(this);
         this.changeText = this.changeText.bind(this);
         this.unifyMistakes = this.unifyMistakes.bind(this);
+
+        synth.onvoiceschanged = () => { 
+            this.setState( { voice: this.selectVoice() } );
+            this.presetVoice(this.state.voice);
+        };
+        synth.onvoiceschanged();
     }
 
     getTasks() {
@@ -58,12 +61,12 @@ export class ExerciseScreen extends React.Component {
         }
         orderedTasks = tasks.slice();
 
-        /*for (let i = 0; i < tasks.length; i++) {
+        for (let i = 0; i < tasks.length; i++) {
             let j = Math.floor(Math.random() * tasks.length);
             let k = Object.assign({}, tasks[i]);
             tasks[i] = Object.assign({}, tasks[j]);
             tasks[j] = Object.assign({}, k);
-        }*/
+        }
         return tasks;
     }
     
