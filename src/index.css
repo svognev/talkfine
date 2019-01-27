@@ -1207,7 +1207,7 @@ table  tr:nth-child(2n) {
 
 .iconSort {
   width: 1.6vh;
-  display: inline-block;
+  content: "";
 }
 
 #buttonSortEnUp {
@@ -1503,7 +1503,7 @@ table  tr:nth-child(2n) {
   
   #pageNumberBox {
     grid-column: 7 / 13;
-    grid-row: 19 / 21;
+    grid-row: 20 / 22;
 
     display: flex;
     justify-content: center;
@@ -1589,7 +1589,7 @@ table  tr:nth-child(2n) {
 
   #startBox {
     grid-column: 5 / 15;
-    grid-row: 21 / 24;
+    grid-row: 22 / 25;
   }
 
   #start {

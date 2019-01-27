@@ -200,7 +200,7 @@ export class MainScreen extends React.Component {
                   <br />
                   сумму на карту Сбербанка:
                   <br />
-                  0000 0000 0000 0000
+                  4276 4200 1855 1134
                   </p>
                 </div>
               </div>

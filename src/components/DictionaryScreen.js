@@ -254,26 +254,26 @@ export class DictionaryScreen extends React.Component {
           <tr>
             <th id="thPhrase" className="unselectable">Фраза
               <div id="buttonSortEnDown" className="buttonSort" onClick={this.sortButtonsHandler}> 
-                <img id="ibuttonSortEnDown" className="iconSort" src={iconArrowDownWhite} alt=" "></img>  ️ ️
+                <img id="ibuttonSortEnDown" className="iconSort" src={iconArrowDownWhite} alt=""></img>  ️ ️
               </div>
               <div id="buttonSortEnUp" className="buttonSort" onClick={this.sortButtonsHandler}>
-                <img id="ibuttonSortEnUp" className="iconSort" src={iconArrowDownBlack} alt=" "></img>  ️
+                <img id="ibuttonSortEnUp" className="iconSort" src={iconArrowDownBlack} alt=""></img>  ️
               </div>
             </th>
             <th id="thTranslation" className="unselectable">Значение
               <div id="buttonSortRuDown" className="buttonSort" onClick={this.sortButtonsHandler}>
-                <img id="ibuttonSortRuDown" className="iconSort" src={iconArrowDownWhite} alt=" "></img>  ️
+                <img id="ibuttonSortRuDown" className="iconSort" src={iconArrowDownWhite} alt=""></img>  ️
               </div>
               <div id="buttonSortRuUp" className="buttonSort" onClick={this.sortButtonsHandler}>
-                <img id="ibuttonSortRuUp" className="iconSort" src={iconArrowDownBlack} alt=" "></img>  ️  ️
+                <img id="ibuttonSortRuUp" className="iconSort" src={iconArrowDownBlack} alt=""></img>  ️  ️
               </div>
             </th>
             <th id="thTopic" className="unselectable">Тема
               <div id="buttonSortTopicDown" className="buttonSort" onClick={this.sortButtonsHandler}>
-                <img id="ibuttonSortTopicDown" className="iconSort" src={iconArrowDownWhite} alt=" "></img>  ️  ️
+                <img id="ibuttonSortTopicDown" className="iconSort" src={iconArrowDownWhite} alt=""></img>  ️  ️
               </div>
               <div id="buttonSortTopicUp" className="buttonSort" onClick={this.sortButtonsHandler}>
-                <img id="ibuttonSortTopicUp" className="iconSort" src={iconArrowDownBlack} alt=" "></img>  ️  ️
+                <img id="ibuttonSortTopicUp" className="iconSort" src={iconArrowDownBlack} alt=""></img>  ️  ️
               </div>
             </th>
           </tr>
