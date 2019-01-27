@@ -14,6 +14,7 @@ export class DictionaryScreen extends React.Component {
 
   constructor(props) {
     super(props);
+    dictionary = phrases;
     this.state = {
       data: dictionary,
       lastSearch: dictionary,
@@ -251,29 +252,29 @@ export class DictionaryScreen extends React.Component {
       <table className="user-list table table-striped">
         <thead>
           <tr>
-            <th className="unselectable">Фраза
-              <button id="buttonSortEnDown" className="buttonSort" onClick={this.sortButtonsHandler}> 
+            <th id="thPhrase" className="unselectable">Фраза
+              <div id="buttonSortEnDown" className="buttonSort" onClick={this.sortButtonsHandler}> 
                 <img id="ibuttonSortEnDown" className="iconSort" src={iconArrowDownWhite} alt=" "></img>  ️ ️
-              </button>
-              <button id="buttonSortEnUp" className="buttonSort" onClick={this.sortButtonsHandler}>
+              </div>
+              <div id="buttonSortEnUp" className="buttonSort" onClick={this.sortButtonsHandler}>
                 <img id="ibuttonSortEnUp" className="iconSort" src={iconArrowDownBlack} alt=" "></img>  ️
-              </button>
+              </div>
             </th>
-            <th className="unselectable">Значение
-              <button id="buttonSortRuDown" className="buttonSort" onClick={this.sortButtonsHandler}>
+            <th id="thTranslation" className="unselectable">Значение
+              <div id="buttonSortRuDown" className="buttonSort" onClick={this.sortButtonsHandler}>
                 <img id="ibuttonSortRuDown" className="iconSort" src={iconArrowDownWhite} alt=" "></img>  ️
-              </button>
-              <button id="buttonSortRuUp" className="buttonSort" onClick={this.sortButtonsHandler}>
+              </div>
+              <div id="buttonSortRuUp" className="buttonSort" onClick={this.sortButtonsHandler}>
                 <img id="ibuttonSortRuUp" className="iconSort" src={iconArrowDownBlack} alt=" "></img>  ️  ️
-              </button>
+              </div>
             </th>
-            <th className="unselectable">Тема
-              <button id="buttonSortTopicDown" className="buttonSort" onClick={this.sortButtonsHandler}>
+            <th id="thTopic" className="unselectable">Тема
+              <div id="buttonSortTopicDown" className="buttonSort" onClick={this.sortButtonsHandler}>
                 <img id="ibuttonSortTopicDown" className="iconSort" src={iconArrowDownWhite} alt=" "></img>  ️  ️
-              </button>
-              <button id="buttonSortTopicUp" className="buttonSort" onClick={this.sortButtonsHandler}>
+              </div>
+              <div id="buttonSortTopicUp" className="buttonSort" onClick={this.sortButtonsHandler}>
                 <img id="ibuttonSortTopicUp" className="iconSort" src={iconArrowDownBlack} alt=" "></img>  ️  ️
-              </button>
+              </div>
             </th>
           </tr>
         </thead>

@@ -1177,6 +1177,7 @@ table {
   padding-right: 16%;
   padding-bottom: 2%;
   width: 100%;
+  table-layout: fixed;
 }
 
 table tr:nth-child(2n+1) {
@@ -1187,13 +1188,26 @@ table  tr:nth-child(2n) {
   background-color: rgb(255, 248, 252);
 }
 
+#thPhrase {
+  width: 40%;
+}
+
+#thTranslation {
+  width: 45%;
+}
+
+#thTopic {
+  width: 15%;
+}
+
 .buttonSort {
   margin: 0 1vh;
   background: none;
 }
 
 .iconSort {
-width: 1.6vh;
+  width: 1.6vh;
+  display: inline-block;
 }
 
 #buttonSortEnUp {
@@ -1714,12 +1728,23 @@ width: 1.6vh;
     height: 6.875vw;
     padding-left: 4vw;
   }
+
+  #thPhrase {
+    width: 35%;
+  }
+  
+  #thTranslation {
+    width: 40%;
+  }
+  
+  #thTopic {
+    width: 25%;
+  }
   
   #notFound {
     font-size: 3.5vw;
     margin-left: 0;
   }
-  
   
   #toolsBox {
     grid-column: 1 / 19;
