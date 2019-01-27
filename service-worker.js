@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/talkfine/precache-manifest.8bbfda4eaaf33e98cb5824d8d137eecd.js"
+  "/talkfine/precache-manifest.4c926d7d0ac962312d9f01f5bd904ba5.js"
 );
 
 workbox.clientsClaim();
