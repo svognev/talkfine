@@ -120,7 +120,7 @@ self.__precacheManifest = [
     "url": "/talkfine/static/media/iconArrowUpBlack.14bee938.svg"
   },
   {
-    "revision": "fd82c78c8aa6e218f9e26faebb0c6d87",
+    "revision": "b9b0fe4ee4f782132404badb203e9e6b",
     "url": "/talkfine/index.html"
   }
 ];
