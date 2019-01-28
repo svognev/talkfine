@@ -13,8 +13,7 @@ import icon10 from "../icons/icon10.svg";
 import iconDownwards from "../icons/iconDownwards.svg";
 import iconUpwards from "../icons/iconUpwards.svg"
 import close from "../icons/close.svg";
-
-
+import wallet from "../icons/wallet.svg";
 
 export class MainScreen extends React.Component {
 
@@ -202,6 +201,10 @@ export class MainScreen extends React.Component {
                   <br />
                   4276 4200 1855 1134
                   </p>
+
+                  <button id="walletBox" onClick={() => { window.location.href="https://money.yandex.ru/to/410017878071338"; } }>
+                    <img id="wallet" src={wallet} alt=" "></img>
+                  </button>
                 </div>
               </div>
            </div>

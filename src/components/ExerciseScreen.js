@@ -8,8 +8,8 @@ import glowingStar from "../icons/glowingStar.svg";
 import iconBack from "../icons/iconBack.svg";
 import iconSound from "../icons/iconSound.svg";
 import iconPlay from "../icons/iconPlay.svg";
-import iconLeft from "../icons/iconLeft.svg"
-import iconRight from "../icons/iconRight.svg"
+import iconLeft from "../icons/iconLeft.svg";
+import iconRight from "../icons/iconRight.svg";
 
 const synth =  window.speechSynthesis;
 const isMobile = navigator.userAgent.toLowerCase().match(/android|ipad|iphone|ipod|webos|firefox|blackberry/i) != null;
