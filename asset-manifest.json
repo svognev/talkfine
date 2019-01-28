@@ -1,16 +1,15 @@
 {
-  "main.css": "/talkfine/static/css/main.412d1d5b.chunk.css",
-  "main.js": "/talkfine/static/js/main.8355515b.chunk.js",
-  "main.js.map": "/talkfine/static/js/main.8355515b.chunk.js.map",
-  "static/js/1.c477c00c.chunk.js": "/talkfine/static/js/1.c477c00c.chunk.js",
-  "static/js/1.c477c00c.chunk.js.map": "/talkfine/static/js/1.c477c00c.chunk.js.map",
+  "main.css": "/talkfine/static/css/main.08648c6c.chunk.css",
+  "main.js": "/talkfine/static/js/main.d4edc827.chunk.js",
+  "main.js.map": "/talkfine/static/js/main.d4edc827.chunk.js.map",
+  "static/js/1.437b16a1.chunk.js": "/talkfine/static/js/1.437b16a1.chunk.js",
+  "static/js/1.437b16a1.chunk.js.map": "/talkfine/static/js/1.437b16a1.chunk.js.map",
   "runtime~main.js": "/talkfine/static/js/runtime~main.08a997e9.js",
   "runtime~main.js.map": "/talkfine/static/js/runtime~main.08a997e9.js.map",
-  "static/media/wallet.svg": "/talkfine/static/media/wallet.58efe3f0.svg",
   "static/media/index.css": "/talkfine/static/media/iconArrowUpBlack.14bee938.svg",
   "static/media/close.svg": "/talkfine/static/media/close.623cd78c.svg",
-  "static/css/main.412d1d5b.chunk.css.map": "/talkfine/static/css/main.412d1d5b.chunk.css.map",
+  "static/css/main.08648c6c.chunk.css.map": "/talkfine/static/css/main.08648c6c.chunk.css.map",
   "index.html": "/talkfine/index.html",
-  "precache-manifest.b6f77e5c93b0f3b4521069f1edd6e03a.js": "/talkfine/precache-manifest.b6f77e5c93b0f3b4521069f1edd6e03a.js",
+  "precache-manifest.28b67707c76558c4a2c4f41f0c576636.js": "/talkfine/precache-manifest.28b67707c76558c4a2c4f41f0c576636.js",
   "service-worker.js": "/talkfine/service-worker.js"
 }
