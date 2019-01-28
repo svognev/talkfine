@@ -14,6 +14,7 @@ import iconDownwards from "../icons/iconDownwards.svg";
 import iconUpwards from "../icons/iconUpwards.svg"
 import close from "../icons/close.svg";
 import wallet from "../icons/wallet.svg";
+import fineFrog from "../icons/fineFrog.svg";
 
 export class MainScreen extends React.Component {
 
@@ -179,26 +180,36 @@ export class MainScreen extends React.Component {
 
               <div id="aboutInnerBox">
                 <div id="aboutWindow">
+                <img id="fineFrog" className="unsunselectable" src={fineFrog} alt=" "></img>
 
-                  <p id="about">
+                  <p className="about">
                   «Толк Файн» поможет вам
                   <br />
                   приятно провести время и выучить
                   <br />
-                  самые популярные устойчивые 
+                  самые популярные устойчивые выражения 
                   <br />
-                  выражения английского языка.
-                  <br /><br />
+                  английского языка в их актуальной форме.
+                  <br />
+                  <br />
+                  </p>
+
+                  <p className="about">                  
                   Почта для предложений и вопросов: <b>svognev@yandex.ru</b>
-                  <br /><br />
-                  Проект существует за счет свободных 
+                  <br />
+                  <br />
+                  </p>
+                  <p className="about"> 
+                  Проект существует только за счет свободных 
                   <br />
                   пожертвований. Если вам нравится то, 
                   <br />
                   что мы делаем, присылайте любую
                   <br />
                   сумму на карту Сбербанка:
-                  <br />
+                  </p>
+
+                  <p className="about">                  
                   4276 4200 1855 1134
                   </p>
 

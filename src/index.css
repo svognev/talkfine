@@ -56,7 +56,9 @@ body:after {
     url("./icons/iconTriangle.svg")
     url("./icons/iconUpwards.svg") 
     url("./icons/iconLeft.svg")
-    url("./icons/iconRight.svg") 
+    url("./icons/iconRight.svg")
+    url("./icons/wallet.svg")
+    url("./icons/fineFrog.svg") 
     ;
     display: none;
 }
@@ -556,13 +558,12 @@ li {
   height: 100%;
   background-color: white;
   border-radius: 100%;
-  padding: 8%;
 }
 
-#about {
+.about {
   text-align: center;
   font-size: 2.7vh;
-  margin-top: 5%;
+  letter-spacing: -0.02ex;
 }
 
 #aboutClose {
@@ -581,8 +582,14 @@ li {
   width: 65%;
 }
 
+#fineFrog {
+  width: 12%;
+  margin-bottom: 3.5%; 
+  margin-top: -1.5%; 
+}
+
 #walletBox {
-  margin-top: 4%;
+  margin-top: 3.5%;
   border-radius: 2px;
   border: 1px solid lightgrey;
   background-color: whitesmoke;
@@ -1485,7 +1492,7 @@ table  tr:nth-child(2n) {
     grid-column: 2 / 18;
     grid-row: 5 / 21;
   }
-  #about {
+  .about {
     font-size: 3.4vw;
   }
   
@@ -1867,6 +1874,10 @@ table  tr:nth-child(2n) {
 
   #infoScript {
     font-size: 10px;
+  }
+
+  .about {
+    font-size: 12px;
   }
 
   /* EXERCISE SCREEN (max-height: 450px) and (min-width: 800px) */
