@@ -783,8 +783,8 @@ export const phrases = [
         en: "Exactly!",
         ru: "Именно так!",
         topic: "consent",
-        altEn: ["точно", "это точно", "точно так", "именно", ],
-        altRu: ["absolutely", "quite so", "precisely"],
+        altEn: ["absolutely", "quite so", "precisely"],
+        altRu: ["точно", "это точно", "точно так", "именно"],
     },
     {
         en: "Great idea!",
