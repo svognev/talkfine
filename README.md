@@ -5,4 +5,4 @@ Free language-learning web-app in React for Russian speakers who study the most 
 
 [svognev.github.io/talkfine/](https://svognev.github.io/talkfine/)
 
-*#react* — *#open-source* — *#speech-synthesis* — *#flexible*
+*react* — *open-source* — *#flexible* — *speech-synthesis*
