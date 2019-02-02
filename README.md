@@ -1,6 +1,6 @@
 ## Talk Fine | Толк Файн
 
-Free language-learning React application for Russian speakers 
+Free language-learning React application for Russian speakers <br>
 who want to study common English idioms and useful phrases:
 
 [svognev.github.io/talkfine/](https://svognev.github.io/talkfine/)
