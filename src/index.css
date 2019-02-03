@@ -776,6 +776,7 @@ li {
   border-radius: 1.7vh;
   padding: 1.5vh;
   padding-top: 2.2vh;
+  padding-bottom: 1.2vh;
   border: 2px dotted lightgrey;
   
   -webkit-transition: all 0.1s ease;;
