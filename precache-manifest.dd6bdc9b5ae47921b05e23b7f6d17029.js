@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/talkfine/static/media/icon08.43938cd0.svg"
   },
   {
-    "revision": "2247d9195d388076d350",
+    "revision": "39edd7f6d058452374e1",
     "url": "/talkfine/static/css/main.193f7c1a.chunk.css"
   },
   {
@@ -64,8 +64,8 @@ self.__precacheManifest = [
     "url": "/talkfine/static/media/icon07.40090cc0.svg"
   },
   {
-    "revision": "2247d9195d388076d350",
-    "url": "/talkfine/static/js/main.2247d919.chunk.js"
+    "revision": "39edd7f6d058452374e1",
+    "url": "/talkfine/static/js/main.39edd7f6.chunk.js"
   },
   {
     "revision": "453cbc109b857496a72cf1ba32ee2983",
@@ -124,7 +124,7 @@ self.__precacheManifest = [
     "url": "/talkfine/static/media/iconArrowUpBlack.14bee938.svg"
   },
   {
-    "revision": "dcfbec8627f3d9df2b6c5f9283a77daf",
+    "revision": "58e093af1f890abfcfc4584de2f77e53",
     "url": "/talkfine/index.html"
   }
 ];
