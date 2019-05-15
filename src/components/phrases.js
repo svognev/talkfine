@@ -1624,10 +1624,10 @@ export const phrases = [
                 "как ты узнал", "откуда ты узнала", "как ты узнала"],
     },
     {
-        en: "How do you think…?",
+        en: "What do you think…?",
         ru: "Как ты думаешь…?",
         topic: "talk",
-        altEn: ["what do you think"],
+        altEn: ["how do you think"],
         altRu: ["как вы думаете", "как вы считаете", 
                 "как ты считаешь", "как ты полагаешь",
                 "как вы полагаете"],
