@@ -1624,15 +1624,6 @@ export const phrases = [
                 "как ты узнал", "откуда ты узнала", "как ты узнала"],
     },
     {
-        en: "What do you think…?",
-        ru: "Как ты думаешь…?",
-        topic: "talk",
-        altEn: ["how do you think"],
-        altRu: ["как вы думаете", "как вы считаете", 
-                "как ты считаешь", "как ты полагаешь",
-                "как вы полагаете"],
-    },
-    {
         en: "I didn't give it much thought",
         ru: "Я не задумывался об этом",
         topic: "talk",
@@ -1891,6 +1882,15 @@ export const phrases = [
         topic: "talk",
         altEn: [],
         altRu: ["что ты имеешь в виду", "что вы подразумеваете", "что ты подразумеваешь"],
+    },
+    {
+        en: "What do you think…?",
+        ru: "Как ты думаешь…?",
+        topic: "talk",
+        altEn: ["how do you think"],
+        altRu: ["как вы думаете", "как вы считаете", 
+                "как ты считаешь", "как ты полагаешь",
+                "как вы полагаете"],
     },
     {
         en: "What is the point of…?",
