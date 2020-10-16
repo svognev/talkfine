@@ -13,7 +13,7 @@ import icon10 from "../icons/icon10.svg";
 import iconDownwards from "../icons/iconDownwards.svg";
 import iconUpwards from "../icons/iconUpwards.svg"
 import close from "../icons/close.svg";
-import wallet from "../icons/wallet.svg";
+// import wallet from "../icons/wallet.svg";
 import fineFrog from "../icons/fineFrog.svg";
 
 export class MainScreen extends React.Component {
@@ -154,7 +154,7 @@ export class MainScreen extends React.Component {
 
 
               <div id="infoBox">
-                <div id="info" onClick={() => {
+                <div id="info" className="clickable" onClick={() => {
                   document.getElementById("aboutBox").style.display = "grid";
                   document.getElementById("aboutInnerBox").style.display = "flex";
                   document.getElementById("aboutClose").style.display = "flex";
@@ -170,7 +170,7 @@ export class MainScreen extends React.Component {
                 ;}}>
               </div>
 
-              <div id="aboutClose" onClick={() => {
+              <div id="aboutClose" className="clickable" onClick={() => {
                 document.getElementById("aboutBox").style.display = "none"
                 document.getElementById("aboutInnerBox").style.display = "none";
                 document.getElementById("aboutClose").style.display = "none";
@@ -197,23 +197,6 @@ export class MainScreen extends React.Component {
                   <br />
                   <br />
                   </p>
-                  <p className="about"> 
-                  Проект существует за счет свободных 
-                  <br />
-                  пожертвований. Если вам нравится то, 
-                  <br />
-                  что мы делаем, присылайте любую
-                  <br />
-                  сумму на карту Сбербанка:
-                  </p>
-
-                  <p className="about">                  
-                  4276 4200 1855 1134
-                  </p>
-
-                  <button id="walletBox" onClick={() => { window.location.href="https://money.yandex.ru/to/410017878071338"; } }>
-                    <img id="wallet" src={wallet} alt=" "></img>
-                  </button>
                 </div>
               </div>
            </div>

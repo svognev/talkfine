@@ -107,6 +107,7 @@ button {
   -ms-user-select: none; 
   -o-user-select: none; 
   -webkit-user-select: none;
+  cursor: pointer;
 }
 
 button:active, button:focus {
@@ -584,7 +585,7 @@ li {
 
 #fineFrog {
   width: 12%;
-  margin-bottom: 3.5%; 
+  margin-bottom: 5%; 
   margin-top: -1.5%; 
 }
 
@@ -1135,6 +1136,8 @@ th {
 }
 
 #options {
+  transition: all 0.2s ease;
+
   grid-column: 20 / 28;
   grid-row: 4 / 15;
   background-color: white;
@@ -1234,6 +1237,7 @@ table  tr:nth-child(2n) {
 .buttonSort {
   margin: 0 1vh;
   background: none;
+  cursor: pointer;
 }
 
 .iconSort {
@@ -1992,4 +1996,6 @@ table  tr:nth-child(2n) {
   }
 }
 
-
+.clickable {
+  cursor: pointer;
+}

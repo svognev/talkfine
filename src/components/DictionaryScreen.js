@@ -153,7 +153,7 @@ export class DictionaryScreen extends React.Component {
 
   renderOptions() {
     return (
-      <div id="options">
+      <div id="options" className="clickable">
       
           <div id="returnAll" className="option unselectable transitional" onClick={(e) => {
             this.hideTopics();
